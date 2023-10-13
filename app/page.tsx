@@ -5,8 +5,8 @@ import Hero from "./Hero";
 
 export default function Home() {
   return (
-    <section>
+    <main>
            <Hero/>
-    </section>
+    </main>
   );
 }
