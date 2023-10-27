@@ -5,8 +5,8 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 const Header = () => {
   return (
     <header className=" flex justify-between p-4">
-      <div className=" flex items-center gap-6 w-full">
-        <h2 className=" text-4xl font-bold">
+      <div className=" flex items-center text-center gap-6 w-full mb-2">
+        <h2 className=" text-6xl font-bold mb-2">
           <span className=" text-blue-500">W</span>
           <span className=" text-red-500">a</span>
           <span className=" text-green-500">l</span>
@@ -19,7 +19,7 @@ const Header = () => {
         <input
           type="search"
           placeholder="Type here"
-          className=" input input-bordered w-full max-w-[40rem] h-14 max-xl:max-w-[20rem]"
+          className=" input input-bordered w-full mt-2 max-w-[35rem] h-14 max-xl:max-w-[20rem] xl:block md:hidden sm:hidden"
         />
       </div>
 
