@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
@@ -25,7 +24,7 @@ const Hero = () => {
               <span className=" text-orange-500">.</span>
             </h2>
             <p className="mb-5">
-              Download a free wallpaper that's eyes-catchy with HD
+              Download a free wallpaper that is eyes-catchy with HD
             </p>
             <div className="relative">
               <input
