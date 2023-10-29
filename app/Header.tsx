@@ -1,6 +1,7 @@
 import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { ModeToggle } from "@/components/ui/mode";
 
 const Header = () => {
   return (
@@ -22,7 +23,7 @@ const Header = () => {
           className=" input input-bordered w-full mt-2 max-w-[35rem] h-14 max-xl:max-w-[20rem] xl:block md:hidden sm:hidden"
         />
       </div>
-
+        <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
     </header>
   );
