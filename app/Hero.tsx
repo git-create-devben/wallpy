@@ -24,7 +24,7 @@ const Hero = () => {
               <span className=" text-orange-500">.</span>
             </h2>
             <p className="mb-5">
-              Download a free wallpaper that is eyes-catchy with HD
+              A collections of developer portifolio
             </p>
             <div className="relative">
               <input
