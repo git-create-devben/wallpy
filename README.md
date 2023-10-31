@@ -1,5 +1,5 @@
-#Wallpy 
+# Wallpy 
 
-<p> Description still loadin......g</p>
+<p> Description still loading......</p>
 
 ***Ongoin project***
