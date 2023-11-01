@@ -3,23 +3,21 @@ import { useRouter } from "next/router";
 
 type PortfolioItem = {
   imageUrl: string;
-  link: string
+  link: string;
 };
 
-
-
-const PortfolioUploader = () => {
+const PortfolioUploader: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [link, setLink] = useState<string>("");
 
   const router = useRouter();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFile(e.target.files?.[0]);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Upload the file

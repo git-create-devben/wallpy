@@ -18,7 +18,7 @@ export default async function handler(req: Request, res: Response) {
     }
 
     // Get the uploaded file URL
-    const fileUrl = `/uploads/${req.file.filename}`;
+    const fileUrl = req.file?.filename;
 
     // Return the file URL
     res.status(200).json({ fileUrl });
