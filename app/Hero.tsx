@@ -25,7 +25,7 @@ const Hero = () => {
               <span className=" text-orange-500">.</span>
             </h2>
             <p className="mb-5">
-              A collections of developer portifolio
+              A collections of developer portifolio <br/>
             </p>
             <div className="relative">
               <input
