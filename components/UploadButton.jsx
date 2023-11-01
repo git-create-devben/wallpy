@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { CldUploadWidget } from 'next-cloudinary';
 
 const UploadButton = () => {
   return (
