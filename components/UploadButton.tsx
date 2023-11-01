@@ -17,7 +17,7 @@ const PortfolioUploader: React.FC = () => {
     setFile(e.target.files?.[0]);
   };
 
-  // const file: File | null = null;
+  const body: File | null = null;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
