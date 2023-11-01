@@ -1,11 +1,13 @@
 "use client";
 
-import React from 'react'
+import React from "react";
 
 const UploadButton = () => {
   return (
-    <div>UploadButton</div>
-  )
-}
+    <>
+      <Button> Add portifolio</Button>
+    </>
+  );
+};
 
-export default UploadButton
+export default UploadButton;
