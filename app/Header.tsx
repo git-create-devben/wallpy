@@ -23,8 +23,11 @@ const Header = () => {
           className=" input input-bordered w-full mt-2 max-w-[35rem] h-14 max-xl:max-w-[20rem] xl:block md:hidden sm:hidden"
         />
       </div>
-        <ModeToggle/>
+      <div>
+      <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
+      </div>
+     
     </header>
   );
 };
