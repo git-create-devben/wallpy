@@ -10,18 +10,10 @@ function UploadButton() {
     // Open the Cloudinary upload widget
   };
 
-  const UploadButtonContent = () => {
-    return (
-      <CldUploadWidget uploadPreset="<Upload Preset>" onOpen={openUploadWidget}>
-        <Button className="button" onClick={openUploadWidget}>
-          Upload an Image
-        </Button>
-      </CldUploadWidget>
-    );
-  };
+  
 
   return (
-    <UploadButtonContent />
+    <CldUploadButton uploadPreset="<Upload Preset>" />
   );
 }
 
