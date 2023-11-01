@@ -7,15 +7,10 @@ function UploadButton() {
   const uploadPreset = 'my-upload-preset';
 
   const handleOnClick = async () => {
-    // Open the upload widget
-    const uploadWidget = CldUploadWidget({
-      uploadPreset,
-    });
-
-    await uploadWidget.open();
-
     // Get the public ID of the uploaded file
-    const publicId = uploadWidget.result.publicId;
+    const publicId = await CldUploadWidget({
+      uploadPreset,
+    }).open();
 
     // Do something with the public ID
   };
