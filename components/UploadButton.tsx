@@ -17,21 +17,28 @@ const PortfolioUploader: React.FC = () => {
     setFile(e.target.files?.[0]);
   };
 
+  // const file: File | null = null;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
+    // Check if the file variable is null
+    if (file === null) {
+      return;
+    }
+  
     // Upload the file
     const response = await fetch("/api/upload", {
       method: "POST",
       body: new FormData().append("file", file),
     });
-
+  
     const fileUrl = await response.json();
-
+  
     // Set the image URL and link
     setImageUrl(fileUrl);
     setLink(link);
-
+  
     // Navigate to the portfolio item page
     router.push(`/portfolio/${fileUrl}`);
   };
