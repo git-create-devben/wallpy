@@ -12,11 +12,9 @@ const UploadButton = () => {
         open();
       }
       return (
-        <>
           <Button className="button" onClick={handleOnClick}>
             Upload an Image
           </Button>
-        </>
       );
     }}
   </CldUploadWidget>;
