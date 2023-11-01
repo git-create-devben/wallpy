@@ -8,7 +8,7 @@ function UploadButton() {
 
   const handleOnClick = async () => {
     // Open the upload widget
-    const uploadWidget = new CldUploadWidget({
+    const uploadWidget = CldUploadWidget({
       uploadPreset,
     });
 
