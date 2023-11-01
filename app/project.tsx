@@ -1,14 +1,17 @@
 import React from "react";
-import Image  from "next/image"
- 
+import Image from "next/image";
+
 const project = () => {
   return (
     <main className="p-4 ">
       <div className="card w-96 bg-base-100 shadow-xl image-full">
         <figure>
           <Image
-            src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
+            alt="A test image"
+            src="https://your-domain/image.jpg"
+            width="400"
+            height="300"
+            quality="80"
           />
         </figure>
         <div className="card-body">

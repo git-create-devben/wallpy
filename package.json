@@ -39,6 +39,7 @@
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tailwindcss/typography": "github:tailwindcss/typography",
+    "@uploadcare/blocks": "0.29.0",
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
