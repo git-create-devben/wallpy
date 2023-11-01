@@ -1,5 +1,5 @@
 import React from 'react'
-import { PortfolioItem } from "r";
+import { PortfolioItem } from "@/components/UploadButton";
 import { useRouter } from "next/router";
 import Image from 'next/image';
 
