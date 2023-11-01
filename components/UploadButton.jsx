@@ -1,7 +1,7 @@
 "use client"
 
 import { CldUploadWidget } from 'next-cloudinary';
-import Button from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 function UploadButton() {
   const uploadPreset = 'my-upload-preset';
