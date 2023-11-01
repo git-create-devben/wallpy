@@ -26,7 +26,7 @@ const Hero = () => {
             </h2>
             <p className="mb-5">
               A collections of developer portifolio <br/>
-              Developers inspire developers to build awesome portifolio
+              Developers inspire developers to build awesome portfolio
             </p>
             <div className="relative">
               <input
