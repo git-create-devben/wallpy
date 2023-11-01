@@ -2,6 +2,7 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
@@ -28,7 +29,6 @@ const Header = () => {
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
-     
     </header>
   );
 };
