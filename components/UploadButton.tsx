@@ -26,7 +26,9 @@ const PortfolioUploader: React.FC = () => {
     if (file === null) {
       return;
     }
-    if()
+    if(body === null){
+      return;
+    }
   
     // Upload the file
     const response = await fetch("/api/upload", {
