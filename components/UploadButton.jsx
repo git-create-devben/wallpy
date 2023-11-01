@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const UploadButton = () => {
   return (
     <>
-      <Button> Add portifolio</Button>
+      <Button>Add portifolio</Button>
     </>
   );
 };

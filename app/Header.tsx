@@ -2,7 +2,7 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
-
+import UploadButton from "@/components/UploadButton"
 
 const Header = () => {
   return (
@@ -25,6 +25,7 @@ const Header = () => {
         />
       </div>
       <div className=" flex gap-4">
+        <UploadButton/>
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
