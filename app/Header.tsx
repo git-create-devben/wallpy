@@ -25,7 +25,6 @@ const Header = () => {
         />
       </div>
       <div className=" flex gap-4">
-        <Button> Add portifolio</Button>
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
