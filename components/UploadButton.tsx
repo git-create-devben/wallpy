@@ -24,8 +24,9 @@ export const Uploadbutton = () => {
   const uploadImage = () => {
     if (imageUpload === null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
-    uploadBytes(imageRef, imageUpload).then(() => {
-      alert("Image uploaded");
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {})
+      setImageList((prev) => [...prev,])
     });
   };
 
