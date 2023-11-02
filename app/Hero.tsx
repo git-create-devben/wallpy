@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import project from "@/components/project/project";
 
 const Hero = () => {
   return (
@@ -38,7 +39,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        
+      </div>
     </section>
   );
       }
