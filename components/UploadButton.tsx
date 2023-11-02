@@ -16,6 +16,7 @@ import Link from "next/link";
 import React from "react";
 
 export const Uploadbutton = () => {
+  const [image, setImage] = useState([])
   return (
     <div>
       <Dialog>
