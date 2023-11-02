@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import project from "@/components/project/project";
+import Project from "@/components/project/project";
 
 const Hero = () => {
   return (
