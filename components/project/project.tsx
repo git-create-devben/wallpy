@@ -5,12 +5,16 @@ interface ProjectProps {
   imageList: string[];
 }
 
-const Project = ({ imageList }: ProjectProps) => {
+const Project: React.FC<ProjectProps> = ({ imageList }) => {
   return (
     <main className="flex gap-4 flex-wrap">
-      <div key={index} className="parent-div w-[450px] h-[400px] bg-green-600 relative">
+      <div className="parent-div w-[450px] h-[400px] bg-green-600 relative">
          {/* If i over on this parent div the children div we show  */}
-          <Image src={url} alt="upload image" />
+         {imageList.map((url, index) => (
+        <div key={index}>
+          <Image src={url} alt={`image-${index}`} style={{ width: '200px', height: '200px' }} />
+        </div>
+      ))}
 
         <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
          {/* I want the content in this div shows */}
@@ -24,4 +28,4 @@ const Project = ({ imageList }: ProjectProps) => {
   );
 };
 
-export default project;
+export default Project;
