@@ -63,13 +63,14 @@ const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
                 <UploadDropzone
                   endpoint="imageUploader"
                   onClientUploadComplete={(res) => {
-                    if (res) {
-                      setImage(res)
-                      const json = JSON.stringify(res)
-                      // Do something with the response
-                      console.log(json);
-                    }
-
+                    const handleUploadComplete = (res: ImageData[]) => {
+                      if (res) {
+                        onImageUpload(res);
+                        const json = JSON.stringify(res);
+                        console.log(json); // Do something with the response
+                      }
+                    };
+                  
                     // alert("Upload Completed");
                   }}
                   onUploadError={(error: Error) => {
