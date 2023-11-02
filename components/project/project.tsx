@@ -6,7 +6,7 @@ const project = () => {
     <main className="flex gap-4 flex-wrap">
       <div className=" w-[450px] h-[400px] bg-green-600 relative">
         <div className="absolute bottom-0 right-0 w-[450px] h-[50px] bg-transparent">
-         {/* I want tzcontent in this div shows */}
+         {/* I want the content in this div shows */}
         </div>
       </div>
       <div className=" w-[450px] h-[400px] bg-green-600"></div>
