@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { UploadButton } from "../utils/uploadthing";
+import { UploadButton, UploadDropzone } from "../utils/uploadthing";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -57,7 +57,7 @@ export const Uploadbutton = () => {
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-                <UploadButton
+                <UploadDropzone
                   endpoint="imageUploader"
                   onClientUploadComplete={(res) => {
                     if (res) {
