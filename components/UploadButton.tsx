@@ -5,6 +5,10 @@ import { UploadDropzone } from "../utils/uploadthing";
 import Link from "next/link";
 import Image from "next/image";
 
+interface UploadbuttonProps {
+  onImageUpload: (res: { fileUrl: string; fileKey: string }[]) => void;
+}
+
 export const Uploadbutton = ({ onImageUpload }) => {
   const [images, setImage] = useState<
     {
