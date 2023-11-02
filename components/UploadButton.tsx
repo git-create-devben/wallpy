@@ -22,13 +22,19 @@ import { v4 as uuidv4 } from "uuid";
 
 import React from "react";
 
-interface UploadbuttonProps {
+// ... other imports
+
+interface UploadButtonProps {
   setImageListProp: (newImageList: string[]) => void;
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
 }
 
-const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
+const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const [imageList, setImageList] = useState<string[]>([]);
+  const [githubLink, setGithubLink] = useState("");
+  const [portfolioLink, setPortfolioLink] = useState("");
+  const [socialLink, setSocialLink] = useState("");
   const imagelistRef = ref(storage, "images/");
 
   const uploadImage = () => {
@@ -42,23 +48,18 @@ const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
       });
     });
   };
+
+  const handleLinkInput = (type: string, value: string) => {
+    if (type === "github") setGithubLink(value);
+    else if (type === "portfolio") setPortfolioLink(value);
+    else if (type === "social") setSocialLink(value);
+    setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
+  };
+
   useEffect(() => {
-    listAll(imagelistRef)
-      .then((response: ListResult) => {
-        let urls: string[] = [];
-        response.items.forEach((item) => {
-          getDownloadURL(item).then((url) => {
-            if (url) {
-              urls.push(url);
-            }
-          });
-        });
-        setImageList(urls);
-      })
-      .catch((error) => {
-        console.error("Error retrieving image list: ", error);
-      });
-  }, []);
+    // Update the link data in the parent component when the links change
+    setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
+  }, [githubLink, portfolioLink, socialLink]);
 
   return (
     <div>
@@ -72,6 +73,21 @@ const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
                 <input
                   type="file"
                   onChange={(e) => setImageUpload(e.target.files?.[0] || null)}
+                />
+                <input
+                  type="text"
+                  placeholder="GitHub Link"
+                  onChange={(e) => handleLinkInput("github", e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Portfolio Link"
+                  onChange={(e) => handleLinkInput("portfolio", e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Social Media Link"
+                  onChange={(e) => handleLinkInput("social", e.target.value)}
                 />
                 <button onClick={uploadImage}>Upload</button>
                 {imageList.map((url, index) => (
@@ -93,4 +109,4 @@ const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
   );
 };
 
-export default Uploadbutton;
+export default UploadButton;

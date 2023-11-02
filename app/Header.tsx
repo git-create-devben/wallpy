@@ -8,7 +8,8 @@ interface HeaderProps {
   setImageListProp: (newImageList: string[]) => void;
 }
 
-const Header = ({ setImageListProp }: HeaderProps) => {
+
+const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
@@ -29,7 +30,7 @@ const Header = ({ setImageListProp }: HeaderProps) => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton  setImageListProp={setImageListProp}  />
+        <Uploadbutton  setImageListProp={setImageListProp} setLinkProp={setLinkProp}/>
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
