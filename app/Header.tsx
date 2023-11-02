@@ -6,7 +6,7 @@ import Uploadbutton from "@/components/UploadButton"
 
 interface HeaderProps {
   setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: string) => void; // Add setLinkProp to the HeaderProps interface
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string; }) => void; // Adjust the type to match the expected object structure
 }
 
 const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
