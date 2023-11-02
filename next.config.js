@@ -5,8 +5,8 @@ module.exports = {
         {
           protocol: 'https',
           hostname: 'utfs.io',
-          port: '',
-          pathname: '/account123/**',
+        //   port: '',
+        //   pathname: '/account123/**',
         },
       ],
     },
