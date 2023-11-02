@@ -8,9 +8,7 @@ const project = () => {
       <div className=" w-[450px] h-[400px] bg-green-600"></div>
       <div className=" w-[450px] h-[400px] bg-green-600"></div>
       <div className=" w-[450px] h-[400px] bg-green-600"></div>
-      <div className=" w-[500px] h-[400px] bg-green-600"></div>
-      <div className=" w-[500px] h-[400px] bg-green-600"></div>
-      <div className=" w-[500px] h-[400px] bg-green-600"></div>
+    
       
     </main>
   );
