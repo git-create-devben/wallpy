@@ -2,7 +2,15 @@
 
 import { UploadButton } from "../utils/uploadthing";
 
-type DialogElement = HTMLElement & { tagName: "DIALOG" };
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 
 export default function Uploadbutton() {
   return (
