@@ -58,7 +58,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
 
   useEffect(() => {
     // Update the link data in the parent component when the links change
-    setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
+   setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
   }, [githubLink, portfolioLink, setLinkProp, socialLink]);
 
   return (
