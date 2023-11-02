@@ -62,7 +62,11 @@ const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
                   onClientUploadComplete={(res?: UploadFileResponse[] | undefined) => {
                     const handleUploadComplete = (res: UploadedImage[]) => {
                       if (res) {
-                        onImageUpload(res);
+                        const uploadedImages = res.map((item) => ({
+                          fileUrl: item.fileUrl,
+                          fileKey: item.fileKey,
+                        }));
+                        onImageUpload(uploadedImages);
                         const json = JSON.stringify(res);
                         console.log(json); // Do something with the response
                       }
