@@ -43,3 +43,5 @@ export const Uploadbutton = () => {
     </div>
   );
 };
+
+export default Uploadbutton
