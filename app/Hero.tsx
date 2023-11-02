@@ -12,7 +12,7 @@ const Hero = () => {
 
   return (
     <section>
-      <Header setImageList={setImageList}/>
+      <Header  handleImageListChange={handleImageListChange}/>
       <div
         className="hero h-[30rem]"
         style={{

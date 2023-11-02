@@ -25,7 +25,7 @@ const Header = ({ handleImageListChange }) => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton setImageList={setImageList} />
+        <Uploadbutton setImageList={handleImageListChange} />
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
