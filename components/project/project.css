@@ -23,7 +23,7 @@
     transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   }
   .card .main {
-    width: 230px;
+    width: 330px;
     height: 300px;
     overflow: hidden;
     background: rgb(0, 255, 149);
