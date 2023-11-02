@@ -29,6 +29,7 @@ export const Uploadbutton = () => {
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
              <input type="file" />
+             <button>Upload</button>
               </main>
             </DialogDescription>
           </DialogHeader>
