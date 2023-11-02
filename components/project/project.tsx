@@ -20,7 +20,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp }) => {
           <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
             <ul>
               <Link href={""}> 
-               
+               <FaGithub/>
               </Link>
             </ul>
           </div>
