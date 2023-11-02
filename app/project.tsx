@@ -3,17 +3,17 @@ import React from "react";
 const project = () => {
   return 
   <main>
-<div class="card">
-  <div class="boxshadow"></div>
-  <div class="main">
-    <div class="top"></div>
-    <div class="left side"></div>
-    <div class="right side"></div>
-    <div class="title">TITLE</div>
-    <div class="button-container">
-      <button class="button">
+<div className="card">
+  <div className="boxshadow"></div>
+  <div className="main">
+    <div className="top"></div>
+    <div className="left side"></div>
+    <div className="right side"></div>
+    <div className="title">TITLE</div>
+    <div className="button-container">
+      <button className="button">
         <svg
-          class="svg"
+          className="svg"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -29,9 +29,9 @@ const project = () => {
           <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
         </svg>
       </button>
-      <button class="button">
+      <button className="button">
         <svg
-          class="svg twitter"
+          className="svg twitter"
           xmlns="http://www.w3.org/2000/svg"
           height="24"
           width="24"
@@ -43,9 +43,9 @@ const project = () => {
           ></path>
         </svg>
       </button>
-      <button class="button">
+      <button className="button">
         <svg
-          class="svg"
+          className="svg"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
