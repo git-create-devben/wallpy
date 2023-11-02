@@ -8,11 +8,14 @@ import {BiLinkExternal} from "react-icons/bi"
 
 interface ProjectProps {
   imageList: string[];
-  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void; // Define the setLinkProp here
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
+  githubLink: string; // Add the necessary props here
+  portfolioLink: string;
+  socialLink: string;
 }
 
 
-const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp }) => {
+const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, portfolioLink, socialLink }) => {
   return (
     <main className="flex gap-4 flex-wrap">
       {/* If i over on this parent div the children div we show  */}
@@ -21,7 +24,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp }) => {
           <Image src={url} alt={`image-${index}`} width={450} height={100} />
           <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
             <ul className="flex justify-between p-2">
-              <Link href={""} className=" flex flex-1"> 
+              <Link href={portfolioLink} className=" flex flex-1"> 
                <BiLinkExternal/>
               </Link>
               <Link href={""}> 
