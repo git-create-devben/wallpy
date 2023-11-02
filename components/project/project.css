@@ -49,7 +49,7 @@
   .card .main .top {
     position: absolute;
     top: 0px;
-    left: 0;
+    left: 50px;
     width: 0px;
     height: 0px;
     z-index: 2;
@@ -60,7 +60,7 @@
   }
   .card .main .side {
     position: absolute;
-    width: 100%;
+    width: 110%;
     top: 0;
     transform: translateX(-50%);
     height: 101%;
