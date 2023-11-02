@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Dialog,
   DialogContent,
@@ -8,39 +7,44 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
-import { UploadButton } from "../utils/uploadthing";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { storage } from "../app/firebase"
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
-import {v4} from "uuid"
+import { storage } from "../app/firebase";
+import { ref, uploadBytes, listAll, getDownloadURL, ListResult } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 
 import React from "react";
 
 export const Uploadbutton = () => {
-  const [imageUpload, setImageUpload] = useState(null)
-  const [imagelist, setImageList] = useState()
-  const imagelistRef = ref(storage, "images/")
-const uploadImage =() => {
-if (imageUpload == null) return;
-const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-uploadBytes(imageRef,imageUpload).then(() => {
-  alert("image uploaded")
-})
-}
+  const [imageUpload, setImageUpload] = useState<File | null>(null);
+  const [imageList, setImageList] = useState<string[]>([]);
+  const imagelistRef = ref(storage, "images/");
 
-useEffect(() => {
-listAll(imagelistRef).then((response) => {
-  console.log(response)
-  response.items.forEach((item) => {
-    getDownloadURL(item).then((url) => {
-      setImageList((prev) => [...prev, url]);
-    })
-  })
-})
-},[imagelistRef])
+  const uploadImage = () => {
+    if (imageUpload === null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
+    uploadBytes(imageRef, imageUpload).then(() => {
+      alert("Image uploaded");
+    });
+  };
+
+  useEffect(() => {
+    listAll(imagelistRef)
+      .then((response: ListResult) => {
+        console.log(response);
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            if (url) {
+              setImageList((prev) => [...prev, url]);
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        console.error("Error retrieving image list: ", error);
+      });
+  }, [imagelistRef]);
 
   return (
     <div>
@@ -48,18 +52,16 @@ listAll(imagelistRef).then((response) => {
         <DialogTrigger>Open</DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Upload a cover pics of your project</DialogTitle>
+            <DialogTitle>Upload a cover pic of your project</DialogTitle>
             <DialogDescription>
-              <main className="flex  flex-col items-center justify-between p-24">
-             <input type="file"  onChange={(e) => {setImageUpload(e.target.files[0])}}/>
-             <button onClick={uploadImage}>Upload</button>
-             {imagelist.map((url) => {
-              return (
-                <>
-                <Image src={url} alt={url.name} width={200} height={200}/>
-                </>
-              )
-             })}
+              <main className="flex flex-col items-center justify-between p-24">
+                <input type="file" onChange={(e) => setImageUpload(e.target.files?.[0] || null)} />
+                <button onClick={uploadImage}>Upload</button>
+                {imageList.map((url, index) => (
+                  <div key={index}>
+                    <Image src={url} alt={`image-${index}`} width={200} height={200} />
+                  </div>
+                ))}
               </main>
             </DialogDescription>
           </DialogHeader>
