@@ -19,7 +19,7 @@ export const Project = () => {
       <ul>
         {images.map((imager) => (
           <li key={imager.fileUrl} className="m-2">
-            <Image src={imager.fileUrl} height={200} width={200} alt="upload"/>
+            <Image src={imager.fileUrl} height={400} width={450} alt="upload"/>
           </li>
         ))}
       </ul>
