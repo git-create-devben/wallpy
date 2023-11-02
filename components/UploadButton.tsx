@@ -2,6 +2,8 @@
 
 import { UploadButton } from "../utils/uploadthing";
 
+type DialogElement = HTMLElement & { tagName: "DIALOG" };
+
 export default function Uploadbutton() {
   return (
     <main>
@@ -10,9 +12,10 @@ export default function Uploadbutton() {
         className=" w-40 btn text-[12px]"
         onClick={() => {
           // Check if the modal element exists before calling the showModal() method.
-          const modalElement = document.getElementById("my_modal_5");
-          if (modalElement != null) {
-            modalElement.showModal();
+          const element = document.getElementById("my_modal_5");
+
+          if (element != null && (element as DialogElement).tagName === "DIALOG") {
+            element.showModal();
           }
         }}
       >
