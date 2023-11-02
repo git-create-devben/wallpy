@@ -53,13 +53,18 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     if (type === "github") setGithubLink(value);
     else if (type === "portfolio") setPortfolioLink(value);
     else if (type === "social") setSocialLink(value);
-    setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
+    // setLinkProp({
+    //   github: type === "github" ? value : githubLink,
+    //   portfolio: type === "portfolio" ? value : portfolioLink,
+    //   social: type === "social" ? value : socialLink,
+    // });
   };
+  
 
-  useEffect(() => {
-    // Update the link data in the parent component when the links change
-    setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
-  }, [githubLink, portfolioLink, socialLink, setLinkProp]);
+  // useEffect(() => {
+  //   // Update the link data in the parent component when the links change
+  //   setLinkProp({ github: githubLink, portfolio: portfolioLink, social: socialLink });
+  // }, [githubLink, portfolioLink, socialLink, setLinkProp]);
   
 
   return (
