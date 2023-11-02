@@ -1,8 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // images: {
-    //     loader: "custom",
-    //   }
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'assets.example.com',
+            port: '',
+            pathname: '/account123/**',
+          },
+        ],
 
  
 }
