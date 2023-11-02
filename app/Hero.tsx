@@ -9,7 +9,7 @@ interface HeaderProps {
   setLinkProp: (newLink: string) => void; // Add setLinkProp to the HeaderProps interface
 }
 
-const Hero = ({ setImageListProps, setLinkProp }: HeaderProps) => {
+const Hero = ({ setImageListProp, setLinkProp }: HeaderProps) => {
   const [imageList, setImageList] = useState<string[]>(
     localStorage.getItem("imageList")
       ? JSON.parse(localStorage.getItem("imageList")!)
