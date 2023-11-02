@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton"
 
-const Header = ({ setImageList }) => {
+const Header = ({ handleImageListChange }) => {
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
