@@ -18,11 +18,11 @@ const Header = () => {
           <span className=" text-orange-500">.</span>         
         </h2>
 
-        <input
+        {/* <input
           type="search"
           placeholder="Type here"
           className=" input input-bordered w-full mt-2 max-w-[35rem] h-14 max-xl:max-w-[20rem] xl:block md:hidden sm:hidden"
-        />
+        /> */}
       </div>
       <div className=" flex gap-4">
         {/* <UploadButton/> */}
