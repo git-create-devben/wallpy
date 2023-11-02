@@ -1,5 +1,4 @@
 import React from "react";
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 const Hero = () => {
   return (
@@ -33,10 +32,7 @@ const Hero = () => {
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-[50rem] "
               />
-              <MagnifyingGlassIcon
-                className=" absolute bottom-0 right-2 top-4 text-sm"
-                fontSize={40}
-              />
+            
             </div>
           </div>
         </div>
