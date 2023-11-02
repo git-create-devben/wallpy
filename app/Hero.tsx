@@ -17,7 +17,7 @@ const Hero = ({ setImageListProp }: HeroProps) => {
 
   return (
     <section>
-      <Header  handleImageListChange={handleImageListChange}/>
+      <Header setImageListProp={handleImageListChange}/>
       <div
         className="hero h-[30rem]"
         style={{
