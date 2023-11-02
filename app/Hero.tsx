@@ -39,7 +39,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=" min-h-screen p-8">
+      <div className=" min-h-screen p-2">
         <Project/>
       </div>
     </section>
