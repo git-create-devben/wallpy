@@ -6,7 +6,8 @@ import Project from "@/components/project/project";
 
 interface HeroProps {
   setImageListProp: (newImageList: string[]) => void;
-  githubLink: string; // Add the necessary props here
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void; // Include the setLinkProp function here
+  githubLink: string;
   portfolioLink: string;
   socialLink: string;
 }
