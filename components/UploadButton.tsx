@@ -28,11 +28,11 @@ export const Uploadbutton = () => {
     </>
   ) : null
 
-  const imglist = {
+  const imglist = (
    <>
-   
+   <p></p>
    </>
-  }
+  )
 
   return (
     <div>
