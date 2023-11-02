@@ -33,7 +33,7 @@ export const Uploadbutton = () => {
 
   const imglist = (
     <>
-      <p>{head}</p>
+      {/* <p>{head}</p> */}
       <ul>
         {images.map((imager) => (
           <li key={imager.fileUrl} className="m-2">
