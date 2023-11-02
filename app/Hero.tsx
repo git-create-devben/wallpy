@@ -6,7 +6,7 @@ import Project from "@/components/project/project";
 
 interface HeaderProps {
   setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: string) => void; // Add setLinkProp to the HeaderProps interface
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string; }) => void; // Make sure the type matches the expected object structure
 }
 
 const Hero = ({ setImageListProp, setLinkProp }: HeaderProps) => {
