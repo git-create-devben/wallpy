@@ -25,9 +25,7 @@ const Header = () => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton onImageUpload={function (res: { fileUrl: string; fileKey: string; }[]): void {
-          throw new Error("Function not implemented.");
-        } }/>
+        <Uploadbutton/>
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>

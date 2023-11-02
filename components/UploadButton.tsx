@@ -1,40 +1,49 @@
-// Uploadbutton.tsx
-import React, { useState } from "react";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { UploadDropzone } from "../utils/uploadthing";
+"use client";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+import { UploadButton } from "../utils/uploadthing";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-type ImageData = {
-  fileUrl: string;
-  fileKey: string;
-};
+import React from "react";
 
-interface UploadbuttonProps {
-  onImageUpload: (res: ImageData[]) => void;
-}
-"use client"
+export const Uploadbutton = () => {
+  const [images, setImage] = useState<
+    {
+      fileUrl: string;
+      fileKey: string;
+    }[]
+  >([]);
 
-export const Uploadbutton: React.FC<UploadbuttonProps> = ({ onImageUpload }) => {
-  const [images, setImage] = useState<ImageData[]>([]);
-
-  const handleImageUpload = (res: ImageData[]) => {
-    if (res && res.length > 0) {
-      setImage(res);
-      onImageUpload(res);
-    }
-  };
+  const head = images.length ? (
+    <>
+      <p>`Upload sucessful 🥳</p>
+      <p className="m-2">{images.length} file</p>
+    </>
+  ) : null;
 
   const imglist = (
-    <ul>
-      {images.map((imager) => (
-        <li key={imager.fileUrl} className="m-2">
-          <Link href={imager.fileUrl}>
-            <Image src={imager.fileUrl} height={200} width={200} alt="upload" />
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      {/* <p>{head}</p> */}
+      <ul>
+        {images.map((imager) => (
+          <li key={imager.fileUrl} className="m-2">
+            <Link href={imager.fileUrl}>
+            <Image src={imager.fileUrl} height={200} width={200} alt="upload"/>
+            </Link>          
+          </li>
+        ))}
+      </ul>
+    </>
   );
 
   return (
@@ -46,10 +55,20 @@ export const Uploadbutton: React.FC<UploadbuttonProps> = ({ onImageUpload }) => 
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-                <UploadDropzone
+                <UploadButton
                   endpoint="imageUploader"
-                  // onClientUploadComplete={handleImageUpload}
+                  onClientUploadComplete={(res) => {
+                    if (res) {
+                      setImage(res)
+                      const json = JSON.stringify(res)
+                      // Do something with the response
+                      console.log(json);
+                    }
+
+                    // alert("Upload Completed");
+                  }}
                   onUploadError={(error: Error) => {
+                    // Do something with the error.
                     alert(`ERROR! ${error.message}`);
                   }}
                 />
