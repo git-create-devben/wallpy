@@ -17,7 +17,9 @@ import Image from "next/image";
 import React from "react";
 
 export const Uploadbutton = () => {
-
+const uploadImage =() => {
+  
+}
 
   return (
     <div>
