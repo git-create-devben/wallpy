@@ -4,7 +4,7 @@ import { UploadButton } from "../utils/uploadthing";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <button
         className="btn"
