@@ -1,35 +1,21 @@
-"use client"
-
 import React from "react";
 import "./project.css";
-import Image from "next/image";
-import Uploadbutton from "../UploadButton";
-import { UploadedImage } from "@/components/setup"
-import { useState } from "react";
 
-const Project = () => {
-  const [images, setImages] = useState<UploadedImage[]>([]);
-
-  const handleImageUpload = (newImages: UploadedImage[]) => {
-    setImages(newImages);
-  };
-
+const project = () => {
   return (
     <main className="flex gap-4 flex-wrap">
-      {/* <div className="parent-div w-[450px] h-[400px] bg-green-600 relative rounded-xl">
-        <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 animate-after:w-[70%]">
+      <div className="parent-div w-[450px] h-[400px] bg-green-600 relative">
+         {/* If i over on this parent div the children div we show  */}
+        <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
+         {/* I want the content in this div shows */}
         </div>
-      </div>    */}
-          {/* Other content */}
-          <Uploadbutton onImageUpload={handleImageUpload} />
-      {images.length > 0 &&
-        images.map((image) => (
-          <div key={image.fileUrl}>
-            <Image src={image.fileUrl} alt="Uploaded Image" style={{ width: "100%", height: "auto" }} />
-          </div>
-        ))}
+      </div>
+      <div className=" w-[450px] h-[400px] bg-green-600"></div>
+      <div className=" w-[450px] h-[400px] bg-green-600"></div>
+      <div className=" w-[450px] h-[400px] bg-green-600"></div>    
+      
     </main>
   );
 };
 
-export default Project;
+export default project;

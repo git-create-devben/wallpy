@@ -9,22 +9,20 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { UploadButton, UploadDropzone } from "../utils/uploadthing";
+import { UploadButton } from "../utils/uploadthing";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { UploadedImage } from "@/components/setup"
+
 import React from "react";
-import { UploadFileResponse } from "uploadthing/client";
 
-
-
-interface UploadButtonProps {
-  onImageUpload: (images: UploadedImage[]) => void;
-}
-
-const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
-  const [images, setImage] = useState<UploadedImage[]>([]);
+export const Uploadbutton = () => {
+  const [images, setImage] = useState<
+    {
+      fileUrl: string;
+      fileKey: string;
+    }[]
+  >([]);
 
   const head = images.length ? (
     <>
@@ -57,21 +55,16 @@ const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-                <UploadDropzone
+                <UploadButton
                   endpoint="imageUploader"
-                  onClientUploadComplete={(res?: UploadFileResponse[] | undefined) => {
-                    const handleUploadComplete = (res: UploadedImage[]) => {
-                      if (res) {
-                        const uploadedImages = res.map((item) => ({
-                          fileUrl: item.fileUrl,
-                          fileKey: item.fileKey,
-                        }));
-                        onImageUpload(uploadedImages);
-                        const json = JSON.stringify(res);
-                        console.log(json); // Do something with the response
-                      }
-                    };
-                  
+                  onClientUploadComplete={(res) => {
+                    if (res) {
+                      setImage(res)
+                      const json = JSON.stringify(res)
+                      // Do something with the response
+                      console.log(json);
+                    }
+
                     // alert("Upload Completed");
                   }}
                   onUploadError={(error: Error) => {
