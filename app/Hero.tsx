@@ -60,7 +60,13 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project imageList={imageList} setLinkProp={setLinkProp}/>
+      <Project
+          imageList={imageList}
+          setLinkProp={setLinkProp} // Pass down the props here
+          githubLink={githubLink}
+          portfolioLink={portfolioLink}
+          socialLink={socialLink}
+        />
       </div>
     </section>
   );
