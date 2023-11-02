@@ -1,24 +1,11 @@
-"use client";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
-import { UploadButton, UploadDropzone } from "../utils/uploadthing";
-import { useState } from "react";
+// Uploadbutton.js
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { UploadDropzone } from "../utils/uploadthing";
 import Link from "next/link";
 import Image from "next/image";
-import Project from "./project/project";
 
-import React from "react";
-
-
-export const Uploadbutton = ({ onImageUpload })) => {
+export const Uploadbutton = ({ onImageUpload }) => {
   const [images, setImage] = useState<
     {
       fileUrl: string;
@@ -26,26 +13,23 @@ export const Uploadbutton = ({ onImageUpload })) => {
     }[]
   >([]);
 
-  const head = images.length ? (
-    <>
-      <p>`Upload sucessful 🥳</p>
-      <p className="m-2">{images.length} file</p>
-    </>
-  ) : null;
+  const handleImageUpload = (res) => {
+    if (res && res.length > 0) {
+      setImage(res);
+      onImageUpload(res);
+    }
+  };
 
   const imglist = (
-    <>
-      {/* <p>{head}</p> */}
-      <ul>
-        {images.map((imager) => (
-          <li key={imager.fileUrl} className="m-2">
-            <Link href={imager.fileUrl}>
-            <Image src={imager.fileUrl} height={200} width={200} alt="upload"/>
-            </Link>          
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul>
+      {images.map((imager) => (
+        <li key={imager.fileUrl} className="m-2">
+          <Link href={imager.fileUrl}>
+            <Image src={imager.fileUrl} height={200} width={200} alt="upload" />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 
   return (
@@ -59,25 +43,12 @@ export const Uploadbutton = ({ onImageUpload })) => {
               <main className="flex  flex-col items-center justify-between p-24">
                 <UploadDropzone
                   endpoint="imageUploader"
-                  onClientUploadComplete={(res) => {
-                    if (res) {
-                      setImage(res)
-                      const json = JSON.stringify(res)
-                      // Do something with the response
-                      onImageUpload(res);
-                      console.log(json);
-                    }
-
-                    // alert("Upload Completed");
-                  }}
+                  onClientUploadComplete={handleImageUpload}
                   onUploadError={(error: Error) => {
-                    // Do something with the error.
                     alert(`ERROR! ${error.message}`);
                   }}
                 />
-                {/* <Project  imageURL={imglist} /> */}
-                {images.length > 0 && <Project imageURL={images[0].fileUrl} />}
-                {/* {imglist} */}
+                {imglist}
               </main>
             </DialogDescription>
           </DialogHeader>

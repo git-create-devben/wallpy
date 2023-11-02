@@ -1,12 +1,8 @@
+// Project.js
 import React from "react";
-import "./project.css";
 import Image from "next/image";
 
-interface ProjectProps {
-  imageURL: string;
-}
-
-const Project: React.FC<ProjectProps> = ({ imageURL }) => {
+const Project = ({ imageURL }) => {
   return (
     <main className="flex gap-4 flex-wrap">
       <div className="parent-div w-[450px] h-[400px] bg-green-600 relative rounded-xl">
