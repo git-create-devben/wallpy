@@ -24,7 +24,7 @@ export const Uploadbutton = () => {
   const head = images.length ? (
     <>
      <p>`Upload sucessful 🥳</p>
-     <p className="m-2"></p>
+     <p className="m-2">{images.length}</p>
     </>
   )
   return (
