@@ -72,7 +72,7 @@
     left: 0;
   }
   .card .main .right {
-    right: 0;
+    right: 0px;
     transform: translateX(50%) scale(-1, 1);
   }
   .card .main .title {
