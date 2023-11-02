@@ -35,7 +35,9 @@ useEffect(() => {
 listAll(imagelistRef).then((response) => {
   console.log(response)
   response.items.forEach((item) => {
-    getDownloadURL(item)
+    getDownloadURL(item).then((url) => {
+      setImageList((prev) => [...prev, url]);
+    })
   })
 })
 }, [])
