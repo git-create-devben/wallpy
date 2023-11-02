@@ -18,7 +18,7 @@ import Project from "./project/project";
 import React from "react";
 
 
-export const Uploadbutton = () => {
+export const Uploadbutton = ({ onImageUpload })) => {
   const [images, setImage] = useState<
     {
       fileUrl: string;
@@ -64,6 +64,7 @@ export const Uploadbutton = () => {
                       setImage(res)
                       const json = JSON.stringify(res)
                       // Do something with the response
+                      onImageUpload(res);
                       console.log(json);
                     }
 
