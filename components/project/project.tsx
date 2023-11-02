@@ -30,7 +30,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
               <Link href={""}> 
                <FaXTwitter/>
               </Link>
-              <Link href={""}> 
+              <Link href={githubLink}> 
                <FaGithub/>
               </Link>
             </ul>
