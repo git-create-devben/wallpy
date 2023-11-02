@@ -9,11 +9,7 @@ const project = () => {
         <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 animate-after:w-[70%]">
          {/* I want the content in this div shows */}
         </div>
-      </div>
-      <div className=" w-[450px] h-[400px] bg-green-600"></div>
-      <div className=" w-[450px] h-[400px] bg-green-600"></div>
-      <div className=" w-[450px] h-[400px] bg-green-600"></div>    
-      
+      </div>      
     </main>
   );
 };
