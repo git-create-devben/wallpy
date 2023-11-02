@@ -1,8 +1,10 @@
 import React from "react";
+import Header from "./Header";
 
 const Hero = () => {
   return (
     <section>
+      <Header/>
       <div
         className="hero h-[30rem]"
         style={{
