@@ -18,7 +18,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp }) => {
         <div key={index} className="parent-div  bg-green-600 relative">
           <Image src={url} alt={`image-${index}`} width={450} height={100} />
           <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
-            <ul>
+            <ul className="flex justify-between p-2">
               <Link href={""}> 
                <FaGithub/>
               </Link>
