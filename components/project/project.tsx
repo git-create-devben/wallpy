@@ -4,8 +4,8 @@ import "./project.css";
 const project = () => {
   return (
     <main>
-     <div>
-      
+     <div className=" w-[600px] h-[500px] bg-green-600">
+
      </div>
     </main>
   );
