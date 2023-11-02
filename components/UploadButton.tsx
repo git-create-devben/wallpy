@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { UploadButton } from "../utils/uploadthing";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { storage } from "../app/firebase"
@@ -20,7 +20,8 @@ import {v4} from "uuid"
 import React from "react";
 
 export const Uploadbutton = () => {
-  const [imageUpload, setImageUpload] = useState()
+  const [imageUpload, setImageUpload] = useState(null)
+  const [imagelist, setImageList] = useState()
 const uploadImage =() => {
 if (imageUpload == null) return;
 const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
@@ -28,6 +29,10 @@ uploadBytes(imageRef,imageUpload).then(() => {
   alert("image uploaded")
 })
 }
+
+useEffect(() => {
+
+})
 
   return (
     <div>
