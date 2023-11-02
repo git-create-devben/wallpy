@@ -37,7 +37,7 @@ export const Uploadbutton = () => {
       <ul>
         {images.map((imager) => (
           <li key={imager.fileUrl} className="m-2">
-            <Link href={imager.fileUrl}>{imager.fileUrl}</Link>
+            <Link href={imager.fileUrl}></Link>
             <Image src={imager.fileUrl} height={200} width={200} alt="upload"/>
           </li>
         ))}
