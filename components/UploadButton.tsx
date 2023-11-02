@@ -13,7 +13,7 @@ import { UploadButton, UploadDropzone } from "../utils/uploadthing";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { UploadedImage } from "@/components/setup"
 import React from "react";
 
 
