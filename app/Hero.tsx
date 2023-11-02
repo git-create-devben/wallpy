@@ -11,7 +11,7 @@ interface HeroProps {
   socialLink: string;
 }
 
-const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, socialLink }: HeaderProps) => {
+const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, socialLink }: HeroProps) => {
   const [imageList, setImageList] = useState<string[]>(
     localStorage.getItem("imageList")
       ? JSON.parse(localStorage.getItem("imageList")!)
