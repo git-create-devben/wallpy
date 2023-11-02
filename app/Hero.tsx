@@ -23,7 +23,7 @@ const Hero = () => {
               <span className=" text-orange-500">.</span>
             </h2>
             <p className="mb-5">
-              A collections of developer portifolio <br/>
+              A collections of developer portifolio <br />
               Developers inspire developers to build awesome portfolio
             </p>
             <div className="relative">
@@ -32,13 +32,11 @@ const Hero = () => {
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-[50rem] "
               />
-            
             </div>
           </div>
         </div>
       </div>
-      <div>
-      </div>
+      <div></div>
     </section>
   );
 };
