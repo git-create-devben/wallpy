@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { storage } from "../app/firebase"
-import { ref, uploadBytes, listAll } from "firebase/storage"
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
 import {v4} from "uuid"
 
 import React from "react";
@@ -34,7 +34,9 @@ uploadBytes(imageRef,imageUpload).then(() => {
 useEffect(() => {
 listAll(imagelistRef).then((response) => {
   console.log(response)
-  response.ite
+  response.items.forEach((item) => {
+    getDownloadURL(item)
+  })
 })
 }, [])
 
