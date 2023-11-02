@@ -16,10 +16,17 @@ import Link from "next/link";
 import React from "react";
 
 export const Uploadbutton = () => {
-  const [image, setImage] = useState<{
+  const [images, setImage] = useState<{
     fileUrl: string;
     fileKey: string;
   }[]>([])
+
+  const head = images.length ? (
+    <>
+     <p>`Upload sucessful 🥳</p>
+     <p className="m-2"></p>
+    </>
+  )
   return (
     <div>
       <Dialog>
