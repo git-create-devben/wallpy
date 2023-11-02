@@ -56,7 +56,7 @@ listAll(imagelistRef).then((response) => {
              {imagelist.map((url) => {
               return (
                 <>
-                <Image src={url} alt={url.name} width={200} height={}/>
+                <Image src={url} alt={url.name} width={200} height={200}/>
                 </>
               )
              })}
