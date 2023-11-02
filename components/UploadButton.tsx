@@ -53,6 +53,13 @@ listAll(imagelistRef).then((response) => {
               <main className="flex  flex-col items-center justify-between p-24">
              <input type="file"  onChange={(e) => {setImageUpload(e.target.files[0])}}/>
              <button onClick={uploadImage}>Upload</button>
+             {imagelist.map((url) => {
+              return (
+                <>
+                <Image src={url} alt={url.name} width={200} height={200}/>
+                </>
+              )
+             })}
               </main>
             </DialogDescription>
           </DialogHeader>
