@@ -16,7 +16,12 @@ import Image from "next/image";
 
 import React from "react";
 
-export const Uploadbutton = () => {
+
+interface UploadButtonProps {
+  onImageUpload: (images: ImageData[]) => void;
+}
+
+const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
   const [images, setImage] = useState<
     {
       fileUrl: string;
