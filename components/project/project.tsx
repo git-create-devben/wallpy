@@ -1,7 +1,11 @@
 import React from "react";
 import "./project.css";
 
-const project = ({imageList}) => {
+interface ProjectProps {
+  imageList: string[];
+}
+
+const Project = ({ imageList }: ProjectProps) => {
   return (
     <main className="flex gap-4 flex-wrap">
       <div key={index} className="parent-div w-[450px] h-[400px] bg-green-600 relative">
