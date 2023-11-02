@@ -22,7 +22,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import React from "react";
 
-export const Uploadbutton = ( { setImageList } ) => {
+export const Uploadbutton = (  ) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const [imageList, setImageList] = useState<string[]>([]);
   const imagelistRef = ref(storage, "images/");
@@ -32,7 +32,7 @@ export const Uploadbutton = ( { setImageList } ) => {
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setImageList((prev) => [...prev, url]);
+        setImageList(imageList.concat(url));
       });
     });
   };
