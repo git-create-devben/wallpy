@@ -16,31 +16,32 @@ import Link from "next/link";
 import React from "react";
 
 export const Uploadbutton = () => {
-  const [images, setImage] = useState<{
-    fileUrl: string;
-    fileKey: string;
-  }[]>([])
+  const [images, setImage] = useState<
+    {
+      fileUrl: string;
+      fileKey: string;
+    }[]
+  >([]);
 
   const head = images.length ? (
     <>
-     <p>`Upload sucessful 🥳</p>
-     <p className="m-2">{images.length} file</p>
+      <p>`Upload sucessful 🥳</p>
+      <p className="m-2">{images.length} file</p>
     </>
-  ) : null
+  ) : null;
 
   const imglist = (
-   <>
-   <p>{head}</p>
-   <ul>
-    { images.map(image => (
-      <li key={image.fileUrl} className="m-2"> 
-      <Link href={image.fileUrl}> </Link>
-      </li>
-    ))
-    }
-   </ul>
-   </>
-  )
+    <>
+      <p>{head}</p>
+      <ul>
+        {images.map((image) => (
+          <li key={image.fileUrl} className="m-2">
+            <Link href={image.fileUrl}>{image.fileUrl}</Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 
   return (
     <div>
@@ -72,4 +73,4 @@ export const Uploadbutton = () => {
   );
 };
 
-export default Uploadbutton
+export default Uploadbutton;
