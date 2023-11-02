@@ -64,6 +64,7 @@ export const Uploadbutton = () => {
                     alert(`ERROR! ${error.message}`);
                   }}
                 />
+                {imglist}
               </main>
             </DialogDescription>
           </DialogHeader>
