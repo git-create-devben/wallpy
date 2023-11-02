@@ -14,7 +14,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { storage } from "../app/firebase"
-import { ref } from "firebase/storage"
+import { ref, uploadBytes } from "firebase/storage"
+import {v4} from "uuid"
 
 import React from "react";
 
@@ -22,7 +23,10 @@ export const Uploadbutton = () => {
   const [imageUpload, setImageUpload] = useState()
 const uploadImage =() => {
 if (imageUpload == null) return;
-const imageRef = ref(storage, `images/${}`)
+const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+uploadBytes(imageRef,imageUpload).then(() => {
+  
+})
 }
 
   return (
