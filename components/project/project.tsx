@@ -2,6 +2,7 @@ import React from "react";
 import "./project.css";
 import Image from "next/image";
 import Uploadbutton from "../UploadButton";
+import { UploadedImage } from "@/components/setup"
 import { useState } from "react";
 
 interface ImageData {
@@ -10,12 +11,11 @@ interface ImageData {
 }
 
 const Project = () => {
-  const [images, setImages] = useState<ImageData[]>([]);
+  const [images, setImages] = useState<UploadedImage[]>([]);
 
-  const handleImageUpload = (newImages: ImageData[]) => {
+  const handleImageUpload = (newImages: UploadedImage[]) => {
     setImages(newImages);
   };
-
 
   return (
     <main className="flex gap-4 flex-wrap">

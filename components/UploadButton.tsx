@@ -17,17 +17,13 @@ import Image from "next/image";
 import React from "react";
 
 
+
 interface UploadButtonProps {
-  onImageUpload: (images: ImageData[]) => void;
+  onImageUpload: (images: UploadedImage[]) => void;
 }
 
 const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
-  const [images, setImage] = useState<
-    {
-      fileUrl: string;
-      fileKey: string;
-    }[]
-  >([]);
+  const [images, setImage] = useState<UploadedImage[]>([]);
 
   const head = images.length ? (
     <>
