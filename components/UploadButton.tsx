@@ -55,13 +55,13 @@ export const Uploadbutton = () => {
                 <UploadButton
                   endpoint="imageUploader"
                   onClientUploadComplete={(res) => {
-
-                    if(res){
-                      
+                    if (res) {
+                      setImage(res)
+                      // Do something with the response
+                      console.log("Files: ", res);
                     }
-                    // Do something with the response
-                    console.log("Files: ", res);
-                    alert("Upload Completed");
+
+                    // alert("Upload Completed");
                   }}
                   onUploadError={(error: Error) => {
                     // Do something with the error.
