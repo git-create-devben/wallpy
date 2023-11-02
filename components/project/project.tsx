@@ -3,7 +3,8 @@ import "./project.css";
 
 const project = () => {
   return (
-    <main className="flex gap-2 p-2 row-4">
+    <main className="flex flex-row gap-4">
+      <div className=" w-[500px] h-[400px] bg-green-600"></div>
       <div className=" w-[500px] h-[400px] bg-green-600"></div>
       <div className=" w-[500px] h-[400px] bg-green-600"></div>
       <div className=" w-[500px] h-[400px] bg-green-600"></div>
