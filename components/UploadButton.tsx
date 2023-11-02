@@ -13,13 +13,16 @@ import { UploadButton } from "../utils/uploadthing";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { storage } from "../app/firebase"
+import { ref } from "firebase/storage"
 
 import React from "react";
 
 export const Uploadbutton = () => {
   const [imageUpload, setImageUpload] = useState()
 const uploadImage =() => {
-if (imageUpload == null) return
+if (imageUpload == null) return;
+const imageRef = ref(storage, `images/${}`)
 }
 
   return (
