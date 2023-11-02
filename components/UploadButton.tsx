@@ -2,13 +2,14 @@
 
 import { UploadButton } from "../utils/uploadthing";
 
-export default function Home() {
+export default function Uploadbutton() {
+  const modalElement: NonNullHTMLElement = document.getElementById("my_modal_5") as NonNullHTMLElement;
   return (
     <main>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <button
         className=" w-40 btn text-[12px]"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
+        onClick={() => modalElement.showModal()}
       >
         Add portfolio
       </button>
