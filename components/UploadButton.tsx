@@ -17,8 +17,9 @@ import Image from "next/image";
 import React from "react";
 
 export const Uploadbutton = () => {
+  const [imageUpload, setImageUpload] = useState()
 const uploadImage =() => {
-
+if (imageUpload == null) return
 }
 
   return (
@@ -30,7 +31,7 @@ const uploadImage =() => {
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-             <input type="file" />
+             <input type="file"  onChange={(e) => {setImageUpload(e.target.files?[0] : null)}}/>
              <button onClick={uploadImage}>Upload</button>
               </main>
             </DialogDescription>
