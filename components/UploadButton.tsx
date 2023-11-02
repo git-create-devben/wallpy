@@ -57,8 +57,9 @@ export const Uploadbutton = () => {
                   onClientUploadComplete={(res) => {
                     if (res) {
                       setImage(res)
+                      const json = JSON.stringify(res)
                       // Do something with the response
-                      console.log("Files: ", res);
+                      console.log(json);
                     }
 
                     // alert("Upload Completed");
