@@ -22,7 +22,7 @@ export const Uploadbutton = () => {
           <DialogHeader>
             <DialogTitle>Are you sure absolutely sure?</DialogTitle>
             <DialogDescription>
-              <main className="flex min-h-screen flex-col items-center justify-between p-24">
+              <main className="flex  flex-col items-center justify-between p-24">
                 <UploadButton
                   endpoint="imageUploader"
                   onClientUploadComplete={(res) => {
