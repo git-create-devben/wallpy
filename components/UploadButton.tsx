@@ -26,7 +26,9 @@ export const Uploadbutton = () => {
      <p>`Upload sucessful 🥳</p>
      <p className="m-2">{images.length} file</p>
     </>
-  )
+  ) : null
+
+  
   return (
     <div>
       <Dialog>
