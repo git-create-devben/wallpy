@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
 
-const Hero = () => {
+const Hero = ({ handleImageListChange }) => {
   const [imageList, setImageList] = useState<string[]>([]);
 
   const handleImageListChange = (newImageList: string[]) => {
