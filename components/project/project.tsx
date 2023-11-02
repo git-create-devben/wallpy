@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { UploadButton } from "../utils/uploadthing";
 
-export const project = () => {
+export const Project = () => {
   const [images, setImage] = useState<
   {
     fileUrl: string;
@@ -29,4 +29,4 @@ export const project = () => {
   );
 };
 
-export default project;
+export default Project;
