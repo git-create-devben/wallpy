@@ -2,6 +2,10 @@
 import React from "react";
 import Image from "next/image";
 
+interface ProjectProps {
+  imageURL: string;
+}
+
 const Project = ({ imageURL }) => {
   return (
     <main className="flex gap-4 flex-wrap">
