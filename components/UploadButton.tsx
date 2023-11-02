@@ -55,6 +55,10 @@ export const Uploadbutton = () => {
                 <UploadButton
                   endpoint="imageUploader"
                   onClientUploadComplete={(res) => {
+
+                    if(res){
+                      
+                    }
                     // Do something with the response
                     console.log("Files: ", res);
                     alert("Upload Completed");
