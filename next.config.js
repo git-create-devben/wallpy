@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    // images: {
-    //     loader: "custom",
-    //   }
-    
-}
-
-module.exports = nextConfig
+module.exports = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'utfs.io',
+          port: '',
+          pathname: '/account123/**',
+        },
+      ],
+    },
+  }
