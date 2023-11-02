@@ -1,7 +1,7 @@
 import React from "react";
 import "./project.css";
 import Image from "next/image";
-import { FaGithub } ""
+import { FaGithub } "react-icons/fa"
 
 interface ProjectProps {
   imageList: string[];
