@@ -1,5 +1,6 @@
 import React from "react";
 import "./project.css";
+import Image from "next/image";
 
 interface ProjectProps {
   imageList: string[];
@@ -12,7 +13,7 @@ const Project: React.FC<ProjectProps> = ({ imageList }) => {
          {/* If i over on this parent div the children div we show  */}
          {imageList.map((url, index) => (
         <div key={index}>
-          <Image src={url} alt={`image-${index}`} style={{ width: '200px', height: '200px' }} />
+          <Image src={url} alt={`image-${index}`} width={200} height={200} />
         </div>
       ))}
 
