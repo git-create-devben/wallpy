@@ -5,7 +5,7 @@ const project = () => {
   return (
     <main className="flex gap-4 flex-wrap">
       <div className=" w-[450px] h-[400px] bg-green-600 relative">
-        <div className="absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-600">
+        <div className="absolute bottom-0 right-0 w-[450px] h-[50px] bg-transparent">
          
         </div>
       </div>
