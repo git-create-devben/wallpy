@@ -23,7 +23,7 @@ export const Uploadbutton = () => {
 };
 
 
-export const Project:  React.FC<ProjectProps>= ({imageURL}) => {
+export const Project = () => {
 
   return (
     <main className="flex gap-4 flex-wrap">
