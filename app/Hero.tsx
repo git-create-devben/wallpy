@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
 
 const Hero = () => {
+  const [imageList, setImageList] = useState<string[]>([]);
+
+  const handleImageListChange = (newImageList: string[]) => {
+    setImageList(newImageList);
+  };
+
+
   return (
     <section>
-      <Header/>
+      <Header setImageList={setImageList}/>
       <div
         className="hero h-[30rem]"
         style={{
@@ -40,7 +47,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project/>
+        <Project imageList={imageList}/>
       </div>
     </section>
   );

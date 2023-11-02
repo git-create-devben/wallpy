@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton"
 
-const Header = () => {
+const Header = ({ setImageList }) => {
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
@@ -25,7 +25,7 @@ const Header = () => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton/>
+        <Uploadbutton />
       <ModeToggle/>
       <UserButton afterSignOutUrl="/" />
       </div>
