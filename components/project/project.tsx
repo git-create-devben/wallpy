@@ -4,9 +4,11 @@ import Image from "next/image";
 
 interface ProjectProps {
   imageList: string[];
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void; // Define the setLinkProp here
 }
 
-const Project: React.FC<ProjectProps> = ({ imageList }) => {
+
+const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp }) => {
   return (
     <main className="flex gap-4 flex-wrap">
       {/* If i over on this parent div the children div we show  */}
