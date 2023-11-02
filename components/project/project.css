@@ -1,7 +1,7 @@
 .card {
     position: relative;
-    height: 300px;
-    width: 230px;
+    height: 400px;
+    width: 330px;
     display: flex;
   }
   .card:nth-child(2) {
