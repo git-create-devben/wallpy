@@ -40,7 +40,7 @@ listAll(imagelistRef).then((response) => {
     })
   })
 })
-}, [])
+},[imagelistRef])
 
   return (
     <div>
