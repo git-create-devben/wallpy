@@ -2,6 +2,7 @@ import React from "react";
 import "./project.css";
 import Image from "next/image";
 
+
 interface ProjectProps {
   imageList: string[];
   setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void; // Define the setLinkProp here
