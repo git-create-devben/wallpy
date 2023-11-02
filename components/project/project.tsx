@@ -7,11 +7,6 @@ import Uploadbutton from "../UploadButton";
 import { UploadedImage } from "@/components/setup"
 import { useState } from "react";
 
-interface ImageData {
-  fileUrl: string;
-  fileKey: string;
-}
-
 const Project = () => {
   const [images, setImages] = useState<UploadedImage[]>([]);
 
