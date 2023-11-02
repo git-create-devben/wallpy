@@ -15,6 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { UploadedImage } from "@/components/setup"
 import React from "react";
+import { UploadFileResponse } from "uploadthing/client";
 
 
 
@@ -58,7 +59,7 @@ const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
               <main className="flex  flex-col items-center justify-between p-24">
                 <UploadDropzone
                   endpoint="imageUploader"
-                  onClientUploadComplete={(res: UploadedImage[]) => {
+                  onClientUploadComplete={(res?: UploadFileResponse[] | undefined) => {
                     const handleUploadComplete = (res: UploadedImage[]) => {
                       if (res) {
                         onImageUpload(res);
