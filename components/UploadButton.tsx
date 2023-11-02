@@ -34,6 +34,7 @@ uploadBytes(imageRef,imageUpload).then(() => {
 useEffect(() => {
 listAll(imagelistRef).then((response) => {
   console.log(response)
+  response.ite
 })
 }, [])
 
