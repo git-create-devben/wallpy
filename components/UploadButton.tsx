@@ -76,7 +76,7 @@ export const Uploadbutton = () => {
                 />
                 {/* <Project  imageURL={imglist} /> */}
                 {images.length > 0 && <Project imageURL={images[0].fileUrl} />}
-                {imglist}
+                {/* {imglist} */}
               </main>
             </DialogDescription>
           </DialogHeader>
