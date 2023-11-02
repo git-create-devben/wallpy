@@ -58,7 +58,7 @@ const Hero = ({ setImageListProp, setLinkProp }: HeaderProps) => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project imageList={imageList}/>
+        <Project imageList={imageList} setLinkProp={setLinkProp}/>
       </div>
     </section>
   );
