@@ -30,7 +30,15 @@ export const Uploadbutton = () => {
 
   const imglist = (
    <>
-   <p></p>
+   <p>{head}</p>
+   <ul>
+    { images.map(image => (
+      <li key={image.fileUrl} className="m-2"> 
+      
+      </li>
+    ))
+    }
+   </ul>
    </>
   )
 
