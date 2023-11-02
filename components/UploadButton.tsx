@@ -18,7 +18,7 @@ import React from "react";
 
 export const Uploadbutton = () => {
 const uploadImage =() => {
-  
+
 }
 
   return (
@@ -31,7 +31,7 @@ const uploadImage =() => {
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
              <input type="file" />
-             <button>Upload</button>
+             <button onClick={uploadImage}>Upload</button>
               </main>
             </DialogDescription>
           </DialogHeader>
