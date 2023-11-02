@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
 
-const Hero = () => {
+interface HeroProps {
+  setImageListProp: (newImageList: string[]) => void;
+}
+
+
+const Hero = ({ setImageListProp }: HeroProps) => {
   const [imageList, setImageList] = useState<string[]>([]);
 
   const handleImageListChange = (newImageList: string[]) => {
