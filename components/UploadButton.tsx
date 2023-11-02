@@ -22,7 +22,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import React from "react";
 
-export const Uploadbutton = ( {setImageList} ) => {
+interface UploadbuttonProps {
+  setImageListProp: (newImageList: string[]) => void;
+}
+
+const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const [imageList, setImageList] = useState<string[]>([]);
   const imagelistRef = ref(storage, "images/");
