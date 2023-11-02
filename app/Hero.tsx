@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
 
-interface HeroProps {
+interface HeaderProps {
   setImageListProp: (newImageList: string[]) => void;
+  setLinkProp: (newLink: string) => void; // Add setLinkProp to the HeaderProps interface
 }
 
-
-const Hero = ({ setImageListProp }: HeroProps) => {
+const Hero = ({ setImageListPropc, setLinkProp }: HeroProps) => {
   const [imageList, setImageList] = useState<string[]>(
     localStorage.getItem("imageList")
       ? JSON.parse(localStorage.getItem("imageList")!)
