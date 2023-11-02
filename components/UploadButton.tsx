@@ -13,7 +13,7 @@ import { UploadButton } from "../utils/uploadthing";
 
 import React from "react";
 
-export const UploadButton = () => {
+export const Uploadbutton = () => {
   return (
     <div>
       <Dialog>
@@ -22,7 +22,20 @@ export const UploadButton = () => {
           <DialogHeader>
             <DialogTitle>Are you sure absolutely sure?</DialogTitle>
             <DialogDescription>
-             
+              <main className="flex min-h-screen flex-col items-center justify-between p-24">
+                <UploadButton
+                  endpoint="imageUploader"
+                  onClientUploadComplete={(res) => {
+                    // Do something with the response
+                    console.log("Files: ", res);
+                    alert("Upload Completed");
+                  }}
+                  onUploadError={(error: Error) => {
+                    // Do something with the error.
+                    alert(`ERROR! ${error.message}`);
+                  }}
+                />
+              </main>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
