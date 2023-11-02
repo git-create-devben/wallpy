@@ -7,6 +7,10 @@ import { useState } from "react";
 // import { UploadButton } from "../utils/uploadthing";
 // import Uploadbutton from "../UploadButton"
 
+interface ProjectProps {
+  imageURL: string;
+}
+
 export const Uploadbutton = () => {
   const [images, setImage] = useState<
     { fileUrl: string; fileKey: string }[]
@@ -19,7 +23,7 @@ export const Uploadbutton = () => {
 };
 
 
-export const Project = () => {
+export const Project:  React.FC<ProjectProps>= ({imageURL}) => {
 
   return (
     <main className="flex gap-4 flex-wrap">
