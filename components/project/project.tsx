@@ -16,7 +16,7 @@ export const Project = () => {
   return (
     <main className="flex gap-4 flex-wrap">
       <div className="parent-div w-[450px] h-[400px] bg-green-600 relative rounded-xl">
-      <ul>
+      <ul className="w-[450px] h-[400px] rounded-xl">
         {images.map((imager) => (
           <li key={imager.fileUrl} className="m-2">
             <Image src={imager.fileUrl} height={400} width={450} alt="upload"/>
