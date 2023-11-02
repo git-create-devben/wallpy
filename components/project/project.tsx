@@ -27,7 +27,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
               <Link href={portfolioLink} className=" flex flex-1"> 
                <BiLinkExternal/>
               </Link>
-              <Link href={""}> 
+              <Link href={socialLink}> 
                <FaXTwitter/>
               </Link>
               <Link href={githubLink}> 
