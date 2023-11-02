@@ -28,7 +28,12 @@ export const Uploadbutton = () => {
     </>
   ) : null
 
-  
+  const imglist = {
+   <>
+   
+   </>
+  }
+
   return (
     <div>
       <Dialog>
