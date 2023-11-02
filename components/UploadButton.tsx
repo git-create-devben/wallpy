@@ -40,19 +40,20 @@ export const Uploadbutton = () => {
   useEffect(() => {
     listAll(imagelistRef)
       .then((response: ListResult) => {
-        console.log(response);
+        let urls: string[] = [];
         response.items.forEach((item) => {
           getDownloadURL(item).then((url) => {
             if (url) {
-              setImageList((prev) => [...prev, url]);
+              urls.push(url);
             }
           });
         });
+        setImageList(urls);
       })
       .catch((error) => {
         console.error("Error retrieving image list: ", error);
       });
-  },);
+  }, []);
 
   return (
     <div>
