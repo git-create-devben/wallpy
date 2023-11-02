@@ -36,6 +36,7 @@ const Uploadbutton = ({ setImageListProp }: UploadbuttonProps) => {
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
+        localStorage.setItem("imageList", JSON.stringify([...imageList, url]));
         setImageList((prevList) => [...prevList, url]);
         setImageListProp([...imageList, url]); // Update the image list in the parent component
       });
