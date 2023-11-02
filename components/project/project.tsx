@@ -7,20 +7,7 @@ import { useState } from "react";
 // import { UploadButton } from "../utils/uploadthing";
 // import Uploadbutton from "../UploadButton"
 
-interface ProjectProps {
-  imageURL: string;
-}
 
-export const Uploadbutton = () => {
-  const [images, setImage] = useState<
-    { fileUrl: string; fileKey: string }[]
-  >([]);
-
-  const imageURL = images.length ? images[0].fileUrl : "";
-
-  // Pass the image URL to the project component
-  return <Project imageURL={imageURL} />;
-};
 
 
 export const Project = () => {
