@@ -1,6 +1,5 @@
 import React from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import Project from "./project";
 
 const Hero = () => {
   return (
