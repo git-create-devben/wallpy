@@ -13,8 +13,10 @@ import { UploadButton } from "../utils/uploadthing";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+// import Project from "./project/project";
 
 import React from "react";
+
 
 export const Uploadbutton = () => {
   const [images, setImage] = useState<
@@ -72,6 +74,7 @@ export const Uploadbutton = () => {
                     alert(`ERROR! ${error.message}`);
                   }}
                 />
+                {/* <Project  imageURL={imglist} /> */}
                 {imglist}
               </main>
             </DialogDescription>
