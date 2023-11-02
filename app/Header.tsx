@@ -5,10 +5,10 @@ import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton"
 
 interface HeaderProps {
-  handleImageListChange: (newImageList: string[]) => void;
+  setImageListProp: (newImageList: string[]) => void;
 }
 
-const Header = ({ handleImageListChange }: HeaderProps) => {
+const Header = ({ setImageListProp }: HeaderProps) => {
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
