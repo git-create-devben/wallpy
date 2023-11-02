@@ -11,7 +11,7 @@ const project = () => {
     </p>
   </div>
   <p className="desc">
-    This is the description of this card.<br>You can enter anything here.
+    This is the description of this card.<br/>You can enter anything here.
   </p>
 </div>
     </main>
