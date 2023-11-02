@@ -25,7 +25,7 @@ const uploadImage =() => {
 if (imageUpload == null) return;
 const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
 uploadBytes(imageRef,imageUpload).then(() => {
-  
+  alert("image uploaded")
 })
 }
 
@@ -38,7 +38,7 @@ uploadBytes(imageRef,imageUpload).then(() => {
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-             <input type="file"  onChange={(e) => {setImageUpload(e.target.files?[0] : null)}}/>
+             <input type="file"  onChange={(e) => {setImageUpload(e.target.files[0])}}/>
              <button onClick={uploadImage}>Upload</button>
               </main>
             </DialogDescription>
