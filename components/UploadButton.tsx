@@ -28,7 +28,7 @@ export const Uploadbutton = () => {
             <DialogTitle>Upload a cover pics of your project</DialogTitle>
             <DialogDescription>
               <main className="flex  flex-col items-center justify-between p-24">
-          
+             <input type="file" />
               </main>
             </DialogDescription>
           </DialogHeader>
