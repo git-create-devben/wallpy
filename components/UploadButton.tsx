@@ -52,7 +52,7 @@ export const Uploadbutton = () => {
       .catch((error) => {
         console.error("Error retrieving image list: ", error);
       });
-  }, [imagelistRef]);
+  },);
 
   return (
     <div>
