@@ -58,8 +58,8 @@ const Uploadbutton = ({ onImageUpload }: UploadButtonProps) => {
               <main className="flex  flex-col items-center justify-between p-24">
                 <UploadDropzone
                   endpoint="imageUploader"
-                  onClientUploadComplete={(res) => {
-                    const handleUploadComplete = (res: ImageData[]) => {
+                  onClientUploadComplete={(res: UploadedImage[]) => {
+                    const handleUploadComplete = (res: UploadedImage[]) => {
                       if (res) {
                         onImageUpload(res);
                         const json = JSON.stringify(res);
