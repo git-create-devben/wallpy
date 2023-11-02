@@ -4,7 +4,7 @@ import React from "react";
 import "./project.css";
 import Image from "next/image";
 import { useState } from "react";
-import { UploadButton } from "../utils/uploadthing";
+// import { UploadButton } from "../utils/uploadthing";
 
 export const Project = () => {
   const [images, setImage] = useState<
