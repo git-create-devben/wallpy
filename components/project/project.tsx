@@ -1,8 +1,18 @@
+"use client"
+
 import React from "react";
 import "./project.css";
 import Image from "next/image";
+import { useState } from "react";
+import { UploadButton } from "../utils/uploadthing";
 
 const project = () => {
+  const [images, setImage] = useState<
+  {
+    fileUrl: string;
+    fileKey: string;
+  }[]
+>([]);
   return (
     <main className="flex gap-4 flex-wrap">
       <div className="parent-div w-[450px] h-[400px] bg-green-600 relative rounded-xl">
