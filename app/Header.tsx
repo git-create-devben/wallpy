@@ -4,16 +4,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton";
 
-interface HeaderProps {
-  setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: {
-    github: string;
-    portfolio: string;
-    social: string;
-  }) => void; // Adjust the type to match the expected object structure
-}
-
-const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
+const Header = () => {
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
@@ -34,10 +25,7 @@ const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton
-          setImageListProp={setImageListProp}
-          setLinkProp={(newLink) => setLinkProp(newLink)}
-        />
+        <Uploadbutton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
