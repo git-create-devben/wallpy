@@ -25,7 +25,9 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
 
 
   return (
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <section>
+      //@ts-ignore
       <Header setImageListProp={handleImageListChange}   setLinkProp={(newLink) => setLinkProp(newLink)}/>
       <div
         className="hero h-[30rem]"
