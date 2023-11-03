@@ -4,20 +4,9 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
 
-interface HeroProps {
-  setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: {
-    github: string;
-    portfolio: string;
-    social: string;
-  }) => void;
-  githubLink: string;
-  portfolioLink: string;
-  socialLink: string;
-}
+
 
 const Hero = () => {
-
 
   return (
     <section>
