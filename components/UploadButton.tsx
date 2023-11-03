@@ -35,6 +35,10 @@ const UploadButton: React.FC = () => {
       uploadBytes(storageRef, developer.thumbnail).then(async (snapshot) => {
         console.log('Uploaded a blob or file!', snapshot);
 
+        const storageBucketUrl = 'YOUR_STORAGE_BUCKET_URL'; // Replace with your storage bucket URL
+        const fileUrl = `${storageBucketUrl}/${developer.thumbnail.name}`;
+        console.log('File URL:', fileUrl);
+
         const firestore = getFirestore();
         const developersCollectionRef = collection(firestore, 'developers');
 
