@@ -37,7 +37,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ setImageListProp, setLinkPr
   const [portfolioLink, setPortfolioLink] = useState<string>("");
   const [socialLink, setSocialLink] = useState<string>("");
 
-  const uploadImage = (image: File) => {
+  const uploadImage = (image: File | null) => {
     if (!image) return;
     const imageRef = ref(storage, `images/${image.name + uuidv4()}`);
     uploadBytes(imageRef, image).then((snapshot) => {
@@ -49,6 +49,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ setImageListProp, setLinkPr
       });
     });
   };
+  
 
   const handleLinkInput = (type: string, value: string) => {
     switch (type) {
