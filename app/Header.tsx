@@ -9,14 +9,9 @@ interface HeaderProps {
   developerData: Developer;
 }
 
-const Header: React.FC<HeaderProps> = () => {
-  const developerData: Developer = {
-    name: 'John Doe',
-    thumbnail: null,
-    github: 'johndoe',
-    twitter: 'johndoe',
-    portfolioUrl: 'https://example.com',
-  };
+const Header: React.FC<HeaderProps> = ({developerData}) => {
+
+
 
 
   return (
@@ -39,7 +34,7 @@ const Header: React.FC<HeaderProps> = () => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton />
+        <Uploadbutton developerData={developerData} />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
