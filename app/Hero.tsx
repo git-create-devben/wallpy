@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import Header from "./Header";
@@ -6,15 +6,27 @@ import Project from "@/components/project/project";
 
 interface HeroProps {
   setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
+  setLinkProp: (newLink: {
+    github: string;
+    portfolio: string;
+    social: string;
+  }) => void;
   githubLink: string;
   portfolioLink: string;
   socialLink: string;
 }
 
-const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, socialLink }: HeroProps) => {
+const Hero = ({
+  setImageListProp,
+  setLinkProp,
+  githubLink,
+  portfolioLink,
+  socialLink,
+}: HeroProps) => {
   const [imageList, setImageList] = useState<string[]>(
-    localStorage.getItem("imageList") ? JSON.parse(localStorage.getItem("imageList")!) : []
+    localStorage.getItem("imageList")
+      ? JSON.parse(localStorage.getItem("imageList")!)
+      : []
   );
 
   const handleImageListChange = (newImageList: string[]) => {
@@ -23,7 +35,10 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
 
   return (
     <section>
-      <Header setImageListProp={handleImageListChange}   setLinkProp={setLinkProp}/>
+      <Header
+        setImageListProp={handleImageListChange}
+        setLinkProp={setLinkProp}
+      />
       <div
         className="hero h-[30rem]"
         style={{
@@ -58,9 +73,9 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
         </div>
       </div>
       <div className=" min-h-screen p-5">
-      <Project
+        <Project
           imageList={imageList}
-          setLinkProp={setLinkProp}
+          setLinkProp={setLinkProp} // Ensure this prop is passed down correctly
           githubLink={githubLink}
           portfolioLink={portfolioLink}
           socialLink={socialLink}
@@ -68,6 +83,6 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
       </div>
     </section>
   );
-      }
+};
 
 export default Hero;
