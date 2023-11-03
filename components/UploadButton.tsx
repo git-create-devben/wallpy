@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'firebase/storage';
-import storage from '../app/firebase'; // Update the path to your Firebase config file
+import {storage} from '../app/firebase'; // Update the path to your Firebase config file
 
 interface Developer {
   name: string;
