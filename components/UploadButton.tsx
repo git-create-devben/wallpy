@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '@supabase/supabase-js';
+import { supabase } from "@supabase/supabase-js"
 
 interface Developer {
   name: string;
@@ -9,7 +9,7 @@ interface Developer {
   portfolioUrl: string;
 }
 
-const DeveloperForm: React.FC = () => {
+const UploadButton: React.FC = () => {
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
     thumbnail: '',
@@ -94,4 +94,4 @@ const DeveloperForm: React.FC = () => {
   );
 };
 
-export default DeveloperForm;
+export default UploadButton;
