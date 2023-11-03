@@ -16,13 +16,7 @@ interface HeroProps {
   socialLink: string;
 }
 
-const Hero = ({
-  setImageListProp,
-  setLinkProp,
-  githubLink,
-  portfolioLink,
-  socialLink,
-}: HeroProps) => {
+const Hero = () => {
 
 
   return (
