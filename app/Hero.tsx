@@ -6,7 +6,7 @@ import Project from "@/components/project/project";
 
 
 
-const Hero = () => {
+const Hero = ({ developerData }) => {
 
   return (
     <section>
@@ -45,7 +45,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project/>
+        <Project developerData={ developerData } />
       </div>
     </section>
   );

@@ -1,8 +1,10 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  developerData: Developer;
+};
 
-const project = (props: Props) => {
+const Project = ({ developerData }: Props) => {
   return (
     <div>project</div>
   )

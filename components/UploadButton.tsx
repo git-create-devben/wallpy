@@ -3,7 +3,7 @@ import { storage } from '../app/firebase';
 import { ref, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
-interface Developer {
+export interface Developer {
   name: string;
   thumbnail: File | null;
   github: string;
