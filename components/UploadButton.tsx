@@ -35,7 +35,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
   
     // Upload the thumbnail image to Supabase Storage.
     const storageRef = supabase.from('thumbnails');
-    const thumbnailRef = storageRef.child(developer.name);
+    const thumbnailRef = storageRef.ref('thumbnails/' + developer.name);
     await thumbnailRef.upload()()(developer.thumbnail);
   
     // Save the developer information to Supabase Database.
