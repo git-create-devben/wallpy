@@ -3,14 +3,17 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
+import { Developer } from "../components/UploadButton";
 
+interface HeroProps {
+  developerData: Developer;
+}
 
-
-const Hero = ({ developerData }) => {
+const Hero: React.FC<HeroProps> = ({ developerData }) => {
 
   return (
     <section>
-      <Header/>
+      <Header developerData={developerData}/>
       <div
         className="hero h-[30rem]"
         style={{

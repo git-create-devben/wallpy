@@ -1,4 +1,5 @@
 import React from 'react'
+import { Developer } from "../UploadButton";
 
 type Props = {
   developerData: Developer;
@@ -10,4 +11,4 @@ const Project = ({ developerData }: Props) => {
   )
 }
 
-export default project
+export default Project

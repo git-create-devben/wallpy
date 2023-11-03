@@ -3,6 +3,7 @@ import { UserButton } from "@clerk/nextjs";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton";
+import { Developer } from "../components/UploadButton";
 
 interface HeaderProps {
   developerData: Developer;
