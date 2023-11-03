@@ -16,6 +16,12 @@ interface ProjectProps {
 
 
 const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, portfolioLink, socialLink }) => {
+  // Use setLinkProp to update the links whenever needed
+  const updateLinks = () => {
+    // perform some operations if needed
+    setLinkProp({ github: "newGithubLink", portfolio: "newPortfolioLink", social: "newSocialLink" });
+  };
+
   return (
     <main className="flex gap-4 flex-wrap">
       {/* If i over on this parent div the children div we show  */}
@@ -24,7 +30,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
           <Image src={url} alt={`image-${index}`} width={450} height={100} />
           <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
             <ul className="flex justify-between p-2">
-            {portfolioLink ? (
+              {portfolioLink ? (
                 <Link href={portfolioLink} className="flex flex-1">
                   <BiLinkExternal />
                 </Link>
@@ -43,6 +49,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
           </div>
         </div>
       ))}
+      <button onClick={updateLinks}>Update Links</button>
     </main>
   );
 };
