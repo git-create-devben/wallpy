@@ -25,7 +25,7 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
   };
 
   const handlesetLinkProp = (newLink: any) => {
-    
+    setLinkProp(newLink)
   }
 
   return (
