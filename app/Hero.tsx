@@ -73,13 +73,7 @@ const Hero = ({
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project
-          imageList={imageList}
-          setLinkProp={setLinkProp} // Pass down the setLinkProp function
-          githubLink={githubLink}
-          portfolioLink={portfolioLink}
-          socialLink={socialLink}
-        />
+        <Project/>
       </div>
     </section>
   );
