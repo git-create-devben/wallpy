@@ -29,29 +29,29 @@ const UploadButton: React.FC = () => {
     });
   };
 
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
-    // Upload the thumbnail image to Supabase Storage.
-    const storage = supabase.storage;
-    const { data, error } = await storage.from('thumbnails').upload(
-      `thumbnails/${developer.name}`,
-      developer.thumbnail
-    );
-
-    if (error) {
-      console.error('Error uploading file:', error);
-    } else {
-      console.log('File uploaded successfully. File info:', data);
+  
+    setIsSubmitting(true);
+  
+    try {
+      // Upload the thumbnail image to Supabase Storage.
+      const storageRef = supabase.storage().from('thumbnails');
+      const thumbnailRef = storageRef.ref(`thumbnails/${developer.name}`);
+      await thumbnailRef.upload()()(developer.thumbnail);
+  
       // Save the developer information to Supabase Database.
       const databaseRef = supabase.from('developers');
       await databaseRef.insert({
         name: developer.name,
-        thumbnailUrl: data?.path, // Adjust as per your data structure
+        thumbnailUrl: await thumbnailRef.getUrl(),
         github: developer.github,
         twitter: developer.twitter,
         portfolioUrl: developer.portfolioUrl,
       });
+  
       // Clear the form.
       setDeveloper({
         name: '',
@@ -60,8 +60,14 @@ const UploadButton: React.FC = () => {
         twitter: '',
         portfolioUrl: '',
       });
+  
+      setIsSubmitting(false);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
