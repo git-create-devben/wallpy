@@ -37,6 +37,8 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
   const [socialLink, setSocialLink] = useState("");
   const imagelistRef = ref(storage, "images/");
 
+  // setLinkProp={(newLink) => setLinkProp(newLink)}
+
   const uploadImage = () => {
     if (imageUpload === null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
