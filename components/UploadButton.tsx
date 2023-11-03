@@ -108,7 +108,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ setImageListProp, setLinkPr
                   placeholder="Social Media Link"
                   onChange={(e) => handleLinkInput("social", e.target.value)}
                 />
-                <button onClick={uploadImage}>Upload</button>
+                <button onClick={() => uploadImage(imageUpload)}>Upload</button>
                 {imageList.map((url, index) => (
                   <div key={index}>
                     <Image
