@@ -35,10 +35,7 @@ const Hero = ({
 
   return (
     <section>
-      <Header
-        setImageListProp={handleImageListChange}
-        setLinkProp={setLinkProp}
-      />
+      <Header/>
       <div
         className="hero h-[30rem]"
         style={{
