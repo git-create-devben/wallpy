@@ -49,15 +49,13 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     });
   };
 
-  const handleLinkInput = (type: string, value: string) => {
-    if (type === "github") setGithubLink(value);
-    else if (type === "portfolio") setPortfolioLink(value);
-    else if (type === "social") setSocialLink(value);
-    setLinkProp({
-      github: type === "github" ? value : githubLink,
-      portfolio: type === "portfolio" ? value : portfolioLink,
-      social: type === "social" ? value : socialLink,
-    });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle any final form processing here before submission
+    uploadImage();
+    handleLinkInput("github", githubLink);
+    handleLinkInput("portfolio", portfolioLink);
+    handleLinkInput("social", socialLink);
   };
   
   
@@ -82,6 +80,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
             <DialogTitle>Upload a cover pic of your project</DialogTitle>
             <DialogDescription>
               <main className="flex flex-col items-center justify-between p-24">
+                
                 <input
                   type="file"
                   onChange={(e) => setImageUpload(e.target.files?.[0] || null)}
