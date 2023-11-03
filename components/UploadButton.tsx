@@ -80,8 +80,8 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
             <DialogTitle>Upload a cover pic of your project</DialogTitle>
             <DialogDescription>
               <main className="flex flex-col items-center justify-between p-24">
-                
-                <input
+                <form onSubmit={handleSubmit}>
+                                  <input
                   type="file"
                   onChange={(e) => setImageUpload(e.target.files?.[0] || null)}
                 />
