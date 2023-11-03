@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from "@supabase/supabase-js"
+import { createClient } from '@supabase/supabase-js'
 
 interface Developer {
   name: string;
@@ -10,6 +10,12 @@ interface Developer {
 }
 
 const UploadButton: React.FC = () => {
+
+
+const supabaseUrl = 'https://your-project-url.supabase.co'
+const supabaseAnonKey = 'your-anon-key'
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
     thumbnail: '',
