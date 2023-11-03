@@ -111,6 +111,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
                     />
                   </div>
                 ))}
+                 <button type="submit">Submit</button>
                 </form>
               </main>
             </DialogDescription>
