@@ -24,22 +24,23 @@ import React from "react";
 
 // ... other imports
 
+
 interface UploadButtonProps {
   setImageListProp: (newImageList: string[]) => void;
   setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
 }
 
-const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
+const UploadButton: React.FC<UploadButtonProps> = ({ setImageListProp, setLinkProp }) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
   const [imageList, setImageList] = useState<string[]>([]);
-  const [githubLink, setGithubLink] = useState("");
-  const [portfolioLink, setPortfolioLink] = useState("");
-  const [socialLink, setSocialLink] = useState("");
+  const [githubLink, setGithubLink] = useState<string>("");
+  const [portfolioLink, setPortfolioLink] = useState<string>("");
+  const [socialLink, setSocialLink] = useState<string>("");
 
-  const uploadImage = () => {
-    if (imageUpload === null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+  const uploadImage = (image: File) => {
+    if (!image) return;
+    const imageRef = ref(storage, `images/${image.name + uuidv4()}`);
+    uploadBytes(imageRef, image).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         const updatedImageList = [...imageList, url];
         localStorage.setItem("imageList", JSON.stringify(updatedImageList));
@@ -67,7 +68,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    uploadImage();
+    uploadImage(imageUpload);
     handleLinkInput("github", githubLink);
     handleLinkInput("portfolio", portfolioLink);
     handleLinkInput("social", socialLink);
@@ -77,7 +78,6 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
       social: socialLink,
     });
   };
-
   return (
     <div>
       <Dialog>
