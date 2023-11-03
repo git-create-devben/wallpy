@@ -26,7 +26,7 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
 
   return (
     <section>
-      <Header setImageListProp={handleImageListChange} setLinkProp={setLinkProp}/>
+      <Header setImageListProp={handleImageListChange}   setLinkProp={(newLink) => setLinkProp(newLink)}/>
       <div
         className="hero h-[30rem]"
         style={{
