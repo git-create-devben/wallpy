@@ -11,7 +11,7 @@ interface Developer {
 
 const UploadButton: React.FC = () => {
   const supabaseUrl = 'https://vkarozfhfwvtmbjgtmzi.supabase.co'; // Replace with your Supabase URL
-  const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase anon key
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrYXJvemZoZnd2dG1iamd0bXppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkwMzc4MDgsImV4cCI6MjAxNDYxMzgwOH0.Ne6deynwQtKFd6bw6fFCWPK-QSDDv3JmTn6UsoiLxkw'; // Replace with your Supabase anon key
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
   const [developer, setDeveloper] = useState<Developer>({
