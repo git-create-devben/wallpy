@@ -38,7 +38,7 @@ const UploadButton: React.FC = () => {
         (snapshot: any) => {
           // You can handle progress here if needed
         },
-        (error) => {
+        (error: any) => {
           console.error('Error uploading file:', error);
         },
         () => {
