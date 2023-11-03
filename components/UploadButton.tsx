@@ -38,9 +38,16 @@ const UploadButton: React.FC = () => {
   
     try {
       // Upload the thumbnail image to Supabase Storage.
-      const storageRef = supabase.storage().from('thumbnails');
-      const thumbnailRef = storageRef.ref(`thumbnails/${developer.name}`);
-      await thumbnailRef.upload()()(developer.thumbnail);
+      const storage = supabase.storage;
+      const { data, error } = await storage
+      .from('thumbnails')
+      .upload(`thumbnails/${developer.name}`, developer.thumbnail, {
+        cacheControl: '3600',
+        upsert: false,
+      });
+    
+      
+      
   
       // Save the developer information to Supabase Database.
       const databaseRef = supabase.from('developers');
