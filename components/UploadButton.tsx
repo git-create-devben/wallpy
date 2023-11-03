@@ -40,8 +40,8 @@ const UploadButton: React.FC = () => {
       // Upload the thumbnail image to Supabase Storage.
       const storage = supabase.storage;
       const { data, error } = await storage
-        .from('thumbnails')
-        .upload(`thumbnails/${developer.name}`, developer.thumbnail, {
+        .from('thumbnail')
+        .upload(`thumbnail/${developer.name}`, developer.thumbnail, {
           cacheControl: '3600',
           upsert: false,
         });
