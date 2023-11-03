@@ -71,7 +71,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     });
   };
   
-  
+  const SetLinkProp = ""
 
   useEffect(() => {
     // Update the link data in the parent component when the links change
