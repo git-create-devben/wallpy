@@ -29,13 +29,13 @@ const UploadButton: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const storageRef = storage.ref();
+    const storageRef = storage.ref(); // Use the ref function
     if (developer.thumbnail) {
       const uploadTask = storageRef.child(`thumbnails/${developer.name}`).put(developer.thumbnail);
 
       uploadTask.on(
         'state_changed',
-        (snapshot) => {
+        (snapshot: any) => {
           // You can handle progress here if needed
         },
         (error) => {
@@ -52,9 +52,53 @@ const UploadButton: React.FC = () => {
   };
 
   return (
+    <>
+    {/* Your input fields here */}
     <form onSubmit={handleSubmit}>
-      {/* Your input fields here */}
-    </form>
+    <input
+      type="text"
+      name="name"
+      placeholder="Name"
+      value={developer.name}
+      onChange={handleChange}
+    />
+    <input
+      type="file"
+      name="thumbnail"
+      placeholder="Thumbnail"
+      onChange={(e) => {
+        if (e.target.files) {
+          setDeveloper({
+            ...developer,
+            thumbnail: e.target.files[0],
+          });
+        }
+      }}
+    />
+    <input
+      type="text"
+      name="github"
+      placeholder="GitHub"
+      value={developer.github}
+      onChange={handleChange}
+    />
+    <input
+      type="text"
+      name="twitter"
+      placeholder="Twitter"
+      value={developer.twitter}
+      onChange={handleChange}
+    />
+    <input
+      type="text"
+      name="portfolioUrl"
+      placeholder="Portfolio URL"
+      value={developer.portfolioUrl}
+      onChange={handleChange}
+    />
+    <button type="submit">Submit</button>
+  </form>
+  </>
   );
 };
 
