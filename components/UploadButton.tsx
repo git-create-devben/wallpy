@@ -1,133 +1,77 @@
-"use client";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { storage } from "../app/firebase";
-import {
-  ref,
-  uploadBytes,
-  listAll,
-  getDownloadURL,
-  ListResult,
-} from "firebase/storage";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState } from 'react';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../app/firebase';
+import { v4 as uuidv4 } from 'uuid';
 
-import React from "react";
-
-// ... other imports
-
-
-interface UploadButtonProps {
-  setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
+interface DeveloperFormProps {
+  // Define any props you need to pass to the component
 }
 
-const UploadButton: React.FC<UploadButtonProps> = ({ setImageListProp, setLinkProp }) => {
-  const [imageUpload, setImageUpload] = useState<File | null>(null);
-  const [imageList, setImageList] = useState<string[]>([]);
-  const [githubLink, setGithubLink] = useState<string>("");
-  const [portfolioLink, setPortfolioLink] = useState<string>("");
-  const [socialLink, setSocialLink] = useState<string>("");
+const DeveloperForm: React.FC<DeveloperFormProps> = () => {
+  const [thumbnail, setThumbnail] = useState<File | null>(null);
+  const [githubLink, setGithubLink] = useState('');
+  const [twitterHandle, setTwitterHandle] = useState('');
+  const [portfolioUrl, setPortfolioUrl] = useState('');
 
-  const uploadImage = (image: File | null) => {
-    if (!image) return;
-    const imageRef = ref(storage, `images/${image.name + uuidv4()}`);
-    uploadBytes(imageRef, image).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        const updatedImageList = [...imageList, url];
-        localStorage.setItem("imageList", JSON.stringify(updatedImageList));
-        setImageList(updatedImageList);
-        setImageListProp(updatedImageList);
-      });
-    });
-  };
-  
-
-  const handleLinkInput = (type: string, value: string) => {
-    switch (type) {
-      case "github":
-        setGithubLink(value);
-        break;
-      case "portfolio":
-        setPortfolioLink(value);
-        break;
-      case "social":
-        setSocialLink(value);
-        break;
-      default:
-        break;
-    }
+  const handleThumbnailUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) setThumbnail(file);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    uploadImage(imageUpload);
-    handleLinkInput("github", githubLink);
-    handleLinkInput("portfolio", portfolioLink);
-    handleLinkInput("social", socialLink);
-    setLinkProp({
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!thumbnail) return;
+
+    const storageRef = ref(storage, `thumbnails/${thumbnail.name + uuidv4()}`);
+    await uploadBytes(storageRef, thumbnail);
+    const downloadURL = await getDownloadURL(storageRef);
+
+    // Save the data to your database (e.g., Firebase Firestore)
+    // You can use Firebase Firestore or any other database for this purpose
+    // Replace the following lines with your own database logic
+
+    const developerData = {
+      thumbnail: downloadURL,
       github: githubLink,
-      portfolio: portfolioLink,
-      social: socialLink,
-    });
+      twitter: twitterHandle,
+      portfolio: portfolioUrl,
+    };
+
+    // Example of saving the data to a Firestore collection
+    // Replace 'your_firestore_collection' with your actual collection name
+    // await addDoc(collection(db, 'your_firestore_collection'), developerData);
+
+    // Reset the form fields
+    setThumbnail(null);
+    setGithubLink('');
+    setTwitterHandle('');
+    setPortfolioUrl('');
   };
+
   return (
-    <div>
-      <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Upload a cover pic of your project</DialogTitle>
-            <DialogDescription>
-              <main className="flex flex-col items-center justify-between p-24">
-                <form onSubmit={handleSubmit}>
-                                  <input
-                  type="file"
-                  onChange={(e) => setImageUpload(e.target.files?.[0] || null)}
-                />
-                <input
-                  type="text"
-                  placeholder="GitHub Link"
-                  onChange={(e) => handleLinkInput("github", e.target.value)}
-                />
-                <input
-                  type="text"
-                  placeholder="Portfolio Link"
-                  onChange={(e) => handleLinkInput("portfolio", e.target.value)}
-                />
-                <input
-                  type="text"
-                  placeholder="Social Media Link"
-                  onChange={(e) => handleLinkInput("social", e.target.value)}
-                />
-                <button onClick={() => uploadImage(imageUpload)}>Upload</button>
-                {imageList.map((url, index) => (
-                  <div key={index}>
-                    <Image
-                      src={url}
-                      alt={`image-${index}`}
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                ))}
-                 <button type="submit">Submit</button>
-                </form>
-              </main>
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-    </div>
+    <form onSubmit={handleFormSubmit}>
+      <input type="file" onChange={handleThumbnailUpload} />
+      <input
+        type="text"
+        placeholder="GitHub Link"
+        value={githubLink}
+        onChange={(e) => setGithubLink(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Twitter Handle"
+        value={twitterHandle}
+        onChange={(e) => setTwitterHandle(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Portfolio URL"
+        value={portfolioUrl}
+        onChange={(e) => setPortfolioUrl(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
-export default UploadButton;
+export default DeveloperForm;
