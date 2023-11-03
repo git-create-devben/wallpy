@@ -33,12 +33,12 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     // Upload the thumbnail image to Supabase Storage.
     const storageRef = supabase.storage().from('thumbnails');
     const thumbnailRef = storageRef.child(developer.name);
-    await thumbnailRef.upload(developer.thumbnail);
-
+    await thumbnailRef.upload()()(developer.thumbnail);
+  
     // Save the developer information to Supabase Database.
     const databaseRef = supabase.from('developers');
     await databaseRef.insert({
@@ -48,7 +48,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
       twitter: developer.twitter,
       portfolioUrl: developer.portfolioUrl,
     });
-
+  
     // Clear the form.
     setDeveloper({
       name: '',
@@ -58,6 +58,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
       portfolioUrl: '',
     });
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
