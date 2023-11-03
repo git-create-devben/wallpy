@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import 'firebase/storage';
-import { storage } from '../app/firebase'; // Update the path to your Firebase config file
+import { storage } from '../app/firebase';
 import { ref, uploadBytes } from 'firebase/storage';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 interface Developer {
   name: string;
@@ -32,10 +32,23 @@ const UploadButton: React.FC = () => {
 
     const storageRef = ref(storage, `thumbnails/${developer.name}`);
     if (developer.thumbnail) {
-      uploadBytes(storageRef, developer.thumbnail).then((snapshot) => {
+      uploadBytes(storageRef, developer.thumbnail).then(async (snapshot) => {
         console.log('Uploaded a blob or file!', snapshot);
-        // Handle the rest of your logic here, e.g., saving the developer information to Firebase Firestore.
-      }).catch((error) => {
+
+        const firestore = getFirestore();
+        const developersCollectionRef = collection(firestore, 'developers');
+
+        await addDoc(developersCollectionRef, {
+          name: developer.name,
+          thumbnailUrl: snapshot.metadata.fullPath,
+          github: developer.github,
+          twitter: developer.twitter,
+          portfolioUrl: developer.portfolioUrl,
+        });
+
+        // Handle the rest of your logic here, if necessary.
+
+      }).catch((error: any) => {
         console.error('Error uploading file:', error);
       });
     } else {
