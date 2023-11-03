@@ -10,13 +10,13 @@ import {getStorage} from "firebase/storage"
 const firebaseConfig = {
   apiKey: "AIzaSyAka9jZ14MJwqJLG7FsJ4Vgcb8h774XTkU",
   authDomain: "wallpy5.firebaseapp.com",
+  databaseURL: "https://wallpy5-default-rtdb.firebaseio.com",
   projectId: "wallpy5",
   storageBucket: "wallpy5.appspot.com",
   messagingSenderId: "434810454717",
   appId: "1:434810454717:web:024e77770cc3f6515bedd4",
   measurementId: "G-NTLXHXNES4"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
