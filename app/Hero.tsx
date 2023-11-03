@@ -23,15 +23,7 @@ const Hero = ({
   portfolioLink,
   socialLink,
 }: HeroProps) => {
-  const [imageList, setImageList] = useState<string[]>(
-    localStorage.getItem("imageList")
-      ? JSON.parse(localStorage.getItem("imageList")!)
-      : []
-  );
 
-  const handleImageListChange = (newImageList: string[]) => {
-    setImageList(newImageList);
-  };
 
   return (
     <section>
