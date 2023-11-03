@@ -1,11 +1,12 @@
 import React from 'react'
 import { Developer } from "../UploadButton";
 
-type Props = {
+type ProjectProps = {
   developerData: Developer;
 };
 
-const Project = ({ developerData }: Props) => {
+
+const Project: React.FC<ProjectProps> = ({ developerData }) => {
   return (
     <div>
     <h2>Developer Information</h2>
