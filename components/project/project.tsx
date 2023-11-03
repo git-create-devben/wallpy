@@ -32,7 +32,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
             <ul className="flex justify-between p-2">
               {portfolioLink ? (
                 <Link href={portfolioLink} className="flex flex-1">
-                  <BiLinkExternal className="text-2xl text-white"/>
+                  <BiLinkExternal className="text-2xl text-white w-[400px]"/>
                 </Link>
               ) : null}
               {socialLink ? (
