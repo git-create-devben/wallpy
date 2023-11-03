@@ -31,7 +31,7 @@ const Project: React.FC<ProjectProps> = ({ imageList, setLinkProp, githubLink, p
           <div className=" child-div absolute bottom-0 right-0 w-[450px] h-[50px] bg-red-500 ">
             <ul className="flex justify-between p-2">
               {portfolioLink ? (
-                <Link href={portfolioLink} className="flex flex-1">
+                <Link href={"/"} className="flex flex-1">
                   <BiLinkExternal className="text-2xl text-white w-[400px]"/>
                 </Link>
               ) : null}
