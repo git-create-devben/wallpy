@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import firebase from 'firebase/app';
 import 'firebase/storage';
 import storage from '../app/firebase'; // Update the path to your Firebase config file
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
 
 interface Developer {
   name: string;
@@ -34,7 +29,7 @@ const UploadButton: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const storageRef = firebase.storage().ref();
+    const storageRef = storage.ref();
     if (developer.thumbnail) {
       const uploadTask = storageRef.child(`thumbnails/${developer.name}`).put(developer.thumbnail);
 
