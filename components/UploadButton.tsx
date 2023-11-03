@@ -40,35 +40,38 @@ const UploadButton: React.FC = () => {
       // Upload the thumbnail image to Supabase Storage.
       const storage = supabase.storage;
       const { data, error } = await storage
-      .from('thumbnails')
-      .upload(`thumbnails/${developer.name}`, developer.thumbnail, {
-        cacheControl: '3600',
-        upsert: false,
-      });
-    
-      
-      
+        .from('thumbnails')
+        .upload(`thumbnails/${developer.name}`, developer.thumbnail, {
+          cacheControl: '3600',
+          upsert: false,
+        });
   
-      // Save the developer information to Supabase Database.
-      const databaseRef = supabase.from('developers');
-      await databaseRef.insert({
-        name: developer.name,
-        thumbnailUrl: await thumbnailRef.getUrl(),
-        github: developer.github,
-        twitter: developer.twitter,
-        portfolioUrl: developer.portfolioUrl,
-      });
+      if (error) {
+        console.error('Error uploading file:', error);
+      } else {
+        console.log('File uploaded successfully. File info:', data);
   
-      // Clear the form.
-      setDeveloper({
-        name: '',
-        thumbnail: '',
-        github: '',
-        twitter: '',
-        portfolioUrl: '',
-      });
+        // Save the developer information to Supabase Database.
+        const databaseRef = supabase.from('developers');
+        await databaseRef.insert({
+          name: developer.name,
+          thumbnailUrl: data?.path, // Adjust as per your data structure
+          github: developer.github,
+          twitter: developer.twitter,
+          portfolioUrl: developer.portfolioUrl,
+        });
   
-      setIsSubmitting(false);
+        // Clear the form.
+        setDeveloper({
+          name: '',
+          thumbnail: '',
+          github: '',
+          twitter: '',
+          portfolioUrl: '',
+        });
+  
+        setIsSubmitting(false);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setIsSubmitting(false);
