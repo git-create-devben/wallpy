@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
 interface Developer {
   name: string;
-  thumbnail: string;
+  thumbnail: string | Blob;
   github: string;
   twitter: string;
   portfolioUrl: string;
 }
 
 const UploadButton: React.FC = () => {
- 
-const supabaseUrl = 'https://vkarozfhfwvtmbjgtmzi.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrYXJvemZoZnd2dG1iamd0bXppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkwMzc4MDgsImV4cCI6MjAxNDYxMzgwOH0.Ne6deynwQtKFd6bw6fFCWPK-QSDDv3JmTn6UsoiLxkw'
+  const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your Supabase URL
+  const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase anon key
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
     thumbnail: '',
@@ -32,35 +31,37 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-  
+
     // Upload the thumbnail image to Supabase Storage.
-    const storageRef = supabase.from('thumbnails');
-    const thumbnailRef = storageRef.ref('thumbnails/' + developer.name);
-    await thumbnailRef.upload()()(developer.thumbnail);
-  
-    // Save the developer information to Supabase Database.
-    const databaseRef = supabase.from('developers');
-    await databaseRef.insert({
-      name: developer.name,
-      thumbnailUrl: await thumbnailRef.getUrl(),
-      github: developer.github,
-      twitter: developer.twitter,
-      portfolioUrl: developer.portfolioUrl,
-    });
-  
-    // Clear the form.
-    setDeveloper({
-      name: '',
-      thumbnail: '',
-      github: '',
-      twitter: '',
-      portfolioUrl: '',
-    });
+    const storage = supabase.storage;
+    const { data, error } = await storage.from('thumbnails').upload(
+      `thumbnails/${developer.name}`,
+      developer.thumbnail
+    );
+
+    if (error) {
+      console.error('Error uploading file:', error);
+    } else {
+      console.log('File uploaded successfully. File info:', data);
+      // Save the developer information to Supabase Database.
+      const databaseRef = supabase.from('developers');
+      await databaseRef.insert({
+        name: developer.name,
+        thumbnailUrl: data?.path, // Adjust as per your data structure
+        github: developer.github,
+        twitter: developer.twitter,
+        portfolioUrl: developer.portfolioUrl,
+      });
+      // Clear the form.
+      setDeveloper({
+        name: '',
+        thumbnail: '',
+        github: '',
+        twitter: '',
+        portfolioUrl: '',
+      });
+    }
   };
-  
-  
-  
-  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -75,7 +76,14 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
         type="file"
         name="thumbnail"
         placeholder="Thumbnail"
-        onChange={handleChange}
+        onChange={(e) => {
+          if (e.target.files) {
+            setDeveloper({
+              ...developer,
+              thumbnail: e.target.files[0],
+            });
+          }
+        }}
       />
       <input
         type="text"
