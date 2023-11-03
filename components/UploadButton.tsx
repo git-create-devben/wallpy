@@ -14,7 +14,7 @@ interface Developer {
 const UploadButton: React.FC = () => {
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
-    thumbnail: null,
+    thumbnail: null as File | null,
     github: '',
     twitter: '',
     portfolioUrl: '',
@@ -36,7 +36,7 @@ const UploadButton: React.FC = () => {
         console.log('Uploaded a blob or file!', snapshot);
 
         const storageBucketUrl = 'gs://wallpy5.appspot.com'; // Replace with your storage bucket URL
-        const fileUrl = `${storageBucketUrl}/${developer.thumbnail.name}`;
+        const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
         console.log('File URL:', fileUrl);
 
         const firestore = getFirestore();
