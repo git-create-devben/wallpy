@@ -35,54 +35,48 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
   const [githubLink, setGithubLink] = useState("");
   const [portfolioLink, setPortfolioLink] = useState("");
   const [socialLink, setSocialLink] = useState("");
-  const imagelistRef = ref(storage, "images/");
-
-  // setLinkProp={(newLink) => setLinkProp(newLink)}
 
   const uploadImage = () => {
     if (imageUpload === null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        localStorage.setItem("imageList", JSON.stringify([...imageList, url]));
-        setImageList((prevList) => [...prevList, url]);
-        setImageListProp([...imageList, url]); // Update the image list in the parent component
+        const updatedImageList = [...imageList, url];
+        localStorage.setItem("imageList", JSON.stringify(updatedImageList));
+        setImageList(updatedImageList);
+        setImageListProp(updatedImageList);
       });
     });
   };
 
+  const handleLinkInput = (type: string, value: string) => {
+    switch (type) {
+      case "github":
+        setGithubLink(value);
+        break;
+      case "portfolio":
+        setPortfolioLink(value);
+        break;
+      case "social":
+        setSocialLink(value);
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle any final form processing here before submission
     uploadImage();
     handleLinkInput("github", githubLink);
     handleLinkInput("portfolio", portfolioLink);
     handleLinkInput("social", socialLink);
-  };
-  
-  const handleLinkInput = (type: string, value: string) => {
-    if (type === "github") setGithubLink(value);
-    else if (type === "portfolio") setPortfolioLink(value);
-    else if (type === "social") setSocialLink(value);
-    setLinkProp({
-      github: type === "github" ? value : githubLink,
-      portfolio: type === "portfolio" ? value : portfolioLink,
-      social: type === "social" ? value : socialLink,
-    });
-  };
-  
-  const SetLinkProp = ""
-
-  useEffect(() => {
-    // Update the link data in the parent component when the links change
     setLinkProp({
       github: githubLink,
       portfolio: portfolioLink,
       social: socialLink,
     });
-  }, [githubLink, portfolioLink, socialLink, setLinkProp]);
-  
-  
+  };
 
   return (
     <div>
