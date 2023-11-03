@@ -58,6 +58,16 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     handleLinkInput("social", socialLink);
   };
   
+  const handleLinkInput = (type: string, value: string) => {
+    if (type === "github") setGithubLink(value);
+    else if (type === "portfolio") setPortfolioLink(value);
+    else if (type === "social") setSocialLink(value);
+    setLinkProp({
+      github: type === "github" ? value : githubLink,
+      portfolio: type === "portfolio" ? value : portfolioLink,
+      social: type === "social" ? value : socialLink,
+    });
+  };
   
   
 
