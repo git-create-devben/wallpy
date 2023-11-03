@@ -49,7 +49,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Handle any final form processing here before submission
     uploadImage();
@@ -57,6 +57,7 @@ const UploadButton = ({ setImageListProp, setLinkProp }: UploadButtonProps) => {
     handleLinkInput("portfolio", portfolioLink);
     handleLinkInput("social", socialLink);
   };
+  
   
   
 
