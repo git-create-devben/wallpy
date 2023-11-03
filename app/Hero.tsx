@@ -10,6 +10,7 @@ interface HeroProps {
   githubLink: string;
   portfolioLink: string;
   socialLink: string;
+  newLink: (github: string, portfolio: string, social: string ) => void
 }
 
 const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, socialLink }: HeroProps) => {
@@ -23,12 +24,15 @@ const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, social
     setImageList(newImageList);
   };
 
+  const handlesetLinkProp = (newLink: any) => {
+    
+  }
 
   return (
     // eslint-disable-next-line react/jsx-no-comment-textnodes
     <section>
       //@ts-ignore
-      <Header setImageListProp={handleImageListChange}   setLinkProp={(newLink) => setLinkProp(newLink)}/>
+      <Header setImageListProp={handleImageListChange}   setLinkProp={handlesetLinkProp}/>
       <div
         className="hero h-[30rem]"
         style={{
