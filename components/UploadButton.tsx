@@ -34,7 +34,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey)
     event.preventDefault();
   
     // Upload the thumbnail image to Supabase Storage.
-    const storageRef = supabase.storage().from('thumbnails');
+    const storageRef = supabase.from('thumbnails');
     const thumbnailRef = storageRef.ref(developer.name);
     await thumbnailRef.upload()()(developer.thumbnail);
   
