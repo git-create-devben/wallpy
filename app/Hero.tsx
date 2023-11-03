@@ -10,13 +10,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ developerData }) => {
-  const [developer, setDeveloper] = useState({
-    name: '',
-    thumbnail: null,
-    github: '',
-    twitter: '',
-    portfolioUrl: '',
-  });
+
   
 
   return (
