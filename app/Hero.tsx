@@ -11,6 +11,8 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ developerData }) => {
 
+  
+
   return (
     <section>
       <Header developerData={developerData}/>

@@ -9,7 +9,16 @@ interface HeaderProps {
   developerData: Developer;
 }
 
-const Header: React.FC<HeaderProps> = ({ developerData }) => {
+const Header: React.FC<HeaderProps> = () => {
+  const developerData: Developer = {
+    name: 'John Doe',
+    thumbnail: null,
+    github: 'johndoe',
+    twitter: 'johndoe',
+    portfolioUrl: 'https://example.com',
+  };
+
+
   return (
     <header className=" flex justify-between p-2">
       <div className=" flex items-center text-center gap-6 w-full mb-2">
