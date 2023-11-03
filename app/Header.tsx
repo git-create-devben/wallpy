@@ -2,11 +2,15 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "@/components/ui/mode";
-import Uploadbutton from "@/components/UploadButton"
+import Uploadbutton from "@/components/UploadButton";
 
 interface HeaderProps {
   setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: { github: string; portfolio: string; social: string; }) => void; // Adjust the type to match the expected object structure
+  setLinkProp: (newLink: {
+    github: string;
+    portfolio: string;
+    social: string;
+  }) => void; // Adjust the type to match the expected object structure
 }
 
 const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
@@ -20,7 +24,7 @@ const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
           <span className=" text-yellow-500">l</span>
           <span className=" text-purple-500">p</span>
           <span className=" text-pink-500">y</span>
-          <span className=" text-orange-500">.</span>         
+          <span className=" text-orange-500">.</span>
         </h2>
 
         {/* <input
@@ -30,9 +34,12 @@ const Header = ({ setImageListProp, setLinkProp }: HeaderProps) => {
         /> */}
       </div>
       <div className=" flex gap-4">
-        <Uploadbutton  setImageListProp={setImageListProp} setLinkProp={setLinkProp}/>
-      <ModeToggle/>
-      <UserButton afterSignOutUrl="/" />
+        <Uploadbutton
+          setImageListProp={setImageListProp}
+          setLinkProp={(newLink) => setLinkProp(newLink)}
+        />
+        <ModeToggle />
+        <UserButton afterSignOutUrl="/" />
       </div>
     </header>
   );
