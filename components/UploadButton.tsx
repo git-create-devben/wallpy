@@ -10,7 +10,7 @@ interface Developer {
 }
 
 const UploadButton: React.FC = () => {
-  const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your Supabase URL
+  const supabaseUrl = 'https://vkarozfhfwvtmbjgtmzi.supabase.co'; // Replace with your Supabase URL
   const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase anon key
 
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
