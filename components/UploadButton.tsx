@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'firebase/storage';
 import {storage} from '../app/firebase'; // Update the path to your Firebase config file
+import { ref, uploadBytes } from 'firebase/storage';
 
 interface Developer {
   name: string;
@@ -29,27 +30,17 @@ const UploadButton: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const storageRef = storage.ref(); // Use the ref function
+    const storageRef = ref(storage, `thumbnails/${developer.name}`);
     if (developer.thumbnail) {
-      const uploadTask = storageRef.child(`thumbnails/${developer.name}`).put(developer.thumbnail);
-
-      uploadTask.on(
-        'state_changed',
-        (snapshot: any) => {
-          // You can handle progress here if needed
-        },
-        (error: any) => {
-          console.error('Error uploading file:', error);
-        },
-        () => {
-          console.log('File uploaded successfully.');
-          // Handle the rest of your logic here, e.g., saving the developer information to Firebase Firestore.
-        }
-      );
+      uploadBytes(storageRef, developer.thumbnail).then((snapshot: any) => {
+        console.log('Uploaded a blob or file!', snapshot);
+        // Handle the rest of your logic here, e.g., saving the developer information to Firebase Firestore.
+      }).catch((error: any) => {
+        console.error('Error uploading file:', error);
+      });
     } else {
       console.error('No file chosen.');
     }
-  };
 
   return (
     <>
@@ -101,5 +92,5 @@ const UploadButton: React.FC = () => {
   </>
   );
 };
-
+}
 export default UploadButton;
