@@ -6,27 +6,20 @@ import Project from "@/components/project/project";
 
 interface HeroProps {
   setImageListProp: (newImageList: string[]) => void;
-  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void; // Include the setLinkProp function here
+  setLinkProp: (newLink: { github: string; portfolio: string; social: string }) => void;
   githubLink: string;
   portfolioLink: string;
   socialLink: string;
-  newLink: (github: string, portfolio: string, social: string ) => void
 }
 
 const Hero = ({ setImageListProp, setLinkProp, githubLink, portfolioLink, socialLink }: HeroProps) => {
   const [imageList, setImageList] = useState<string[]>(
-    localStorage.getItem("imageList")
-      ? JSON.parse(localStorage.getItem("imageList")!)
-      : []
+    localStorage.getItem("imageList") ? JSON.parse(localStorage.getItem("imageList")!) : []
   );
 
   const handleImageListChange = (newImageList: string[]) => {
     setImageList(newImageList);
   };
-
-  const handlesetLinkProp = (newLink: any) => {
-    setLinkProp(newLink)
-  }
 
   return (
     <section>
