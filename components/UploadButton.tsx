@@ -39,7 +39,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
       uploadBytes(storageRef, developer.thumbnail).then(async (snapshot) => {
         console.log('Uploaded a blob or file!', snapshot);
 
-        const storageBucketUrl = 'gs://wallpy5.appspot.com'; // Replace with your storage bucket URL
+        const storageBucketUrl = 'https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails'; // Replace with your storage bucket URL
         const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
         console.log('File URL:', fileUrl);
 
