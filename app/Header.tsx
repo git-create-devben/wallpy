@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ developerData }) => {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Uploadbutton />
+        <Uploadbutton developerData={developerData} />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
