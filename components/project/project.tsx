@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Developer } from "../UploadButton";
 
 type ProjectProps = {
@@ -7,6 +7,15 @@ type ProjectProps = {
 
 
 const Project: React.FC<ProjectProps> = ({ developerData }) => {
+
+  const [developer, setDeveloper] = useState({
+    name: '',
+    thumbnail: null,
+    github: '',
+    twitter: '',
+    portfolioUrl: '',
+  });
+
   return (
     <div>
     <h2>Developer Information</h2>
