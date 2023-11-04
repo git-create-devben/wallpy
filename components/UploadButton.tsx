@@ -12,10 +12,10 @@ export interface Developer {
 }
 
 interface UploadButtonProps {
-  Developer: typeof Developer;
+  developerData: Developer;
 }
 
-const UploadButton: React.FC<UploadButtonProps> = ({ Developer }) => {
+const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
     thumbnail: null,
