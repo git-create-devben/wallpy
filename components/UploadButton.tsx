@@ -11,10 +11,14 @@ export interface Developer {
   portfolioUrl: string;
 }
 
-const UploadButton: React.FC = () => {
+interface UploadButtonProps {
+  Developer: typeof Developer;
+}
+
+const UploadButton: React.FC<UploadButtonProps> = ({ Developer }) => {
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
-    thumbnail: null as File | null,
+    thumbnail: null,
     github: '',
     twitter: '',
     portfolioUrl: '',
@@ -51,7 +55,6 @@ const UploadButton: React.FC = () => {
         });
 
         // Handle the rest of your logic here, if necessary.
-
       }).catch((error: any) => {
         console.error('Error uploading file:', error);
       });
@@ -59,6 +62,7 @@ const UploadButton: React.FC = () => {
       console.error('No file chosen.');
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
