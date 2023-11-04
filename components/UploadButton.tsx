@@ -65,6 +65,13 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
 
 
   return (
+    <div>
+          <h2>Developer Information</h2>
+      <p>Name: {developerData.name}</p>
+      <p>Github: {developerData.github}</p>
+      <p>Twitter: {developerData.twitter}</p>
+      <p>Portfolio URL: {developerData.portfolioUrl}</p>
+    
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -109,6 +116,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
       />
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 };
 
