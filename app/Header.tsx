@@ -7,7 +7,6 @@ import { Developer } from "../components/UploadButton";
 interface HeaderProps {
   developerData: Developer;
 }
-
 const Header: React.FC<HeaderProps> = ({ developerData }) => {
   return (
     <header className="flex justify-between p-2">
@@ -23,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ developerData }) => {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Uploadbutton developerData={developerData} />
+        <Uploadbutton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
