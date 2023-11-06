@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Wallpy",
-  description: "Download wallpaper easily",
+  description: "Developers inspire developers",
 };
 
 export default function RootLayout({
