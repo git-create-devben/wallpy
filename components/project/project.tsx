@@ -40,7 +40,7 @@ const DisplayComponent: React.FC = () => {
           <p>Github: {dev.github}</p>
           <p>Twitter: {dev.twitter}</p>
           <p>Portfolio URL: {dev.portfolioUrl}</p>
-          {dev.thumbnail && (
+          {dev.thumbnail && typeof dev.thumbnail === 'string' && (
             <Image
               width={200}
               height={200}
