@@ -29,7 +29,6 @@ const DisplayComponent: React.FC = () => {
     const url = await getDownloadURL(storageRef);
     return url;
   };
-
   
   return (
     <div>
