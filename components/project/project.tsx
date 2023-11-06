@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { getFirestore } from 'firebase/firestore';
-import { Developer } from './UploadButton';
+import { Developer } from '../UploadButton';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import Image from 'next/image';
 
@@ -50,7 +50,7 @@ const DisplayComponent: React.FC = () => {
               quality={100}
               priority={true}
               loading="eager"
-              blurDataURL={dev.thumbnail}
+              // blurDataURL={dev.thumbnail}
               placeholder="blur"
               // src={getDeveloperThumbnail(dev.thumbnail)}
               src ={getDeveloperThumbnail(dev.thumbnail)}
