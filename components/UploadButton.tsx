@@ -26,6 +26,7 @@ const uploadImage = (e: any) => {
     <div>
       <input onChange={(e) => setInfo(e.target.value)}/>
       <input type="file" onChange={(e) => uploadImage(e) }/>
+      <button onClick={}>Upload</button>
     </div>
   )
 }
