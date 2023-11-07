@@ -50,7 +50,7 @@ const Project = (props: DeveloperData) => {
           <div key={value.id} className="child-div flex">
             <h1>{value.textVal}</h1>
             <Link href={value.github} target="_blank">
-              <FaGithub/>
+              <FaGithub className="" width={20}/>
             </Link>
             <Link href={value.portfolio} target="_blank">
               <FaExternalLinkAlt/>
