@@ -25,7 +25,7 @@ const uploadImage = (e: any) => {
 }
 
 const upload = () => {
-const projects = collection()
+const projects = collection(db, "developersInfo")
 }
   return (
     <div>
