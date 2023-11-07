@@ -27,6 +27,9 @@ type DeveloperData = {
 const UploadButton = (props: DeveloperData) => {
   const [info, setInfo] = useState("");
   const [thumbnail, setThumbnail] = useState("");
+  const [githubUrl, setGithubUrl] = useState("");
+  const [portfolioUrl, SetPortfolioUrl] = useState("");
+
 
   const uploadImage = (e: any) => {
     console.log(e.target.files[0]);
