@@ -1,4 +1,4 @@
-"use client";
+
 
 import React, { useState } from "react";
 import Header from "./Header";
@@ -48,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ developerData }) => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project developerData={ developerData } />
+        <Project/>
       </div>
     </section>
   );
