@@ -38,7 +38,7 @@ const Project = (props: DeveloperData) => {
   }, []);
 
   return (
-    <div className="parent-div flex gap-2 p-8 ">
+    <div className="parent-div flex gap-6 p-8 ">
       {developerData.map((value) => (
         <div key={value.id} className="">
           <Image
@@ -47,7 +47,7 @@ const Project = (props: DeveloperData) => {
             width={500}
             alt={value.textVal}
           />
-          <div key={value.id} className="child-div flex justify-around items-center">
+          <div key={value.id} className="child-div flex justify-around items-center p-4">
             <h1>{value.textVal}</h1>
             <Link href={value.github} target="_blank">
               <FaGithub className="w-10 h-10"/>
