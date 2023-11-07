@@ -14,6 +14,7 @@ type DeveloperData = {
   thumnailsUrl: string;
   github: string;
   portfolio: string;
+  descriptionTest: string;
 }[];
 
 const Project = (props: DeveloperData) => {
@@ -29,6 +30,7 @@ const Project = (props: DeveloperData) => {
       thumnailsUrl: val.data().thumnailsUrl,
       github: val.data().github,
       portfolio: val.data().portfolio,
+      descriptionTest: val.data().descriptionTest,
     }));
     setDeveloperData(allInfo);
   };
@@ -79,8 +81,7 @@ const Project = (props: DeveloperData) => {
             {value.textVal}
           </h5>
           <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis
-            ligula.
+           {value.descriptionTest}
           </p>
         </div>
         <div className="p-6 pt-0">

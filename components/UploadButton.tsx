@@ -24,6 +24,7 @@ type DeveloperData = {
   thumnailsUrl: string;
   github: string;
   portfolio: string;
+  descriptionTest: string;
 }[];
 
 const UploadButton = (props: DeveloperData) => {
