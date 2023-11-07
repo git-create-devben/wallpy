@@ -37,16 +37,16 @@ const Project = (props: DeveloperData) => {
   }, []);
 
   return (
-    <div className="parent-div flex gap-2">
+    <div className="parent-div flex gap-2 p-8 ">
       {developerData.map((value) => (
         <div key={value.id} className="">
           <Image
             src={value.thumnailsUrl}
-            height={200}
-            width={200}
+            height={600}
+            width={500}
             alt={value.textVal}
           />
-          <div className="child-div flex">
+          <div key={value.id} className="child-div flex">
             <h1>{value.textVal}</h1>
             <h2>{value.github}</h2>
             <h2>{value.portfolio}</h2>
