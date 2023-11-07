@@ -43,7 +43,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        {/* <Project/> */}
+        <Project/>
       </div>
     </section>
   );

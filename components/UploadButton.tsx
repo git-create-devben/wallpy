@@ -31,6 +31,7 @@ const UploadButton = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
   const [portfolioUrl, SetPortfolioUrl] = useState("");
+  const [description, setDescription] = useState("");
 
   const uploadImage = (e: any) => {
     console.log(e.target.files[0]);
