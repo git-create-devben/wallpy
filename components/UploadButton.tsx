@@ -18,7 +18,7 @@ type DeveloperData = {
 const UploadButton = (props: DeveloperData) => {
 const [info, setInfo] = useState("")
 const [thumbnail, setThumbnail] = useState("")
-const [developerData, setDeveloperData] = useState<DeveloperData>([]);
+// const [developerData, setDeveloperData] = useState<DeveloperData>([]);
 
 const uploadImage = (e: any) => {
   console.log(e.target.files[0])
@@ -37,30 +37,30 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
  alert("data added successfully")
 }
 
-const getData = async () => {
-  const project = collection(db, "developersInfo");
-  const datadb = await getDocs(project);
-  const allInfo = datadb.docs.map((val) => ({
-    id: val.id,
-    textVal: val.data().textVal,
-    thumnailsUrl: val.data().thumnailsUrl,
-  }));
-  setDeveloperData(allInfo);
-};
+// const getData = async () => {
+//   const project = collection(db, "developersInfo");
+//   const datadb = await getDocs(project);
+//   const allInfo = datadb.docs.map((val) => ({
+//     id: val.id,
+//     textVal: val.data().textVal,
+//     thumnailsUrl: val.data().thumnailsUrl,
+//   }));
+//   setDeveloperData(allInfo);
+// };
 
 
-useEffect(() => {
-  getData()
-},[])
+// useEffect(() => {
+//   getData()
+// },[])
 
-console.log(developerData, "datadata")
+// console.log(developerData, "datadata")
   return (
     <div>
       <input onChange={(e) => setInfo(e.target.value)}/> <br/>
       <input type="file" onChange={(e) => uploadImage(e) }/>
       <button onClick={upload}>Upload</button>
 
-      {
+      {/* {
         developerData.map(value => 
           
           <div key={value.id}>
@@ -69,7 +69,7 @@ console.log(developerData, "datadata")
           </div>
           
           )
-      }
+      } */}
     </div>
   )
 }
