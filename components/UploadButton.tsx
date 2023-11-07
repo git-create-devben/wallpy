@@ -18,15 +18,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-type DeveloperData = {
-  id: string;
-  textVal: string;
-  thumnailsUrl: string;
-  github: string;
-  portfolio: string;
-}[];
+// type DeveloperData = {
+  // id: string;
+  // textVal: string;
+  // thumnailsUrl: string;
+  // github: string;
+  // portfolio: string;
+// }[];
 
-const UploadButton = (props: DeveloperData) => {
+const UploadButton = () => {
   const [info, setInfo] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [githubUrl, setGithubUrl] = useState("");

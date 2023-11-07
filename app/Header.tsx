@@ -1,10 +1,7 @@
-"use client"
-
 import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
-import Uploadbutton from "@/components/UploadButton";
-// import DeveloperData from "@/components/UploadButton"
+import UploadButton from "@/components/UploadButton";
 
 const Header = () => {
   return (
@@ -21,7 +18,7 @@ const Header = () => {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Uploadbutton/>
+        <UploadButton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
