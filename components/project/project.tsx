@@ -32,35 +32,22 @@ const DisplayComponent: React.FC = () => {
   
   return (
     <div>
-      {developers.map((dev, index) => (
+    {developers.map(async (dev, index) => {
+      const thumbnailUrl = await getDeveloperThumbnail(dev.thumbnail);
+      return (
         <div key={index}>
           <h2>Developer Information</h2>
           <p>Name: {dev.name}</p>
           <p>Github: {dev.github}</p>
           <p>Twitter: {dev.twitter}</p>
           <p>Portfolio URL: {dev.portfolioUrl}</p>
-          {dev.thumbnail && typeof dev.thumbnail === 'string' && (
-            <Image
-              width={200}
-              height={200}
-              className="rounded-lg"
-              layout="fixed"
-              objectFit="cover"
-              quality={100}
-              priority={true}
-              loading="eager"
-              // blurDataURL={dev.thumbnail}
-              placeholder="blur"
-              // src={getDeveloperThumbnail(dev.thumbnail)}
-              src ={getDeveloperThumbnail(dev.thumbnail)}
-              alt="Developer Thumbnail"
-            />
-           
-            
+          {thumbnailUrl && (
+            <Image src={thumbnailUrl} alt="Developer Thumbnail" />
           )}
         </div>
-      ))}
-    </div>
+      );
+    })}
+  </div>
   );
 };
 
