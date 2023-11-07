@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { storage } from '../app/firebase';
 import { ref, uploadBytes } from 'firebase/storage';
@@ -7,7 +5,7 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export interface Developer {
   name: string;
-  thumbnail: string;
+  thumbnail: File | null;
   github: string;
   twitter: string;
   portfolioUrl: string;
@@ -20,7 +18,7 @@ interface UploadButtonProps {
 const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
   const [developer, setDeveloper] = useState<Developer>({
     name: '',
-    thumbnail: "",
+    thumbnail: null,
     github: '',
     twitter: '',
     portfolioUrl: '',
@@ -35,20 +33,19 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-  
+
     const storageRef = ref(storage, `thumbnails/${developer.name}`);
-    if (developer.thumbnail && typeof developer.thumbnail === 'object' && 'name' in developer.thumbnail) {
-      const thumbnailBlob = new Blob([developer.thumbnail], { type: 'image/png' });
-      uploadBytes(storageRef, thumbnailBlob).then(async (snapshot) => {
+    if (developer.thumbnail) {
+      uploadBytes(storageRef, developer.thumbnail).then(async (snapshot) => {
         console.log('Uploaded a blob or file!', snapshot);
-  
+
         const storageBucketUrl = 'https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails'; // Replace with your storage bucket URL
-        const fileUrl = `${storageBucketUrl}/${developer.thumbnail.name}`; // Make sure thumbnail has a 'name' property
+        const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
         console.log('File URL:', fileUrl);
-  
+
         const firestore = getFirestore();
         const developersCollectionRef = collection(firestore, 'developers');
-  
+
         await addDoc(developersCollectionRef, {
           name: developer.name,
           thumbnailUrl: snapshot.metadata.fullPath,
@@ -56,7 +53,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
           twitter: developer.twitter,
           portfolioUrl: developer.portfolioUrl,
         });
-  
+
         // Handle the rest of your logic here, if necessary.
       }).catch((error: any) => {
         console.error('Error uploading file:', error);
@@ -65,11 +62,16 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
       console.error('No file chosen.');
     }
   };
-  
 
 
   return (
-    <div>   
+    <div>
+       <h2>Developer Information</h2>
+      <p>Name: {developerData?.name ?? 'No Name Available'}</p>
+      <p>Github: {developerData?.github ?? 'No Github Available'}</p>
+      <p>Twitter: {developerData?.twitter ?? 'No Twitter Available'}</p>
+      <p>Portfolio URL: {developerData?.portfolioUrl ?? 'No Portfolio URL Available'}</p>
+    
     <form onSubmit={handleSubmit}>
       <input
         type="text"
