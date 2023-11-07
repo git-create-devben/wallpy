@@ -40,30 +40,36 @@ const Project = (props: DeveloperData) => {
   return (
     <div className="parent-div flex gap-6 p-8 ">
       {developerData.map((value) => (
-        <div key={value.id} className="">
+        // <div key={value.id} className="">
+        //   <Image
+        //     src={value.thumnailsUrl}
+        //     height={400}
+        //     width={400}
+        //     alt={value.textVal}
+        //   />
+        //   <div
+        //     key={value.id}
+        //     className="child-div flex justify-around items-center p-4"
+        //   >
+        //     <h1>{value.textVal}</h1>
+        //     <Link href={value.github} target="_blank">
+        //       <FaGithub className="w-10 h-10" />
+        //     </Link>
+        //     <Link href={value.portfolio} target="_blank">
+        //       <FaExternalLinkAlt className="w-10 h-10" />
+        //     </Link>
+        //   </div>
+        // </div>
+        <div key={value.id} className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
           <Image
             src={value.thumnailsUrl}
-            height={400}
-            width={400}
-            alt={value.textVal}
+            alt="Tailwind card"
+            layout="fill"
+            objectFit="cover"
           />
-          <div
-            key={value.id}
-            className="child-div flex justify-around items-center p-4"
-          >
-            <h1>{value.textVal}</h1>
-            <Link href={value.github} target="_blank">
-              <FaGithub className="w-10 h-10" />
-            </Link>
-            <Link href={value.portfolio} target="_blank">
-              <FaExternalLinkAlt className="w-10 h-10" />
-            </Link>
-          </div>
-        </div>
-      ))}
 
-      <div className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+        </div>
         <div className="p-6">
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Tailwind card
@@ -83,6 +89,9 @@ const Project = (props: DeveloperData) => {
           </button>
         </div>
       </div>
+      ))}
+
+ 
     </div>
   );
 };
