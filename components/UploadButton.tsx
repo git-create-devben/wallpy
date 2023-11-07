@@ -5,8 +5,7 @@ import { storage, db } from '@/app/firebase'
 import { v4 } from 'uuid'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { addDoc, collection, getDocs } from 'firebase/firestore'
-import { Divide } from 'lucide-react'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 
 type DeveloperData = {
