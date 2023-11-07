@@ -9,6 +9,8 @@ type DeveloperData = {
   id: string;
   textVal: string;
   thumnailsUrl: string;
+  github: string;
+  portfolio: string;
 }[];
 
 const Project = (props: DeveloperData) => {
@@ -23,6 +25,8 @@ const Project = (props: DeveloperData) => {
       id: val.id,
       textVal: val.data().textVal,
       thumnailsUrl: val.data().thumnailsUrl,
+      github: val.data().github,
+      portfolio: val.data().portfolio,
     }));
     setDeveloperData(allInfo);
   };
@@ -36,9 +40,11 @@ const Project = (props: DeveloperData) => {
   return (
     <div>
       {developerData.map((value) => (
-        <div key={value.id}>
+        <div key={value.id} className='flex '>
           <h1>{value.textVal}</h1>
           <Image src={value.thumnailsUrl} height={200} width={200} alt={value.textVal} />
+          <h2>{value.github}</h2>
+          <h2>{value.portfolio}</h2>
         </div>
       ))}
     </div>
