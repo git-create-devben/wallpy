@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "./project.css";
 
 type DeveloperData = {
@@ -49,10 +50,10 @@ const Project = (props: DeveloperData) => {
           <div key={value.id} className="child-div flex">
             <h1>{value.textVal}</h1>
             <Link href={value.github} target="_blank">
-              <h1>Github</h1>
+              <FaGithub/>
             </Link>
             <Link href={value.portfolio} target="_blank">
-              <h1>Portfolio</h1>
+              <FaExternalLinkAlt/>
             </Link>
           </div>
         </div>
