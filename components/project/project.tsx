@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Image from "next/image";
+import Link from "next/link";
+import "./project.css"
 
 type DeveloperData = {
   id: string;
@@ -35,7 +37,7 @@ const Project = (props: DeveloperData) => {
   }, []);
 
   return (
-    <div className="flex gap-2">
+    <div className="parent-div flex gap-2">
       {developerData.map((value) => (
         <div key={value.id} className="">
           <Image
@@ -44,7 +46,7 @@ const Project = (props: DeveloperData) => {
             width={200}
             alt={value.textVal}
           />
-          <div className="flex">
+          <div className="child-div flex">
             <h1>{value.textVal}</h1>
             <h2>{value.github}</h2>
             <h2>{value.portfolio}</h2>
