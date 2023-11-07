@@ -69,9 +69,9 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
 // console.log(developerData, "datadata")
   return (
     <div>
-      <input onChange={(e) => setInfo(e.target.value)}/> <br/>
-      <input type="file" onChange={(e) => uploadImage(e) }/>
-      <button onClick={upload}>Upload</button>
+      {/* <input onChange={(e) => setInfo(e.target.value)}/> <br/> */}
+      {/* <input type="file" onChange={(e) => uploadImage(e) }/> */}
+      {/* <button onClick={upload}>Upload</button> */}
 
       {/* {
         developerData.map(value => 
@@ -83,6 +83,48 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
           
           )
       } */}
+
+<Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Add Portfolio</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when youre done.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Name
+            </Label>
+            <Input
+              id="name"
+              defaultValue="Pedro Duarte"
+              className="col-span-3"
+              onChange={(e) => setInfo(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Username
+            </Label>
+            <Input
+              id="username"
+              defaultValue="@peduarte"
+              className="col-span-3"
+              type="file" 
+              onChange={(e) => uploadImage(e) }
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit" onClick={upload}>Save changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
     </div>
   )
 }
