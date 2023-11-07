@@ -47,13 +47,13 @@ const Project = (props: DeveloperData) => {
             width={500}
             alt={value.textVal}
           />
-          <div key={value.id} className="child-div flex">
+          <div key={value.id} className="child-div flex justify-between items-center">
             <h1>{value.textVal}</h1>
             <Link href={value.github} target="_blank">
-              <FaGithub className="" width={20}/>
+              <FaGithub className="w-10 h-10"/>
             </Link>
             <Link href={value.portfolio} target="_blank">
-              <FaExternalLinkAlt/>
+              <FaExternalLinkAlt className="w-10 h-10"/>
             </Link>
           </div>
         </div>
