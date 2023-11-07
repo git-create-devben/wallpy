@@ -38,7 +38,7 @@ const Project = (props: DeveloperData) => {
   }, []);
 
   return (
-    <div className="parent-div flex gap-6 p-8 ">
+    <div className="parent-div flex gap-10 p-20 flex-wrap">
       {developerData.map((value) => (
         // <div key={value.id} className="">
         //   <Image
