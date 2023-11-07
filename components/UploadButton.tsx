@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { storage } from "../app/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 export interface Developer {
   name: string;
-  thumbnail: File | null;
+  thumbnail: string | null; // Updated the type to 'string'
   github: string;
   twitter: string;
   portfolioUrl: string;
@@ -34,15 +34,17 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const storageRef = ref(storage, `thumbnails/${developer.name}`);
     if (developer.thumbnail) {
+      const storage = getStorage();
+      const storageRef = ref(storage, developer.thumbnail); // Pass the string representing the path to the image
+
       uploadBytes(storageRef, developer.thumbnail)
         .then(async (snapshot) => {
           console.log("Uploaded a blob or file!", snapshot);
 
           const storageBucketUrl =
             "https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails"; // Replace with your storage bucket URL
-          const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
+          const fileUrl = `${storageBucketUrl}/${developer.thumbnail}`;
           console.log("File URL:", fileUrl);
 
           const firestore = getFirestore();
@@ -84,7 +86,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
             if (e.target.files) {
               setDeveloper({
                 ...developer,
-                thumbnail: e.target.files[0],
+                thumbnail: e.target.files[0].name, // Assuming 'name' is the path to the image in Firebase Storage
               });
             }
           }}
