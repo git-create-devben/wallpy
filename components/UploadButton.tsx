@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { storage, db } from '@/app/firebase'
 import { v4 } from 'uuid'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
 
 
 type Developer = {}
@@ -12,6 +12,7 @@ type Developer = {}
 const UploadButton = (props: Developer) => {
 const [info, setInfo] = useState("")
 const [thumbnail, setThumbnail] = useState("")
+const [developerData, setDeveloperData] = useState([])]
 
 const uploadImage = (e: any) => {
   console.log(e.target.files[0])
@@ -28,6 +29,13 @@ const upload = async () => {
 const projects = collection(db, "developersInfo")
 await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
  alert("data added successfully")
+}
+
+const getData = async () => {
+  const project = collection(db, "developersInfo")
+  const datadb = await getDocs(project)
+  const allInfo = datadb.docs.map(val => ({...val.data(), id:val.id}))
+  
 }
   return (
     <div>
