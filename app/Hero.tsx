@@ -4,8 +4,6 @@
 import Header from "./Header";
 import Project from "@/components/project/project";
 import "./globals.css"
-
-
 const Hero = () => {
 
   return (
@@ -45,7 +43,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project/>
+        {/* <Project/> */}
       </div>
     </section>
   );

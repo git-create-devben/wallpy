@@ -37,6 +37,10 @@ const Project = (props: DeveloperData) => {
     getData();
   }, []);
 
+  if (developerData.length === 0) {
+    return <div>Loading...</div>; // or any other desired loading indicator
+  }
+
   return (
     <div className="parent-div flex gap-10 p-20 flex-wrap">
       {developerData.map((value) => (
