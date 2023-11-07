@@ -93,7 +93,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="Github"
-              value="Paste your Github url"
+              placeholder="Paste your Github url"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
@@ -103,7 +103,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="Portfolio"
-              value="Paste your portfolio url"
+              placeholder="Paste your portfolio url"
               className="col-span-3"
               type="url"
               onChange={(e) => SetPortfolioUrl(e.target.value)}
