@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react'
-import { storage, db } from '@/app/firebase'
-import { v4 } from 'uuid'
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import { addDoc, collection, getDocs } from 'firebase/firestore'
-import { Button } from "@/components/ui/button"
+import React, { useEffect, useState } from "react";
+import { storage, db } from "@/app/firebase";
+import { v4 } from "uuid";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -14,11 +14,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-// import Image from 'next/image'
-
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 type DeveloperData = {
   id: string;
@@ -27,73 +25,36 @@ type DeveloperData = {
 }[];
 
 const UploadButton = (props: DeveloperData) => {
-const [info, setInfo] = useState("")
-const [thumbnail, setThumbnail] = useState("")
-// const [developerData, setDeveloperData] = useState<DeveloperData>([]);
+  const [info, setInfo] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
 
-const uploadImage = (e: any) => {
-  console.log(e.target.files[0]);
-  const thumbnails = ref(storage, `thumbnail/s${v4()}`);
-  uploadBytes(thumbnails, e.target.files[0]).then((data) => {
-    console.log(data, "thumbnails");
-    getDownloadURL(data.ref).then((val) => {
-      console.log("Thumbnail URL:", val); // Add this line to check the value of the thumbnail URL
-      setThumbnail(val);
+  const uploadImage = (e: any) => {
+    console.log(e.target.files[0]);
+    const thumbnails = ref(storage, `thumbnail/s${v4()}`);
+    uploadBytes(thumbnails, e.target.files[0]).then((data) => {
+      console.log(data, "thumbnails");
+      getDownloadURL(data.ref).then((val) => {
+        console.log("Thumbnail URL:", val); // Add this line to check the value of the thumbnail URL
+        setThumbnail(val);
+      });
     });
-  });
-};
+  };
 
+  const upload = async () => {
+    const projects = collection(db, "developersInfo");
+    await addDoc(projects, { textVal: info, thumnailsUrl: thumbnail });
+    alert("data added successfully");
+  };
 
-const upload = async () => {
-const projects = collection(db, "developersInfo")
-await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
- alert("data added successfully")
-}
-
-// const getData = async () => {
-//   const project = collection(db, "developersInfo");
-//   const datadb = await getDocs(project);
-//   const allInfo = datadb.docs.map((val) => ({
-//     id: val.id,
-//     textVal: val.data().textVal,
-//     thumnailsUrl: val.data().thumnailsUrl,
-//   }));
-//   setDeveloperData(allInfo);
-// };
-
-
-// useEffect(() => {
-//   getData()
-// },[])
-
-// console.log(developerData, "datadata")
   return (
-    <div>
-      {/* <input onChange={(e) => setInfo(e.target.value)}/> <br/> */}
-      {/* <input type="file" onChange={(e) => uploadImage(e) }/> */}
-      {/* <button onClick={upload}>Upload</button> */}
-
-      {/* {
-        developerData.map(value => 
-          
-          <div key={value.id}>
-            <h1>{value.textVal}</h1>
-            <Image src={value.thumnailsUrl} height={200} width={200} alt={value.textVal}/>
-          </div>
-          
-          )
-      } */}
-
-<Dialog>
+    <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">Add Portfolio</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add New portfolio</DialogTitle>
-          <DialogDescription>
-            Add a new portfolio 
-          </DialogDescription>
+          <DialogDescription>Add a new portfolio</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -115,18 +76,19 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
               id="Upload"
               // defaultValue="@peduarte"
               className="col-span-3"
-              type="file" 
-              onChange={(e) => uploadImage(e) }
+              type="file"
+              onChange={(e) => uploadImage(e)}
             />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={upload}>Add</Button>
+          <Button type="submit" onClick={upload}>
+            Add
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-    </div>
-  )
-}
+  );
+};
 
-export default UploadButton
+export default UploadButton;
