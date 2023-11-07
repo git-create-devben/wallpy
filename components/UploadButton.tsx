@@ -22,6 +22,8 @@ type DeveloperData = {
   id: string;
   textVal: string;
   thumnailsUrl: string;
+  github: string;
+  portfolio: string;
 }[];
 
 const UploadButton = (props: DeveloperData) => {
@@ -45,7 +47,7 @@ const UploadButton = (props: DeveloperData) => {
 
   const upload = async () => {
     const projects = collection(db, "developersInfo");
-    await addDoc(projects, { textVal: info, thumnailsUrl: thumbnail });
+    await addDoc(projects, { textVal: info, thumnailsUrl: thumbnail, github: githubUrl, portfolio: portfolioUrl  });
     alert("data added successfully");
   };
 
@@ -80,7 +82,21 @@ const UploadButton = (props: DeveloperData) => {
               // defaultValue="@peduarte"
               className="col-span-3"
               type="file"
-              onChange={(e) => uploadImage(e)}
+              onChange={(e) => uploadImage(e.target.value)}
+            />
+              <Input
+              id="Github"
+              // defaultValue="@peduarte"
+              className="col-span-3"
+              type="url"
+              onChange={(e) => setGithubUrl(e.target.value)}
+            />
+               <Input
+              id="Portfolio"
+              // defaultValue="@peduarte"
+              className="col-span-3"
+              type="url"
+              onChange={(e) => SetPortfolioUrl(e)}
             />
           </div>
         </div>
