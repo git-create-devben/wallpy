@@ -33,41 +33,56 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     if (developer.thumbnail) {
       const storage = getStorage();
-      const storageRef = ref(storage, developer.thumbnail); // Pass the string representing the path to the image
-
-      uploadBytes(storageRef, developer.thumbnail)
-        .then(async (snapshot) => {
-          console.log("Uploaded a blob or file!", snapshot);
-
-          const storageBucketUrl =
-            "https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails"; // Replace with your storage bucket URL
-          const fileUrl = `${storageBucketUrl}/${developer.thumbnail}`;
-          console.log("File URL:", fileUrl);
-
-          const firestore = getFirestore();
-          const developersCollectionRef = collection(firestore, "developers");
-
-          await addDoc(developersCollectionRef, {
-            name: developer.name,
-            thumbnailUrl: snapshot.metadata.fullPath,
-            github: developer.github,
-            twitter: developer.twitter,
-            portfolioUrl: developer.portfolioUrl,
-          });
-
-          // Handle the rest of your logic here, if necessary.
-        })
-        .catch((error: any) => {
-          console.error("Error uploading file:", error);
-        });
+      const storageRef = ref(storage, `thumbnails/${developer.name}`); // Ensure the appropriate path to the image in Firebase Storage
+  
+      const file = developer.thumbnail;
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+  
+      reader.onload = function (event) {
+        if (event.target && event.target.result) {
+          const fileData = event.target.result as ArrayBuffer;
+          const blob = new Blob([new Uint8Array(fileData)]);
+          uploadBytes(storageRef, blob) // Pass the created blob
+            .then(async (snapshot) => {
+              console.log("Uploaded a blob or file!", snapshot);
+  
+              const storageBucketUrl =
+                "https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails"; // Replace with your storage bucket URL
+              const fileUrl = `${storageBucketUrl}/${developer.thumbnail}`;
+              console.log("File URL:", fileUrl);
+  
+              const firestore = getFirestore();
+              const developersCollectionRef = collection(firestore, "developers");
+  
+              await addDoc(developersCollectionRef, {
+                name: developer.name,
+                thumbnailUrl: snapshot.metadata.fullPath,
+                github: developer.github,
+                twitter: developer.twitter,
+                portfolioUrl: developer.portfolioUrl,
+              });
+  
+              // Handle the rest of your logic here, if necessary.
+            })
+            .catch((error: any) => {
+              console.error("Error uploading file:", error);
+            });
+        }
+      };
+  
+      reader.onerror = function (event) {
+        console.error("Error reading the file:", event);
+      };
     } else {
       console.error("No file chosen.");
     }
   };
-
+  
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -84,10 +99,13 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
           placeholder="Thumbnail"
           onChange={(e) => {
             if (e.target.files) {
-              setDeveloper({
-                ...developer,
-                thumbnail: e.target.files[0].name, // Assuming 'name' is the path to the image in Firebase Storage
-              });
+              const file = e.target.files[0];
+              if (file) {
+                setDeveloper({
+                  ...developer,
+                  thumbnail: file.name, // Assuming 'name' is the path to the image in Firebase Storage
+                });
+              }
             }
           }}
         />
