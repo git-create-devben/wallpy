@@ -1,25 +1,22 @@
 
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Header from "./Header";
 import Project from "@/components/project/project";
-import { Developer } from "../components/UploadButton";
+import "./globals.css"
 
-interface HeroProps {
-  developerData: Developer;
-}
 
-const Hero: React.FC<HeroProps> = ({ developerData }) => {
+const Hero = () => {
 
   return (
     <section>
-      <Header developerData={developerData}/>
+      <Header/>
       <div
-        className="hero h-[30rem]"
-        style={{
-          backgroundImage:
-            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
-        }}
+        className="hero  cont"
+        // style={{
+        //   backgroundImage:
+        //     "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+        // }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">

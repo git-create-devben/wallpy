@@ -4,12 +4,9 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import Uploadbutton from "@/components/UploadButton";
-import { Developer } from "../components/UploadButton";
+// import DeveloperData from "@/components/UploadButton"
 
-interface HeaderProps {
-  developerData: Developer;
-}
-const Header: React.FC<HeaderProps> = ({ developerData }) => {
+const Header = () => {
   return (
     <header className="flex justify-between p-2">
       <div className="flex items-center text-center gap-6 w-full mb-2">
@@ -24,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ developerData }) => {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Uploadbutton developerData={developerData} />
+        <Uploadbutton/>
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
