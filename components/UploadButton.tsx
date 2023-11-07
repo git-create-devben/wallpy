@@ -90,15 +90,15 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Add New portfolio</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when youre done.
+            Add a new portfolio 
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
-              Name
+              UserName
             </Label>
             <Input
               id="name"
@@ -109,11 +109,11 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Username
+              Add file
             </Label>
             <Input
-              id="username"
-              defaultValue="@peduarte"
+              id="Upload"
+              // defaultValue="@peduarte"
               className="col-span-3"
               type="file" 
               onChange={(e) => uploadImage(e) }
