@@ -121,7 +121,7 @@ await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={upload}>Save changes</Button>
+          <Button type="submit" onClick={upload}>Add</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
