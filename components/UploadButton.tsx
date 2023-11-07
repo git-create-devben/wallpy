@@ -32,7 +32,6 @@ const UploadButton = (props: DeveloperData) => {
   const [githubUrl, setGithubUrl] = useState("");
   const [portfolioUrl, SetPortfolioUrl] = useState("");
 
-
   const uploadImage = (e: any) => {
     console.log(e.target.files[0]);
     const thumbnails = ref(storage, `thumbnail/s${v4()}`);
@@ -47,7 +46,12 @@ const UploadButton = (props: DeveloperData) => {
 
   const upload = async () => {
     const projects = collection(db, "developersInfo");
-    await addDoc(projects, { textVal: info, thumnailsUrl: thumbnail, github: githubUrl, portfolio: portfolioUrl  });
+    await addDoc(projects, {
+      textVal: info,
+      thumnailsUrl: thumbnail,
+      github: githubUrl,
+      portfolio: portfolioUrl,
+    });
     alert("data added successfully");
   };
 
@@ -84,14 +88,20 @@ const UploadButton = (props: DeveloperData) => {
               type="file"
               onChange={(e) => uploadImage(e)}
             />
-              <Input
+            <Label htmlFor="username" className="text-right">
+              Githun Url
+            </Label>
+            <Input
               id="Github"
               // defaultValue="@peduarte"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
             />
-               <Input
+            <Label htmlFor="username" className="text-right">
+              Portfolio Url
+            </Label>
+            <Input
               id="Portfolio"
               // defaultValue="@peduarte"
               className="col-span-3"
