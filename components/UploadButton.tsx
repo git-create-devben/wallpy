@@ -72,7 +72,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="name"
-              value="Dev Ben"
+              placeholder="Dev Ben"
               className="col-span-3"
               onChange={(e) => setInfo(e.target.value)}
             />
@@ -84,6 +84,7 @@ const UploadButton = (props: DeveloperData) => {
             <Input
               id="Upload"
               className="col-span-3"
+              placeholder="Upload your file"
               type="file"
               onChange={(e) => uploadImage(e)}
             />
