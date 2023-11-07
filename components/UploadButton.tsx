@@ -63,8 +63,7 @@ console.log(developerData, "datadata")
       {
         developerData.map(value => 
           
-          // eslint-disable-next-line react/jsx-key
-          <div>
+          <div key={value.id}>
             <h1>{value.textVal}</h1>
             <Image src={value.thumnailsUrl} height={200} width={200} alt={value.textVal}/>
           </div>
