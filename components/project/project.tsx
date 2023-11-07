@@ -5,7 +5,7 @@ import { Developer } from '../UploadButton';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import Image from 'next/image';
 
-const DisplayComponent: React.FC = () => {
+const Project: React.FC = () => {
   const [developers, setDevelopers] = useState<Developer[]>([]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const DisplayComponent: React.FC = () => {
     <div>
       {developers.map(async (dev, index) => {
         if (dev.thumbnail) {
-          const thumbnailUrl = await getDeveloperThumbnail(dev.thumbnail);
+          const thumbnailUrl = await getDeveloperThumbnail(dev.thumbnail.name);
           return (
             <div key={index}>
               <h2>Developer Information</h2>
@@ -54,4 +54,4 @@ const DisplayComponent: React.FC = () => {
   );
 };
 
-export default DisplayComponent;
+export default Project;
