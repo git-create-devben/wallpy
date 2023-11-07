@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { storage } from '../app/firebase';
-import { ref, uploadBytes } from 'firebase/storage';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import React, { useState } from "react";
+import { storage } from "../app/firebase";
+import { ref, uploadBytes } from "firebase/storage";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 export interface Developer {
   name: string;
@@ -17,11 +17,11 @@ interface UploadButtonProps {
 
 const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
   const [developer, setDeveloper] = useState<Developer>({
-    name: '',
+    name: "",
     thumbnail: null,
-    github: '',
-    twitter: '',
-    portfolioUrl: '',
+    github: "",
+    twitter: "",
+    portfolioUrl: "",
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,86 +36,82 @@ const UploadButton: React.FC<UploadButtonProps> = ({ developerData }) => {
 
     const storageRef = ref(storage, `thumbnails/${developer.name}`);
     if (developer.thumbnail) {
-      uploadBytes(storageRef, developer.thumbnail).then(async (snapshot) => {
-        console.log('Uploaded a blob or file!', snapshot);
+      uploadBytes(storageRef, developer.thumbnail)
+        .then(async (snapshot) => {
+          console.log("Uploaded a blob or file!", snapshot);
 
-        const storageBucketUrl = 'https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails'; // Replace with your storage bucket URL
-        const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
-        console.log('File URL:', fileUrl);
+          const storageBucketUrl =
+            "https://firebasestorage.googleapis.com/v0/b/wallpy5.appspot.com/o/thumbnails"; // Replace with your storage bucket URL
+          const fileUrl = `${storageBucketUrl}/${developer.thumbnail!.name}`;
+          console.log("File URL:", fileUrl);
 
-        const firestore = getFirestore();
-        const developersCollectionRef = collection(firestore, 'developers');
+          const firestore = getFirestore();
+          const developersCollectionRef = collection(firestore, "developers");
 
-        await addDoc(developersCollectionRef, {
-          name: developer.name,
-          thumbnailUrl: snapshot.metadata.fullPath,
-          github: developer.github,
-          twitter: developer.twitter,
-          portfolioUrl: developer.portfolioUrl,
+          await addDoc(developersCollectionRef, {
+            name: developer.name,
+            thumbnailUrl: snapshot.metadata.fullPath,
+            github: developer.github,
+            twitter: developer.twitter,
+            portfolioUrl: developer.portfolioUrl,
+          });
+
+          // Handle the rest of your logic here, if necessary.
+        })
+        .catch((error: any) => {
+          console.error("Error uploading file:", error);
         });
-
-        // Handle the rest of your logic here, if necessary.
-      }).catch((error: any) => {
-        console.error('Error uploading file:', error);
-      });
     } else {
-      console.error('No file chosen.');
+      console.error("No file chosen.");
     }
   };
 
-
   return (
     <div>
-       <h2>Developer Information</h2>
-      <p>Name: {developerData?.name ?? 'No Name Available'}</p>
-      <p>Github: {developerData?.github ?? 'No Github Available'}</p>
-      <p>Twitter: {developerData?.twitter ?? 'No Twitter Available'}</p>
-      <p>Portfolio URL: {developerData?.portfolioUrl ?? 'No Portfolio URL Available'}</p>
-    
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={developer.name}
-        onChange={handleChange}
-      />
-      <input
-        type="file"
-        name="thumbnail"
-        placeholder="Thumbnail"
-        onChange={(e) => {
-          if (e.target.files) {
-            setDeveloper({
-              ...developer,
-              thumbnail: e.target.files[0],
-            });
-          }
-        }}
-      />
-      <input
-        type="text"
-        name="github"
-        placeholder="GitHub"
-        value={developer.github}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="twitter"
-        placeholder="Twitter"
-        value={developer.twitter}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="portfolioUrl"
-        placeholder="Portfolio URL"
-        value={developer.portfolioUrl}
-        onChange={handleChange}
-      />
-      <button type="submit">Submit</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={developer.name}
+          onChange={handleChange}
+        />
+        <input
+          type="file"
+          name="thumbnail"
+          placeholder="Thumbnail"
+          onChange={(e) => {
+            if (e.target.files) {
+              setDeveloper({
+                ...developer,
+                thumbnail: e.target.files[0],
+              });
+            }
+          }}
+        />
+        <input
+          type="text"
+          name="github"
+          placeholder="GitHub"
+          value={developer.github}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="twitter"
+          placeholder="Twitter"
+          value={developer.twitter}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="portfolioUrl"
+          placeholder="Portfolio URL"
+          value={developer.portfolioUrl}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };
