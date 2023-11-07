@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Image from "next/image";
 import Link from "next/link";
-import "./project.css"
+import "./project.css";
 
 type DeveloperData = {
   id: string;
@@ -48,8 +48,12 @@ const Project = (props: DeveloperData) => {
           />
           <div key={value.id} className="child-div flex">
             <h1>{value.textVal}</h1>
-            <h2>{value.github}</h2>
-            <h2>{value.portfolio}</h2>
+            <Link href={value.github} target="_blank">
+              <h1>Github</h1>
+            </Link>
+            <Link href={value.portfolio} target="_blank">
+              <h1>Portfolio</h1>
+            </Link>
           </div>
         </div>
       ))}
