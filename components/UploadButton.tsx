@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react'
 import { storage, db } from '@/app/firebase'
 import { v4 } from 'uuid'
@@ -16,7 +18,7 @@ const uploadImage = (e: any) => {
   uploadBytes(thumbnails, e.target.files[0]).then(data => {
     console.log(data, "thumbnails")
     getDownloadURL(data.ref).then(val => {
-      console.log(val)
+      setThumbnail(val)
     })
   })
 }
