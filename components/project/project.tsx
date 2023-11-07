@@ -42,7 +42,17 @@ const Project = (props: DeveloperData) => {
 
   if (developerData.length === 0) {
     return (
-      <div className="loader m-auto block mt-[15rem]"></div>
+      <div className="loadeder">
+      <div className="loader-cube">
+        <div className="face"></div>
+        <div className="face"></div>
+        <div className="face"></div>
+        <div className="face"></div>
+        <div className="face"></div>
+        <div className="face"></div>
+      </div>
+    </div>
+  
     ); // or any other desired loading indicator
   }
 
