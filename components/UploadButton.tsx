@@ -32,10 +32,13 @@ const uploadImage = (e: any) => {
 }
 
 const upload = async () => {
-const projects = collection(db, "developersInfo")
-await addDoc(projects, {textVal: info, thumnailsUrl:thumbnail })
- alert("data added successfully")
-}
+  const dataToAdd = { textVal: info, thumnailsUrl: thumbnail };
+  console.log('Data to add:', dataToAdd); // Add this line to check the data being added
+  const projects = collection(db, "developersInfo");
+  await addDoc(projects, dataToAdd);
+  alert("Data added successfully");
+};
+
 
 // const getData = async () => {
 //   const project = collection(db, "developersInfo");

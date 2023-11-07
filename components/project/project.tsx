@@ -18,6 +18,7 @@ const Project = (props: DeveloperData) => {
   const getData = async () => {
     const project = collection(db, "developersInfo");
     const datadb = await getDocs(project);
+    console.log(datadb); // Add this line to check the data received from the database
     const allInfo = datadb.docs.map((val) => ({
       id: val.id,
       textVal: val.data().textVal,
@@ -27,9 +28,10 @@ const Project = (props: DeveloperData) => {
   };
   
   
+  
   useEffect(() => {
     getData()
-  })
+  }, [])
 
   return (
     <div>
