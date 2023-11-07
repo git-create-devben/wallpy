@@ -43,8 +43,8 @@ const Project = (props: DeveloperData) => {
         <div key={value.id} className="">
           <Image
             src={value.thumnailsUrl}
-            height={600}
-            width={500}
+            height={400}
+            width={400}
             alt={value.textVal}
           />
           <div key={value.id} className="child-div flex justify-around items-center p-4">
