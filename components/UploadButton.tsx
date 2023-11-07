@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { storage, db } from '@/app/firebase'
 import { v4 } from 'uuid'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { collection } from 'firebase/firestore'
 
 
 type Developer = {}
@@ -22,11 +23,15 @@ const uploadImage = (e: any) => {
     })
   })
 }
+
+const upload = () => {
+const projects = collection()
+}
   return (
     <div>
       <input onChange={(e) => setInfo(e.target.value)}/>
       <input type="file" onChange={(e) => uploadImage(e) }/>
-      <button onClick={}>Upload</button>
+      <button onClick={upload}>Upload</button>
     </div>
   )
 }
