@@ -9,59 +9,64 @@ import Image from 'next/image';
 
 const Project: React.FC = () => {
   const [developers, setDevelopers] = useState<Developer[]>([]);
+  const [thumbnailUrls, setThumbnailUrls] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchDevelopers = () => {
+    const fetchDevelopers = async () => {
       const firestore = getFirestore();
       const developersCollectionRef = collection(firestore, 'developers');
-      getDocs(developersCollectionRef)
-        .then((querySnapshot) => {
-          const fetchedDevelopers: Developer[] = [];
-          querySnapshot.forEach((doc) => {
-            const data = doc.data() as Developer;
-            fetchedDevelopers.push(data);
-          });
-          setDevelopers(fetchedDevelopers);
-        })
-        .catch((error) => {
-          console.error('Error fetching developers: ', error);
-        });
+      const querySnapshot = await getDocs(developersCollectionRef);
+      const fetchedDevelopers: Developer[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data() as Developer;
+        fetchedDevelopers.push(data);
+      });
+      setDevelopers(fetchedDevelopers);
     };
     fetchDevelopers();
   }, []);
 
-  const getDeveloperThumbnail = (path: string) => {
-    const storage = getStorage();
-    const storageRef = ref(storage, path);
-    return getDownloadURL(storageRef);
-  };
+  useEffect(() => {
+    const fetchThumbnailUrls = async () => {
+      const storage = getStorage();
+      const urls = await Promise.all(
+        developers.map(async (dev) => {
+          if (dev.thumbnail) {
+            const storageRef = ref(storage, dev.thumbnail); // Assuming dev.thumbnail is the path to the image in Firebase Storage
+            const url = await getDownloadURL(storageRef);
+            return url;
+          }
+          return ''; // Return a default value if dev.thumbnail doesn't exist
+        })
+      );
+      setThumbnailUrls(urls);
+    };
+    fetchThumbnailUrls();
+  }, [developers]);
 
   return (
     <div>
-      <h1>Developer info</h1>
-      {developers.map((dev, index) => {
-        if (dev.thumbnail) {
-          getDeveloperThumbnail(dev.thumbnail.name)
-            .then((thumbnailUrl) => {
-              return (
-                <div key={index}>
-                  <h2>Developer Information</h2>
-                  <p>Name: {dev.name}</p>
-                  <p>Github: {dev.github}</p>
-                  <p>Twitter: {dev.twitter}</p>
-                  <p>Portfolio URL: {dev.portfolioUrl}</p>
-                  {thumbnailUrl && (
-                    <Image src={thumbnailUrl} alt="Developer Thumbnail" />
-                  )}
-                </div>
-              );
-            })
-            .catch((error) => {
-              console.error('Error fetching thumbnail URL: ', error);
-            });
-        }
-        return null;
-      })}
+      {developers.map((dev, index) => (
+        <div key={index}>
+          <h2>Developer Information</h2>
+          {dev.thumbnail && thumbnailUrls[index] && (
+            <div>
+              <h2>image</h2>
+              <Image
+                src={thumbnailUrls[index]}
+                alt={dev.name}
+                width={100}
+                height={100}
+                objectFit="cover"
+              />
+            </div>
+          )}
+          <p>Name: {dev.name}</p>
+          <p>Github: {dev.github}</p>
+          <p>Twitter: {dev.twitter}</p>
+          <p>Portfolio URL: {dev.portfolioUrl}</p>
+        </div>
+      ))}
     </div>
   );
 };
