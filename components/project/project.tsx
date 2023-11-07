@@ -42,16 +42,7 @@ const Project = (props: DeveloperData) => {
 
   if (developerData.length === 0) {
     return (
-      <div>
-        <Skeleton className="relative h-60 w-[30rem]"/> 
-        <div className="flex flex-col  space-x-4">
-          <Skeleton className="absolute h-40 w-60 rounded-md" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-[250px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
-        </div>
-      </div>
+      <div className="loader m-auto block mt-[15rem]"></div>
     ); // or any other desired loading indicator
   }
 
