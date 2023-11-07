@@ -38,6 +38,7 @@ const Project: React.FC = () => {
 
   return (
     <div>
+      <h1>Developer info</h1>
       {developers.map((dev, index) => {
         if (dev.thumbnail) {
           getDeveloperThumbnail(dev.thumbnail.name)
