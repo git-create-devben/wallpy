@@ -82,7 +82,7 @@ const UploadButton = (props: DeveloperData) => {
               // defaultValue="@peduarte"
               className="col-span-3"
               type="file"
-              onChange={(e) => uploadImage(e.target.value)}
+              onChange={(e) => uploadImage(e)}
             />
               <Input
               id="Github"
@@ -96,7 +96,7 @@ const UploadButton = (props: DeveloperData) => {
               // defaultValue="@peduarte"
               className="col-span-3"
               type="url"
-              onChange={(e) => SetPortfolioUrl(e)}
+              onChange={(e) => SetPortfolioUrl(e.target.value)}
             />
           </div>
         </div>
