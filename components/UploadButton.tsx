@@ -24,7 +24,7 @@ const uploadImage = (e: any) => {
   })
 }
 
-const upload = () => {
+const upload = async () => {
 const projects = collection(db, "developersInfo")
 }
   return (
