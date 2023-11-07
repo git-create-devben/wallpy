@@ -29,7 +29,7 @@ const Project = (props: DeveloperData) => {
   
   useEffect(() => {
     getData()
-  },[])
+  })
 
   return (
     <div>
