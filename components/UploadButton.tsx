@@ -72,7 +72,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="name"
-              defaultValue="Pedro Duarte"
+              value="Pedro Duarte"
               className="col-span-3"
               onChange={(e) => setInfo(e.target.value)}
             />
@@ -83,7 +83,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="Upload"
-              // defaultValue="@peduarte"
+              value="add file"
               className="col-span-3"
               type="file"
               onChange={(e) => uploadImage(e)}
@@ -93,7 +93,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="Github"
-              // defaultValue="@peduarte"
+              value="Paste your Github url"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
@@ -103,7 +103,7 @@ const UploadButton = (props: DeveloperData) => {
             </Label>
             <Input
               id="Portfolio"
-              // defaultValue="@peduarte"
+              value="Paste your portfolio url"
               className="col-span-3"
               type="url"
               onChange={(e) => SetPortfolioUrl(e.target.value)}
