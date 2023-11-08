@@ -96,7 +96,7 @@ const Project = (props: DeveloperData) => {
               {value.textVal}
             </h5>
             <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-              {value.descriptionTest}
+             Built with: {value.descriptionTest}
             </p>
           </div>
           <div className="p-6 pt-0">
