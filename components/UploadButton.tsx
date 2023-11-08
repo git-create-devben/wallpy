@@ -132,10 +132,10 @@ const UploadButton = (props: DeveloperData) => {
             <Label htmlFor="username" className="text-right">
               Build with:
             </Label>
-            <input
+            <Input
               name="desc"
               id="desc"
-              className="col-span-3"
+              className="col-span-4"
               type="text"
               onChange={(e) => setDescription(e.target.value)}
               placeholder=" html, css, etc."
