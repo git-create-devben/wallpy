@@ -132,14 +132,13 @@ const UploadButton = (props: DeveloperData) => {
             <Label htmlFor="username" className="text-right">
               Descriptions
             </Label>
-            <textarea
+            <input
               name="desc"
               id="desc"
-              cols={30}
-              rows={30}
+             type="text"
               onChange={(e) => setDescription(e.target.value)}
               placeholder="This project is build using , html, css, etc."
-            ></textarea>
+            />
           </div>
         </div>
         <DialogFooter>
