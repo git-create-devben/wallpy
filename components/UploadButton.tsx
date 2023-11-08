@@ -135,7 +135,8 @@ const UploadButton = (props: DeveloperData) => {
             <input
               name="desc"
               id="desc"
-             type="text"
+              className="col-span-3"
+              type="text"
               onChange={(e) => setDescription(e.target.value)}
               placeholder=" html, css, etc."
             />
