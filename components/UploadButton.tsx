@@ -130,14 +130,14 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => SetPortfolioUrl(e.target.value)}
             />
             <Label htmlFor="username" className="text-right">
-              Descriptions
+              Build with:
             </Label>
             <input
               name="desc"
               id="desc"
              type="text"
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="This project is build using , html, css, etc."
+              placeholder=" html, css, etc."
             />
           </div>
         </div>
