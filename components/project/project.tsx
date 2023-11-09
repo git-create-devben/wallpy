@@ -125,7 +125,7 @@ const Project = (props: DeveloperData) => {
           <div className="bottom">
             <div className="content">
               <h1 className="name">Dev Ben</h1>
-              <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
+              <p className="about-me"> Build with: {value.descriptionTest}</p>
             </div>
             <div className="bottom-bottom flex items-center">
               <div className="social-links-container">
