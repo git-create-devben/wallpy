@@ -45,9 +45,9 @@
   bottom: 3px;
   left: 3px;
   right: 3px;
-  background: #ccc;
+  background: #222;
   top: 88%;
-  border-radius: 30px;
+  border-radius: 28px;
   z-index: 2;
   /* box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset; */
   overflow: hidden;
