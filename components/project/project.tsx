@@ -36,6 +36,8 @@ const Project = (props: DeveloperData) => {
       github: val.data().github,
       portfolio: val.data().portfolio,
       descriptionTest: val.data().descriptionTest,
+      twitter: val.data().twitter,
+      thread: val.data().thread
     }));
     setDeveloperData(allInfo);
   };
