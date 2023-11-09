@@ -208,7 +208,7 @@
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
   }
   
-  .card:hover .profile-pic {
+  .card:hover .thumbnail {
     width: 100px;
     height: 100px;
     aspect-ratio: 1;
@@ -221,7 +221,7 @@
     transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
   }
   
-  .card:hover .profile-pic img {
+  .card:hover .thumbnail img {
     transform: scale(2.5);
     -o-object-position: 0px 25px;
     object-position: 0px 25px;
