@@ -124,12 +124,12 @@ const Project = (props: DeveloperData) => {
           </div>
           <div className="bottom">
             <div className="content">
-              <h1 className="name">Dev Ben</h1>
+              <h1 className="name">{value.textVal}</h1>
               <p className="about-me"> Build with: {value.descriptionTest}</p>
             </div>
             <div className="bottom-bottom flex items-center">
               <div className="social-links-container">
-                <Link href="">
+                <Link href={value.github}>
                   <FaGithub className="h-8 w-8" />
                 </Link>
                 <Link href="">
