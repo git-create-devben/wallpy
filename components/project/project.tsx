@@ -110,8 +110,8 @@ const Project = (props: DeveloperData) => {
         //   </div>
         // </div>
 
-        <div className="book"  key={value.id}>
-        <p>Hello</p>
+        <div className="card"  key={value.id}>
+          <button className="mail"></button>
         <div className="cover">
      
         </div>
