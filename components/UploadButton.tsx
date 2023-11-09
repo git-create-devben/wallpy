@@ -81,8 +81,8 @@ const UploadButton = (props: DeveloperData) => {
               />
             </svg>
             <span className="text-white">
-              Warning: After You upload your portfolio wont be able to edit so
-              becarefull when filling the form!
+              Warning: After You upload your portfolio, you wont be able to edit or delete so
+              becarefull when filling the form.
             </span>
           </DialogDescription>
         </DialogHeader>
