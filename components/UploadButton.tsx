@@ -25,6 +25,8 @@ type DeveloperData = {
   github: string;
   portfolio: string;
   descriptionTest: string;
+  thread:string;
+  twitter:string;
 }[];
 
 const UploadButton = (props: DeveloperData) => {
@@ -33,6 +35,8 @@ const UploadButton = (props: DeveloperData) => {
   const [githubUrl, setGithubUrl] = useState("");
   const [portfolioUrl, SetPortfolioUrl] = useState("");
   const [description, setDescription] = useState("");
+  const [thread, setThread] = useState("");
+  const [twitter, setTwitter] = useState("");
 
   const uploadImage = (e: any) => {
     console.log(e.target.files[0]);
@@ -54,6 +58,8 @@ const UploadButton = (props: DeveloperData) => {
       github: githubUrl,
       portfolio: portfolioUrl,
       descriptionTest: description,
+      thread:thread,
+      twitter:twitter
     });
     alert("data added successfully");
   };
@@ -127,7 +133,7 @@ const UploadButton = (props: DeveloperData) => {
               placeholder="Paste your  X link"
               className="col-span-3"
               type="url"
-              onChange={(e) => setGithubUrl(e.target.value)}
+              onChange={(e) => setTwitter(e.target.value)}
             />
             <Label htmlFor="Thread" className="text-right">
               Thread 
@@ -137,7 +143,7 @@ const UploadButton = (props: DeveloperData) => {
               placeholder="Paste your thread link"
               className="col-span-3"
               type="url"
-              onChange={(e) => setGithubUrl(e.target.value)}
+              onChange={(e) => setThread(e.target.value)}
             />
             <Label htmlFor="portfolio" className="text-right">
               Portfolio 
