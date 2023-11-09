@@ -25,22 +25,26 @@ type DeveloperData = {
 const Project = (props: DeveloperData) => {
   const [developerData, setDeveloperData] = useState<DeveloperData>([]);
 
-  const getData = async () => {
-    const project = collection(db, "developersInfo");
-    const datadb = await getDocs(project);
-    console.log(datadb); // Add this line to check the data received from the database
-    const allInfo = datadb.docs.map((val) => ({
-      id: val.id,
-      textVal: val.data().textVal,
-      thumnailsUrl: val.data().thumnailsUrl,
-      github: val.data().github,
-      portfolio: val.data().portfolio,
-      descriptionTest: val.data().descriptionTest,
-      twitter: val.data().twitter,
-      thread: val.data().thread
-    }));
-    setDeveloperData(allInfo);
-  };
+    const getData = async () => {
+      try {
+        const project = collection(db, "developersInfo");
+        const datadb = await getDocs(project);
+        console.log(datadb); // Check the data received from the database
+        const allInfo = datadb.docs.map((val) => ({
+          id: val.id,
+          textVal: val.data().textVal,
+          thumnailsUrl: val.data().thumnailsUrl,
+          github: val.data().github,
+          portfolio: val.data().portfolio,
+          descriptionTest: val.data().descriptionTest,
+          twitter: val.data().twitter,
+          thread: val.data().thread
+        }));
+        setDeveloperData(allInfo);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
   useEffect(() => {
     getData();
