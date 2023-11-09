@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { Skeleton } from "@/components/ui/skeleton";
 import "./project.css";
+import { PackagePlusIcon } from "lucide-react";
 
 type DeveloperData = {
   id: string;
@@ -124,6 +125,7 @@ const Project = (props: DeveloperData) => {
         <div className="bottom">
         <div className="content">
           <h1 className="name">Dev Ben</h1>
+          <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
         </div>
         </div>
        </div>
