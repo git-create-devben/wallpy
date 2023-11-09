@@ -96,13 +96,13 @@
 }
 
 .card .bottom .bottom-bottom .button {
-  background: white;
-  color: #fbb9b6;
+  /* background: white; */
+  /* color: #fbb9b6; */
   border: none;
   border-radius: 20px;
   font-size: 0.6rem;
   padding: 0.4rem 0.6rem;
-  box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+  /* box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px; */
 }
 
 .card .bottom .bottom-bottom .button:hover {
