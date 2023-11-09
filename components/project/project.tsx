@@ -116,7 +116,7 @@ const Project = (props: DeveloperData) => {
           <div className="thumbnail">
             <Image
               src=""
-              alt={`image ${value.textVal}`}
+              alt={`thumbnail of ${value.textVal}`}
               layout="fill"
               objectFit="cover"
               className="img"
