@@ -131,7 +131,7 @@ const Project = (props: DeveloperData) => {
         <div className="social-links-container">
 
         </div>
-        <button className="button">Contact Me</button>
+        <button className="button">view portfolio</button>
         </div>
         </div>
        </div>
