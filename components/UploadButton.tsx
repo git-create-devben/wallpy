@@ -7,7 +7,8 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { ZodType, z } from "zod"
+import { ZodType, z, } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Dialog,
   DialogContent,
@@ -31,6 +32,16 @@ type DeveloperData = {
   twitter: string;
 }[];
 
+type FormData = {
+  userName: string;
+  thumbnail: File;
+  github: string;
+  portfolio: string;
+  description: string;
+  thread: string;
+  twitter: string;
+};
+
 const UploadButton = (props: DeveloperData) => {
   const [info, setInfo] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -40,28 +51,31 @@ const UploadButton = (props: DeveloperData) => {
   const [thread, setThread] = useState("");
   const [twitter, setTwitter] = useState("");
 
-  const schema: ZodType<DeveloperData> = z.object({
+//   const MAX_FILE_SIZE = 500000;
+// const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+
+  const FormSchema = z.object({
     userName: z.string().min(2),
-    thumbnail: z.string(),
+    thumbnail:z.instanceof(File),
     github: z.string().url(),
     portfolio: z.string().url(),
-    description: z.string().url(),
+    description: z.string(),
     thread: z.string().url(),
     twitter: z.string().url(),
-    info: z.string(),
-  })
+    // info: z.string(),
+  });
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm({ resolver: ZodResolver(schema));
+  const schema: ZodType<FormData> = FormSchema;
 
-  const onSubmit = (e: any) => {
-  
-  
+  const { register, handleSubmit } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: FormData) => {
     // Handle form submission here
-    console.log(e);
+    console.log("work", data);
     upload();
+    alert('Portfolio submitted!');
   };
 
   const uploadImage = (e: any) => {
@@ -87,7 +101,6 @@ const UploadButton = (props: DeveloperData) => {
       thread: thread,
       twitter: twitter,
     });
-
   };
 
   return (
@@ -128,9 +141,8 @@ const UploadButton = (props: DeveloperData) => {
                 id="name"
                 placeholder="Dev Ben"
                 className="col-span-3"
-                {...register("userName", { required: true, minLength: 3 })}
+                {...register("userName")}
               />
-            
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
               <Label htmlFor="upload" className="text-right">
@@ -141,8 +153,7 @@ const UploadButton = (props: DeveloperData) => {
                 className="col-span-3"
                 placeholder="Upload your file"
                 type="file"
-                {...register("thumbnail", { required: true })}
-            
+                {...register("thumbnail")}
                 onChange={(e) => uploadImage(e)}
               />
               <Label htmlFor="Github" className="text-right">
@@ -153,7 +164,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your Github link"
                 className="col-span-3"
                 type="url"
-                {...register("github", { required: true })}
+                {...register("github")}
                 onChange={(e) => setGithubUrl(e.target.value)}
               />
               <Label htmlFor="X" className="text-right">
@@ -164,6 +175,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your  X link"
                 className="col-span-3"
                 type="url"
+                {...register("twitter")}
                 onChange={(e) => setTwitter(e.target.value)}
               />
               <Label htmlFor="Thread" className="text-right">
@@ -174,6 +186,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your thread link"
                 className="col-span-3"
                 type="url"
+                {...register("thread")}
                 onChange={(e) => setThread(e.target.value)}
               />
               <Label htmlFor="portfolio" className="text-right">
@@ -184,7 +197,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your portfolio link"
                 className="col-span-3"
                 type="url"
-                {...register("portfolio", { required: true })}
+                {...register("portfolio")}
                 onChange={(e) => SetPortfolioUrl(e.target.value)}
               />
               <Label htmlFor="username" className="text-right">
@@ -195,7 +208,7 @@ const UploadButton = (props: DeveloperData) => {
                 id="desc"
                 className="col-span-3"
                 type="text"
-                {...register("lang", { required: true })}
+                {...register("description")}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder=" html, css, etc."
               />
