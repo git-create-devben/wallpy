@@ -1,7 +1,7 @@
 .card {
   width: 480px;
   height: 480px;
-  background: white;
+  /* background: white; */
   border-radius: 32px;
   padding: 3px;
   position: relative;
@@ -45,7 +45,7 @@
   bottom: 3px;
   left: 3px;
   right: 3px;
-  background: blue;
+  background: #ccc;
   top: 88%;
   border-radius: 30px;
   z-index: 2;
