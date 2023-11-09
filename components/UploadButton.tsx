@@ -162,7 +162,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your Github link"
                 className="col-span-3"
                 type="url"
-                {...register("Github", { required: true })}
+                {...register("github", { required: true })}
                 onChange={(e) => setGithubUrl(e.target.value)}
               />
               <Label htmlFor="X" className="text-right">
