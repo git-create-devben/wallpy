@@ -121,7 +121,7 @@ const Project = (props: DeveloperData) => {
               className="img"
             />
           </div>
-        <div className="cover">
+        <div className="bottom">
      
         </div>
        </div>
