@@ -127,7 +127,7 @@ const Project = (props: DeveloperData) => {
           <h1 className="name">Dev Ben</h1>
           <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
         </div>
-        <div className="bottom-bottom">
+        <div className="bottom-bottom flex items-center">
         <div className="social-links-container">
           <FaGithub className="svg"/>
           <FaExternalLinkAlt/>
