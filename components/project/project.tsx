@@ -55,7 +55,7 @@ const Project = (props: DeveloperData) => {
 
   if (loading) {
     return (
-      <div className="loadeder">
+      <><div className="overlay" id="overlay"></div><div className="loaded">
         <div className="loader-cube">
           <div className="face"></div>
           <div className="face"></div>
@@ -64,7 +64,7 @@ const Project = (props: DeveloperData) => {
           <div className="face"></div>
           <div className="face"></div>
         </div>
-      </div>
+      </div></>
     );
   }
 
