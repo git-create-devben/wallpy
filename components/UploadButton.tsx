@@ -134,6 +134,11 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Upload your file"
                 type="file"
                 {...register("thumbnail", { required: true })}
+                onClick={() => {
+                  if (!thumbnail) {
+                    alert("Please upload a thumbnail");
+                  }
+                }}
                 onChange={(e) => uploadImage(e)}
               />
               <Label htmlFor="Github" className="text-right">
