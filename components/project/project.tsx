@@ -113,7 +113,7 @@ const Project = (props: DeveloperData) => {
         <div className="book"  key={value.id}>
         <p>Hello</p>
         <div className="cover">
-            <p>Hover Me</p>
+     
         </div>
        </div>
       ))}
