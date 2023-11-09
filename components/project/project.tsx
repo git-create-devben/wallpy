@@ -112,6 +112,15 @@ const Project = (props: DeveloperData) => {
 
         <div className="card"  key={value.id}>
           <button className="mail"></button>
+          <div className="thumbnail">
+          <Image
+              src={value.thumnailsUrl}
+              alt="Tailwind card"
+              layout="fill"
+              objectFit="cover"
+              className="img"
+            />
+          </div>
         <div className="cover">
      
         </div>
