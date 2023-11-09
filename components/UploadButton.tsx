@@ -137,12 +137,6 @@ const UploadButton = (props: DeveloperData) => {
                 className="col-span-3"
                 {...register("userName", { required: true, minLength: 3 })}
               />
-              {errors.userName && (
-              <div className="alert alert-error">
-              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span className="text-sm">Error! Task failed successfully.</span>
-            </div>
-              )}
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
               <Label htmlFor="upload" className="text-right">
@@ -156,9 +150,7 @@ const UploadButton = (props: DeveloperData) => {
                 {...register("thumbnail", { required: true })}
                 onChange={(e) => uploadImage(e)}
               />
-              {errors.thumbnail && (
-                <span>This field is required. Please upload a thumbnail.</span>
-              )}
+
               <Label htmlFor="Github" className="text-right">
                 Github
               </Label>
@@ -214,6 +206,14 @@ const UploadButton = (props: DeveloperData) => {
           </div>
 
           <DialogFooter>
+            {errors.thumbnail && (
+              <span className="text-red-500">Please upload a thumbnail.</span>
+            )}
+            {errors.userName && (
+              <span className="text-red-500">
+                This field is required and must be at least 3 characters long.
+              </span>
+            )}
             <Button type="submit">Add</Button>
           </DialogFooter>
         </form>
