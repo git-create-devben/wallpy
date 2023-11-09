@@ -122,7 +122,9 @@ const Project = (props: DeveloperData) => {
             />
           </div>
         <div className="bottom">
-     
+        <div className="content">
+
+        </div>
         </div>
        </div>
       ))}
