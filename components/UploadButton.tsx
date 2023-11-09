@@ -6,6 +6,7 @@ import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
 import {
   Dialog,
   DialogContent,
@@ -25,8 +26,8 @@ type DeveloperData = {
   github: string;
   portfolio: string;
   descriptionTest: string;
-  thread:string;
-  twitter:string;
+  thread: string;
+  twitter: string;
 }[];
 
 const UploadButton = (props: DeveloperData) => {
@@ -37,6 +38,17 @@ const UploadButton = (props: DeveloperData) => {
   const [description, setDescription] = useState("");
   const [thread, setThread] = useState("");
   const [twitter, setTwitter] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    // Handle form submission here
+    console.log(data);
+  };
 
   const uploadImage = (e: any) => {
     console.log(e.target.files[0]);
@@ -58,8 +70,8 @@ const UploadButton = (props: DeveloperData) => {
       github: githubUrl,
       portfolio: portfolioUrl,
       descriptionTest: description,
-      thread:thread,
-      twitter:twitter
+      thread: thread,
+      twitter: twitter,
     });
     alert("data added successfully");
   };
@@ -87,11 +99,12 @@ const UploadButton = (props: DeveloperData) => {
               />
             </svg>
             <span className="text-white">
-              Warning: After You upload your portfolio, you wont be able to edit or delete so
-              becarefull when filling the form.
+              Warning: After You upload your portfolio, you wont be able to edit
+              or delete so becarefull when filling the form.
             </span>
           </DialogDescription>
         </DialogHeader>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
@@ -101,8 +114,13 @@ const UploadButton = (props: DeveloperData) => {
               id="name"
               placeholder="Dev Ben"
               className="col-span-3"
-              onChange={(e) => setInfo(e.target.value)}
+              {...register("userName", { required: true, minLength: 3 })}
             />
+            {errors.userName && (
+              <span>
+                This field is required and must be at least 3 characters long.
+              </span>
+            )}
           </div>
           <div className="grid grid-cols-4 items-center gap-2">
             <Label htmlFor="upload" className="text-right">
@@ -136,7 +154,7 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => setTwitter(e.target.value)}
             />
             <Label htmlFor="Thread" className="text-right">
-              Thread 
+              Thread
             </Label>
             <Input
               id="Thread"
@@ -146,7 +164,7 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => setThread(e.target.value)}
             />
             <Label htmlFor="portfolio" className="text-right">
-              Portfolio 
+              Portfolio
             </Label>
             <Input
               id="Portfolio"
@@ -168,6 +186,7 @@ const UploadButton = (props: DeveloperData) => {
             />
           </div>
         </div>
+        </form>
         <DialogFooter>
           <Button type="submit" onClick={upload}>
             Add
