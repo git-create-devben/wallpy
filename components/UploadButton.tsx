@@ -42,8 +42,8 @@ const UploadButton = (props: DeveloperData) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isSubmitted, isSubmitting },
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data: any) => {
     // Handle form submission here
@@ -137,6 +137,11 @@ const UploadButton = (props: DeveloperData) => {
                 className="col-span-3"
                 {...register("userName", { required: true, minLength: 3 })}
               />
+              {errors.userName && isSubmitted && (
+                <span className="text-red-500 text-xs w-[20rem] text-center">
+                  Please enter a valid username.
+                </span>
+              )}
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
               <Label htmlFor="upload" className="text-right">
@@ -150,7 +155,11 @@ const UploadButton = (props: DeveloperData) => {
                 {...register("thumbnail", { required: true })}
                 onChange={(e) => uploadImage(e)}
               />
-
+              {errors.thumbnail && isSubmitted && (
+                <span className="text-red-500 text-xs w-[20rem] text-center">
+                  Please upload a thumbnail.
+                </span>
+              )}
               <Label htmlFor="Github" className="text-right">
                 Github
               </Label>
@@ -159,6 +168,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your Github link"
                 className="col-span-3"
                 type="url"
+                {...register("Github", { required: true })}
                 onChange={(e) => setGithubUrl(e.target.value)}
               />
               <Label htmlFor="X" className="text-right">
@@ -189,31 +199,30 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Paste your portfolio link"
                 className="col-span-3"
                 type="url"
+                {...register("portfolio", { required: true })}
                 onChange={(e) => SetPortfolioUrl(e.target.value)}
               />
               <Label htmlFor="username" className="text-right">
                 Build with:
               </Label>
               <Input
-                name="desc"
+                // name="desc"
                 id="desc"
                 className="col-span-4"
                 type="text"
+                {...register("lang", { required: true })}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder=" html, css, etc."
               />
+              {errors.lang && isSubmitted && (
+                <span className="text-red-500 text-xs w-[20rem] text-center">
+                  You forgot this!.
+                </span>
+              )}
             </div>
           </div>
 
           <DialogFooter>
-            {errors.thumbnail && (
-              <span className="text-red-500">Please upload a thumbnail.</span>
-            )}
-            {errors.userName && (
-              <span className="text-red-500">
-                This field is required and must be at least 3 characters long.
-              </span>
-            )}
             <Button type="submit">Add</Button>
           </DialogFooter>
         </form>
