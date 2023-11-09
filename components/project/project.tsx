@@ -5,8 +5,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaExternalLinkAlt,  } from "react-icons/fa";
-import { FaXTwitter, FaThreads  } from "react-icons/fa6"
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaXTwitter, FaThreads } from "react-icons/fa6";
 import { Skeleton } from "@/components/ui/skeleton";
 import "./project.css";
 import { PackagePlusIcon } from "lucide-react";
@@ -45,16 +45,15 @@ const Project = (props: DeveloperData) => {
   if (developerData.length === 0) {
     return (
       <div className="loadeder">
-      <div className="loader-cube">
-        <div className="face"></div>
-        <div className="face"></div>
-        <div className="face"></div>
-        <div className="face"></div>
-        <div className="face"></div>
-        <div className="face"></div>
+        <div className="loader-cube">
+          <div className="face"></div>
+          <div className="face"></div>
+          <div className="face"></div>
+          <div className="face"></div>
+          <div className="face"></div>
+          <div className="face"></div>
+        </div>
       </div>
-    </div>
-  
     ); // or any other desired loading indicator
   }
 
@@ -112,10 +111,10 @@ const Project = (props: DeveloperData) => {
         //   </div>
         // </div>
 
-        <div className="card"  key={value.id}>
+        <div className="card" key={value.id}>
           <button className="mail"></button>
           <div className="thumbnail">
-          <Image
+            <Image
               src={value.thumnailsUrl}
               alt="Tailwind card"
               layout="fill"
@@ -123,21 +122,29 @@ const Project = (props: DeveloperData) => {
               className="img"
             />
           </div>
-        <div className="bottom">
-        <div className="content">
-          <h1 className="name">Dev Ben</h1>
-          <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
+          <div className="bottom">
+            <div className="content">
+              <h1 className="name">Dev Ben</h1>
+              <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
+            </div>
+            <div className="bottom-bottom flex items-center">
+              <div className="social-links-container">
+                <Link href="">
+                  <FaGithub className="h-8 w-8" />
+                </Link>
+                <Link href="">
+                  <FaXTwitter className="h-8 w-8" />
+                </Link>
+                <Link href="">
+                  <FaThreads className="h-8 w-8" />
+                </Link>
+              </div>
+              <button className="btn bg-transparent text-white">
+                <FaExternalLinkAlt /> view
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="bottom-bottom flex items-center">
-        <div className="social-links-container">
-          <FaGithub className="h-8 w-8"/>
-          <FaXTwitter className="h-8 w-8"/>
-          <FaThreads  className="h-8 w-8"/>
-        </div>
-        <button className="btn "> <FaExternalLinkAlt/> view</button>
-        </div>
-        </div>
-       </div>
       ))}
     </div>
   );
