@@ -46,8 +46,11 @@ const UploadButton = (props: DeveloperData) => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data: any) => {
+    if (!info || !thumbnail || !githubUrl || !twitter || !thread || !portfolioUrl || !description) {
+      alert("Please fill in all the required fields.");
+      return;
+    }
     // Handle form submission here
-
     console.log(data);
     upload();
   };
@@ -137,11 +140,7 @@ const UploadButton = (props: DeveloperData) => {
                 className="col-span-3"
                 {...register("userName", { required: true, minLength: 3 })}
               />
-              {errors.userName && isSubmitted && (
-                <span className="text-red-500 text-xs w-[20rem] text-center">
-                  Please enter a valid username.
-                </span>
-              )}
+            
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
               <Label htmlFor="upload" className="text-right">
@@ -155,11 +154,6 @@ const UploadButton = (props: DeveloperData) => {
                 {...register("thumbnail", { required: true })}
                 onChange={(e) => uploadImage(e)}
               />
-              {errors.thumbnail && isSubmitted && (
-                <span className="text-red-500 text-xs w-[20rem] text-center">
-                  Please upload a thumbnail.
-                </span>
-              )}
               <Label htmlFor="Github" className="text-right">
                 Github
               </Label>
@@ -208,17 +202,12 @@ const UploadButton = (props: DeveloperData) => {
               <Input
                 // name="desc"
                 id="desc"
-                className="col-span-4"
+                className="col-span-3"
                 type="text"
                 {...register("lang", { required: true })}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder=" html, css, etc."
               />
-              {errors.lang && isSubmitted && (
-                <span className="text-red-500 text-xs w-[20rem] text-center">
-                  You forgot this!.
-                </span>
-              )}
             </div>
           </div>
 
