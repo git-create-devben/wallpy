@@ -74,16 +74,18 @@ const Project = (props: DeveloperData) => {
             <Image
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
-              layout="fill"
-              objectFit="cover"
               className="img"
+              width={500}
+              height={500}
+              layout="responsive"
+              objectFit="cover"
+              quality={100}
             />
           </div>
           <div className="bottom">
             <div className="content">
               <h1 className="name">{value.textVal}</h1>
               <p className="about-me text-white ">
-                {" "}
                 Build with: {value.descriptionTest}
               </p>
             </div>
