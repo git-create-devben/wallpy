@@ -53,7 +53,7 @@ const Project = (props: DeveloperData) => {
     getData();
   }, []);
 
-  if (developerData.length === 0) {
+  if (loading) {
     return (
       <div className="loadeder">
         <div className="loader-cube">
@@ -65,7 +65,7 @@ const Project = (props: DeveloperData) => {
           <div className="face"></div>
         </div>
       </div>
-    ); // or any other desired loading indicator
+    );
   }
 
   return (
