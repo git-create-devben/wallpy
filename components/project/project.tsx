@@ -18,6 +18,8 @@ type DeveloperData = {
   github?: string;
   portfolio: string;
   descriptionTest: string;
+  twitter?: string;
+  thread?: string;
 }[];
 
 const Project = (props: DeveloperData) => {
@@ -74,21 +76,28 @@ const Project = (props: DeveloperData) => {
           <div className="bottom">
             <div className="content">
               <h1 className="name">{value.textVal}</h1>
-              <p className="about-me text-white "> Build with: {value.descriptionTest}</p>
+              <p className="about-me text-white ">
+                {" "}
+                Build with: {value.descriptionTest}
+              </p>
             </div>
             <div className="bottom-bottom flex items-center">
               <div className="social-links-container">
-              {value.github ? (
-                <Link href={value.github}>
-                  <FaGithub className="h-8 w-8 fa" />
-                </Link>
+                {value.github ? (
+                  <Link href={value.github}>
+                    <FaGithub className="h-8 w-8 fa" />
+                  </Link>
                 ) : null}
-                <Link href="">
-                  <FaXTwitter className="h-8 w-8 fa" />
-                </Link>
-                <Link href="">
-                  <FaThreads className="h-8 w-8 fa" />
-                </Link>
+                {value.twitter ? (
+                  <Link href={value.twitter}>
+                    <FaXTwitter className="h-8 w-8 fa" />
+                  </Link>
+                ) : null}
+                {value.thread ? (
+                  <Link href={value.thread}>
+                    <FaThreads className="h-8 w-8 fa" />
+                  </Link>
+                ) : null}
               </div>
               <button className="btn  text-white">
                 <FaExternalLinkAlt /> view
