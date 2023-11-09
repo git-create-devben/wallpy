@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
+import { ZodType, z } from "zod"
 import {
   Dialog,
   DialogContent,
@@ -39,11 +40,21 @@ const UploadButton = (props: DeveloperData) => {
   const [thread, setThread] = useState("");
   const [twitter, setTwitter] = useState("");
 
+  const schema: ZodType<DeveloperData> = z.object({
+    userName: z.string().min(2),
+    thumbnail: z.string(),
+    github: z.string().url(),
+    portfolio: z.string().url(),
+    description: z.string().url(),
+    thread: z.string().url(),
+    twitter: z.string().url(),
+    info: z.string(),
+  })
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitted, isSubmitting },
-  } = useForm({ mode: "onChange" });
+  } = useForm({ resolver: ZodResolver(schema));
 
   const onSubmit = (e: any) => {
   
