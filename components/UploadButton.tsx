@@ -75,7 +75,26 @@ const UploadButton = (props: DeveloperData) => {
       thread: thread,
       twitter: twitter,
     });
-    alert("data added successfully");
+    return (
+      <div>
+        <div className="alert alert-success absolute top-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Your purchase has been confirmed!</span>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -107,97 +126,96 @@ const UploadButton = (props: DeveloperData) => {
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              UserName
-            </Label>
-            <Input
-              id="name"
-              placeholder="Dev Ben"
-              className="col-span-3"
-              {...register("userName", { required: true, minLength: 3 })}
-            />
-            {errors.userName && (
-              <span>
-                This field is required and must be at least 3 characters long.
-              </span>
-            )}
-          </div>
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="upload" className="text-right">
-              thumbnail
-            </Label>
-            <Input
-              id="Upload"
-              className="col-span-3"
-              placeholder="Upload your file"
-              type="file"
-              {...register("thumbnail", { required: true })}
-              onChange={(e) => uploadImage(e)}
-            />
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                UserName
+              </Label>
+              <Input
+                id="name"
+                placeholder="Dev Ben"
+                className="col-span-3"
+                {...register("userName", { required: true, minLength: 3 })}
+              />
+              {errors.userName && (
+              <div className="alert alert-error">
+              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span className="text-sm">Error! Task failed successfully.</span>
+            </div>
+              )}
+            </div>
+            <div className="grid grid-cols-4 items-center gap-2">
+              <Label htmlFor="upload" className="text-right">
+                thumbnail
+              </Label>
+              <Input
+                id="Upload"
+                className="col-span-3"
+                placeholder="Upload your file"
+                type="file"
+                {...register("thumbnail", { required: true })}
+                onChange={(e) => uploadImage(e)}
+              />
               {errors.thumbnail && (
-              <span>This field is required. Please upload a thumbnail.</span>
-            )}
-            <Label htmlFor="Github" className="text-right">
-              Github
-            </Label>
-            <Input
-              id="Github"
-              placeholder="Paste your Github link"
-              className="col-span-3"
-              type="url"
-              onChange={(e) => setGithubUrl(e.target.value)}
-            />
-            <Label htmlFor="X" className="text-right">
-              X(Twitter)
-            </Label>
-            <Input
-              id="X"
-              placeholder="Paste your  X link"
-              className="col-span-3"
-              type="url"
-              onChange={(e) => setTwitter(e.target.value)}
-            />
-            <Label htmlFor="Thread" className="text-right">
-              Thread
-            </Label>
-            <Input
-              id="Thread"
-              placeholder="Paste your thread link"
-              className="col-span-3"
-              type="url"
-              onChange={(e) => setThread(e.target.value)}
-            />
-            <Label htmlFor="portfolio" className="text-right">
-              Portfolio
-            </Label>
-            <Input
-              id="Portfolio"
-              placeholder="Paste your portfolio link"
-              className="col-span-3"
-              type="url"
-              onChange={(e) => SetPortfolioUrl(e.target.value)}
-            />
-            <Label htmlFor="username" className="text-right">
-              Build with:
-            </Label>
-            <Input
-              name="desc"
-              id="desc"
-              className="col-span-4"
-              type="text"
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder=" html, css, etc."
-            />
+                <span>This field is required. Please upload a thumbnail.</span>
+              )}
+              <Label htmlFor="Github" className="text-right">
+                Github
+              </Label>
+              <Input
+                id="Github"
+                placeholder="Paste your Github link"
+                className="col-span-3"
+                type="url"
+                onChange={(e) => setGithubUrl(e.target.value)}
+              />
+              <Label htmlFor="X" className="text-right">
+                X(Twitter)
+              </Label>
+              <Input
+                id="X"
+                placeholder="Paste your  X link"
+                className="col-span-3"
+                type="url"
+                onChange={(e) => setTwitter(e.target.value)}
+              />
+              <Label htmlFor="Thread" className="text-right">
+                Thread
+              </Label>
+              <Input
+                id="Thread"
+                placeholder="Paste your thread link"
+                className="col-span-3"
+                type="url"
+                onChange={(e) => setThread(e.target.value)}
+              />
+              <Label htmlFor="portfolio" className="text-right">
+                Portfolio
+              </Label>
+              <Input
+                id="Portfolio"
+                placeholder="Paste your portfolio link"
+                className="col-span-3"
+                type="url"
+                onChange={(e) => SetPortfolioUrl(e.target.value)}
+              />
+              <Label htmlFor="username" className="text-right">
+                Build with:
+              </Label>
+              <Input
+                name="desc"
+                id="desc"
+                className="col-span-4"
+                type="text"
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder=" html, css, etc."
+              />
+            </div>
           </div>
-        </div>
-       
-        <DialogFooter>
-          <Button type="submit">
-            Add
-          </Button>
-        </DialogFooter>
+
+          <DialogFooter>
+            <Button type="submit">Add</Button>
+          </DialogFooter>
         </form>
       </DialogContent>
     </Dialog>
