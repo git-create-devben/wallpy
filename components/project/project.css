@@ -82,15 +82,17 @@
 .card .bottom .bottom-bottom .social-links-container {
   display: flex;
   gap: 1rem;
+  align-items: center;
+  text-align: center;
 }
 
-.card .bottom .bottom-bottom .social-links-container svg {
+.card .bottom .bottom-bottom .social-links-container .svg {
   height: 20px;
   fill: white;
   filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
 }
 
-.card .bottom .bottom-bottom .social-links-container svg:hover {
+.card .bottom .bottom-bottom .social-links-container .svg:hover {
   fill: #f55d56;
   transform: scale(1.2);
 }

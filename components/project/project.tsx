@@ -129,9 +129,10 @@ const Project = (props: DeveloperData) => {
         </div>
         <div className="bottom-bottom">
         <div className="social-links-container">
-
+          <FaGithub className="svg"/>
+          <FaExternalLinkAlt/>
         </div>
-        <button className="btn btn-ghost btn-active btn-sm">view portfolio</button>
+        <button className="btn "> <FaExternalLinkAlt/> view</button>
         </div>
         </div>
        </div>
