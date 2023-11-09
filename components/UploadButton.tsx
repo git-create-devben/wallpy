@@ -46,12 +46,7 @@ const UploadButton = (props: DeveloperData) => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (e: any) => {
-    const formData = e.target;
-
-    if (!formData.thumbnail || !formData.github || !formData.twitter || !formData.thread || !formData.portfolio || !formData.desc) {
-      alert("Please fill in all required fields");
-      return; 
-    }
+  
   
     // Handle form submission here
     console.log(e);
