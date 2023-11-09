@@ -45,9 +45,11 @@ const UploadButton = (props: DeveloperData) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     // Handle form submission here
+
     console.log(data);
+    upload();
   };
 
   const uploadImage = (e: any) => {
@@ -131,8 +133,12 @@ const UploadButton = (props: DeveloperData) => {
               className="col-span-3"
               placeholder="Upload your file"
               type="file"
+              {...register("thumbnail", { required: true })}
               onChange={(e) => uploadImage(e)}
             />
+              {errors.thumbnail && (
+              <span>This field is required. Please upload a thumbnail.</span>
+            )}
             <Label htmlFor="Github" className="text-right">
               Github
             </Label>
@@ -186,12 +192,13 @@ const UploadButton = (props: DeveloperData) => {
             />
           </div>
         </div>
-        </form>
+       
         <DialogFooter>
-          <Button type="submit" onClick={upload}>
+          <Button type="submit">
             Add
           </Button>
         </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );
