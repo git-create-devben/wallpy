@@ -45,7 +45,7 @@
   bottom: 3px;
   left: 3px;
   right: 3px;
-  background: #222;
+  background: transparent;
   top: 88%;
   border-radius: 28px;
   z-index: 2;
@@ -53,6 +53,10 @@
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
+
+/* Link{
+  background-color: white;
+} */
 
 .card .bottom .content {
   position: absolute;
@@ -77,6 +81,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fa{
+  color: white;
 }
 
 .card .bottom .bottom-bottom .social-links-container {

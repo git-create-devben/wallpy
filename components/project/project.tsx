@@ -125,21 +125,21 @@ const Project = (props: DeveloperData) => {
           <div className="bottom">
             <div className="content">
               <h1 className="name">{value.textVal}</h1>
-              <p className="about-me"> Build with: {value.descriptionTest}</p>
+              <p className="about-me text-white "> Build with: {value.descriptionTest}</p>
             </div>
             <div className="bottom-bottom flex items-center">
               <div className="social-links-container">
                 <Link href={value.github}>
-                  <FaGithub className="h-8 w-8" />
+                  <FaGithub className="h-8 w-8 fa" />
                 </Link>
                 <Link href="">
-                  <FaXTwitter className="h-8 w-8" />
+                  <FaXTwitter className="h-8 w-8 fa" />
                 </Link>
                 <Link href="">
-                  <FaThreads className="h-8 w-8" />
+                  <FaThreads className="h-8 w-8 fa" />
                 </Link>
               </div>
-              <button className="btn bg-transparent text-white">
+              <button className="btn  text-white">
                 <FaExternalLinkAlt /> view
               </button>
             </div>
