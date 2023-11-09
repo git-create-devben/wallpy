@@ -128,7 +128,10 @@ const Project = (props: DeveloperData) => {
           <p className="about-me"> Ben Lad is a good guy eyeyeye</p>
         </div>
         <div className="bottom-bottom">
+        <div className="social-links-container">
 
+        </div>
+        <button className="button">Contact Me</button>
         </div>
         </div>
        </div>
