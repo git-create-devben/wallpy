@@ -123,7 +123,7 @@ const Project = (props: DeveloperData) => {
           </div>
         <div className="bottom">
         <div className="content">
-
+          <h1 className="name">Dev Ben</h1>
         </div>
         </div>
        </div>

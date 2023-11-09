@@ -149,3 +149,10 @@
     right: 1.5rem;
     height: 160px;
   }
+
+  .card .bottom .content .name {
+    display: block;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+  }
