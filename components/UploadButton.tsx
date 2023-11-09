@@ -81,8 +81,8 @@ const UploadButton = (props: DeveloperData) => {
               />
             </svg>
             <span className="text-white">
-              Warning: After You upload your portfolio wont be able to edit so becarefull when
-              filling the form!
+              Warning: After You upload your portfolio wont be able to edit so
+              becarefull when filling the form!
             </span>
           </DialogDescription>
         </DialogHeader>
@@ -100,7 +100,7 @@ const UploadButton = (props: DeveloperData) => {
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Add file
+              choose file
             </Label>
             <Input
               id="Upload"
@@ -110,7 +110,7 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => uploadImage(e)}
             />
             <Label htmlFor="username" className="text-right">
-              Githun Url
+              Githun link
             </Label>
             <Input
               id="Github"
@@ -120,7 +120,27 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => setGithubUrl(e.target.value)}
             />
             <Label htmlFor="username" className="text-right">
-              Portfolio Url
+              X link
+            </Label>
+            <Input
+              id="Github"
+              placeholder="Paste your Github url"
+              className="col-span-3"
+              type="url"
+              onChange={(e) => setGithubUrl(e.target.value)}
+            />
+            <Label htmlFor="username" className="text-right">
+              Thread link
+            </Label>
+            <Input
+              id="Github"
+              placeholder="Paste your Github url"
+              className="col-span-3"
+              type="url"
+              onChange={(e) => setGithubUrl(e.target.value)}
+            />
+            <Label htmlFor="username" className="text-right">
+              Portfolio link
             </Label>
             <Input
               id="Portfolio"
