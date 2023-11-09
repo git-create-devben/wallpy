@@ -5,7 +5,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt,  } from "react-icons/fa";
+import { FaXTwitter  } from "react-icons/fa6"
 import { Skeleton } from "@/components/ui/skeleton";
 import "./project.css";
 import { PackagePlusIcon } from "lucide-react";
@@ -130,7 +131,7 @@ const Project = (props: DeveloperData) => {
         <div className="bottom-bottom flex items-center">
         <div className="social-links-container">
           <FaGithub className="h-8 w-8"/>
-          <FaExternalLinkAlt/>
+          <FaXTwitter className="h-8 w-8"/>
         </div>
         <button className="btn "> <FaExternalLinkAlt/> view</button>
         </div>
