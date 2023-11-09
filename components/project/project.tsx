@@ -24,27 +24,30 @@ type DeveloperData = {
 
 const Project = (props: DeveloperData) => {
   const [developerData, setDeveloperData] = useState<DeveloperData>([]);
+  const [loading, setLoading] = useState(true);
 
-    const getData = async () => {
-      try {
-        const project = collection(db, "developersInfo");
-        const datadb = await getDocs(project);
-        console.log(datadb); // Check the data received from the database
-        const allInfo = datadb.docs.map((val) => ({
-          id: val.id,
-          textVal: val.data().textVal,
-          thumnailsUrl: val.data().thumnailsUrl,
-          github: val.data().github,
-          portfolio: val.data().portfolio,
-          descriptionTest: val.data().descriptionTest,
-          twitter: val.data().twitter,
-          thread: val.data().thread
-        }));
-        setDeveloperData(allInfo);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const getData = async () => {
+    try {
+      const project = collection(db, "developersInfo");
+      const datadb = await getDocs(project);
+      console.log(datadb); // Check the data received from the database
+      const allInfo = datadb.docs.map((val) => ({
+        id: val.id,
+        textVal: val.data().textVal,
+        thumnailsUrl: val.data().thumnailsUrl,
+        github: val.data().github,
+        portfolio: val.data().portfolio,
+        descriptionTest: val.data().descriptionTest,
+        twitter: val.data().twitter,
+        thread: val.data().thread,
+      }));
+      setDeveloperData(allInfo);
+      setLoading(false); // Set loading to false when data is fetched
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false); // Set loading to false even in case of an error
+    }
+  };
 
   useEffect(() => {
     getData();
@@ -75,8 +78,8 @@ const Project = (props: DeveloperData) => {
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
               className="img"
-              width={500}
-              height={500}
+              width={100}
+              height={100}
               layout="responsive"
               objectFit="cover"
               quality={100}
