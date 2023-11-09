@@ -98,9 +98,9 @@ const UploadButton = (props: DeveloperData) => {
               onChange={(e) => setInfo(e.target.value)}
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              choose file
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="upload" className="text-right">
+              thumbnail
             </Label>
             <Input
               id="Upload"
@@ -109,42 +109,42 @@ const UploadButton = (props: DeveloperData) => {
               type="file"
               onChange={(e) => uploadImage(e)}
             />
-            <Label htmlFor="username" className="text-right">
-              Githun link
+            <Label htmlFor="Github" className="text-right">
+              Github
             </Label>
             <Input
               id="Github"
-              placeholder="Paste your Github url"
+              placeholder="Paste your Github link"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
             />
-            <Label htmlFor="username" className="text-right">
-              X link
+            <Label htmlFor="X" className="text-right">
+              X(Twitter)
             </Label>
             <Input
-              id="Github"
-              placeholder="Paste your Github url"
+              id="X"
+              placeholder="Paste your  X link"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
             />
-            <Label htmlFor="username" className="text-right">
-              Thread link
+            <Label htmlFor="Thread" className="text-right">
+              Thread 
             </Label>
             <Input
-              id="Github"
-              placeholder="Paste your Github url"
+              id="Thread"
+              placeholder="Paste your thread link"
               className="col-span-3"
               type="url"
               onChange={(e) => setGithubUrl(e.target.value)}
             />
-            <Label htmlFor="username" className="text-right">
-              Portfolio link
+            <Label htmlFor="portfolio" className="text-right">
+              Portfolio 
             </Label>
             <Input
               id="Portfolio"
-              placeholder="Paste your portfolio url"
+              placeholder="Paste your portfolio link"
               className="col-span-3"
               type="url"
               onChange={(e) => SetPortfolioUrl(e.target.value)}
