@@ -77,6 +77,7 @@ const UploadButton = (props: DeveloperData) => {
     console.log("work", data);
     upload();
     alert('Portfolio submitted!');
+    setShowForm(false);
   };
 
   const uploadImage = (e: any) => {
@@ -109,6 +110,7 @@ const UploadButton = (props: DeveloperData) => {
       <DialogTrigger asChild>
         <Button variant="outline">Add Portfolio</Button>
       </DialogTrigger>
+      <div style={{ display: showForm ? 'block' : 'none' }}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add portfolio</DialogTitle>
@@ -221,6 +223,7 @@ const UploadButton = (props: DeveloperData) => {
           </DialogFooter>
         </form>
       </DialogContent>
+      </div>
     </Dialog>
   );
 };
