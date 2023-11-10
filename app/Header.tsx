@@ -2,7 +2,6 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
-// import Like from "@/components/like";
 
 const Header = () => {
   return (
@@ -17,7 +16,7 @@ const Header = () => {
           <span className="text-pink-500">y</span>
           <span className="text-orange-500">.</span>
         </h2>
-        {/* <Like/> */}
+        
       </div>
       <div className="flex gap-4">
         <UploadButton />

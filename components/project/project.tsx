@@ -88,8 +88,8 @@ const Project = (props: DeveloperData) => {
           </div>
           <div className="bottom">
             <div className="content">
-              <h1 className="name">{value.textVal}</h1>
-              <p className="about-me text-white ">
+              <h1 className="name text-xl text-bold">{value.textVal}</h1>
+              <p className="about-me text-white text-xl text-bold ">
                 Build with: {value.descriptionTest}
               </p>
             </div>
@@ -112,9 +112,12 @@ const Project = (props: DeveloperData) => {
                 ) : null}
               </div>
               {/* <Like/> */}
+              <Link href={value.portfolio}>
               <button className="btn  text-white">
                 <FaExternalLinkAlt /> view
               </button>
+              </Link>
+           
             </div>
           </div>
         </div>
