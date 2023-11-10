@@ -24,6 +24,16 @@ const footer = (props: Props) => {
     <p>Copyright © 2023 - design and develop by <Link href="https://github.com/git-create-devben">DEV⚡BEN</Link></p>
   </aside> 
   <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    <Link href="https://github.com/git-create-devben">
+      <FaGithub className="h-8 w-8 fa" />
+    </Link>
+    <Link href="https://twitter.com/git_create_devben">
+        <FaXTwitter className="h-8 w-8 fa" />
+    </Link>
+    <Link href="https://twitter.com/git_create_devben">
+        <FaThreads className="h-8 w-8 fa" />
+
+    </Link>
   </nav>
 </footer>
   )
