@@ -10,8 +10,9 @@
 }
 
 @media (width: 768px) {
-  .card .bottom{
+  .card{
    margin-top: -10rem;
+   display: none;
   }
 }
 
