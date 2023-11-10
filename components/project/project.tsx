@@ -79,9 +79,9 @@ const Project = (props: DeveloperData) => {
             <Image
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
-              className="img"
-              width={100}
-              height={100}
+              className="img w-[480px] h-[480px]"
+              width={50}
+              height={50}
               layout="responsive"
               objectFit="cover"
               quality={100}
