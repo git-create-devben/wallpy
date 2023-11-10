@@ -7,7 +7,7 @@ import {
   function Like () {
       return (
         <div>
-    <ClickVoteProvider
+                <ClickVoteProvider
           value={{
             apiUrl: "socket.clickvote.dev",
             publicKey: "pb_QFHQfHcuQxOvLJNaOjjOeFo9wOrZbTN7",
@@ -18,9 +18,8 @@ import {
             {(props) => <LikeStyle {...props} />}
           </ClickVoteComponent>
         </ClickVoteProvider>
-      );
         </div>
-    x
+      )
   };
 
   export default Like;
