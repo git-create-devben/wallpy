@@ -65,12 +65,13 @@ const Project = (props: DeveloperData) => {
           <div className="face"></div>
           <div className="face"></div>
         </div>
+        <p className="text-white text-sm mt-8">loading....</p>
       </div></>
     );
   }
 
   return (
-    <div className="parent-div flex gap-10 p-20 flex-wrap">
+    <div className="parent-div flex gap-10 p-20 flex-wrap ">
       {developerData.map((value) => (
         <div className="card" key={value.id}>
           <button className="mail"></button>
@@ -94,7 +95,7 @@ const Project = (props: DeveloperData) => {
               </p>
             </div>
             <div className="bottom-bottom flex items-center">
-              <div className="social-links-container">
+              <div className="social-links-container ">
                 {value.github ? (
                   <Link href={value.github}>
                     <FaGithub className="h-8 w-8 fa" />

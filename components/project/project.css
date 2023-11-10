@@ -9,6 +9,12 @@
   transition: all 0.5s ease-in-out;
 }
 
+@media (width: 768px) {
+  .card .bottom{
+   margin-top: -10rem;
+  }
+}
+
 .card .mail {
   position: absolute;
   right: 2rem;
