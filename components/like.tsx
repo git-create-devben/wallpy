@@ -4,7 +4,7 @@ import {
     LikeStyle,
   } from '@clickvote/react';
   
-  function RenderComponent () {
+  function Like () {
       return (
         <ClickVoteProvider
           value={{
