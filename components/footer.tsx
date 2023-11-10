@@ -25,13 +25,13 @@ const footer = (props: Props) => {
   </aside> 
   <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
     <Link href="https://github.com/git-create-devben">
-      <FaGithub className="h-8 w-8 fa" />
+      <FaGithub className="h-8 w-8 " />
     </Link>
     <Link href="https://twitter.com/git_create_devben">
-        <FaXTwitter className="h-8 w-8 fa" />
+        <FaXTwitter className="h-8 w-8 " />
     </Link>
     <Link href="https://twitter.com/git_create_devben">
-        <FaThreads className="h-8 w-8 fa" />
+        <FaThreads className="h-8 w-8 " />
 
     </Link>
   </nav>
