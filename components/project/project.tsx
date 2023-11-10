@@ -71,9 +71,9 @@ const Project = (props: DeveloperData) => {
   }
 
   return (
-    <div className="parent-div  flex gap-10 p-20 flex-wrap w-[480px] h-[530px] bg-black">
+    <div>
       {developerData.map((value) => (
-        <div className="card w-[580px] h-[530px]" key={value.id}>
+        <div className="  card card-compact w-96 bg-base-100 shadow-xl" key={value.id}>
           <button className="mail"></button>
           <div className="thumbnail">
             <Image
@@ -87,9 +87,8 @@ const Project = (props: DeveloperData) => {
               quality={100}
             />
           </div>
-          <div className="bottom">
-            <div className="content">
-              <h1 className="name text-xl text-bold">{value.textVal}</h1>
+            <div className=" card-body">
+              <h1 className="card-title">{value.textVal}</h1>
               <p className="about-me text-white text-xl text-bold ">
                 Build with: {value.descriptionTest}
               </p>
@@ -114,12 +113,11 @@ const Project = (props: DeveloperData) => {
               </div>
               {/* <Like/> */}
               <Link href={value.portfolio}>
-              <button className="btn  text-white">
+              <button className="btn card-actions justify-end">
                 <FaExternalLinkAlt /> view
               </button>
               </Link>
            
-            </div>
           </div>
         </div>
       ))}
