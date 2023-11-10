@@ -6,11 +6,12 @@ import {
   
   function Like () {
       return (
-        <ClickVoteProvider
+        <div>
+    <ClickVoteProvider
           value={{
             apiUrl: "socket.clickvote.dev",
             publicKey: "pb_QFHQfHcuQxOvLJNaOjjOeFo9wOrZbTN7",
-            userId: "USER_ID"
+            userId: "visitor"
           }}
         >
           <ClickVoteComponent id="wallpy" voteTo="VOTE_TO">
@@ -18,4 +19,8 @@ import {
           </ClickVoteComponent>
         </ClickVoteProvider>
       );
+        </div>
+    x
   };
+
+  export default Like;

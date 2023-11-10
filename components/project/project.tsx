@@ -10,7 +10,7 @@ import { FaXTwitter, FaThreads } from "react-icons/fa6";
 import { Skeleton } from "@/components/ui/skeleton";
 import "./project.css";
 import { PackagePlusIcon } from "lucide-react";
-import {Like} from "@/components/like";
+// import Like from "@/components/like";
 
 type DeveloperData = {
   id: string;
@@ -111,7 +111,7 @@ const Project = (props: DeveloperData) => {
                   </Link>
                 ) : null}
               </div>
-              <Like/>
+              {/* <Like/> */}
               <button className="btn  text-white">
                 <FaExternalLinkAlt /> view
               </button>
