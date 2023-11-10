@@ -71,17 +71,17 @@ const Project = (props: DeveloperData) => {
   }
 
   return (
-    <div className="parent-div flex gap-10 p-20 flex-wrap">
+    <div className="parent-div  flex gap-10 p-20 flex-wrap w-[480px] h-[530px] bg-black">
       {developerData.map((value) => (
-        <div className="card" key={value.id}>
+        <div className="card w-[580px] h-[530px]" key={value.id}>
           <button className="mail"></button>
           <div className="thumbnail">
             <Image
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
-              className="img w-[480px] h-[480px]"
-              width={50}
-              height={50}
+              className="img w-[580px] h-[380px]"
+              width={100}
+              height={100}
               layout="responsive"
               objectFit="cover"
               quality={100}
@@ -94,8 +94,8 @@ const Project = (props: DeveloperData) => {
                 Build with: {value.descriptionTest}
               </p>
             </div>
-            <div className="bottom-bottom flex items-center ">
-              <div className="social-links-container ">
+            <div className="bottom-bottom flex items-center justify-between">
+              <div className="social-links-container flex gap-2">
                 {value.github ? (
                   <Link href={value.github}>
                     <FaGithub className="h-8 w-8 fa" />

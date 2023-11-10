@@ -1,4 +1,111 @@
+.card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
 
+.card:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: 20px;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.aboutMe {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.socialLinksContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  color: #61dafb;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.bottomBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  background-color: #61dafb;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loaded {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.loader-cube {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  transform: scale(1.5);
+  transform-origin: center;
+}
+
+.face {
+  width: 50px;
+  height: 50px;
+  background-color: #61dafb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+  animation: loading-cube 1.5s infinite linear;
+}
 
 
 .loaded {
