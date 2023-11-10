@@ -71,7 +71,7 @@ const Project = (props: DeveloperData) => {
   }
 
   return (
-    <div className="parent-div flex gap-10 p-20 flex-wrap ">
+    <div className="parent-div flex gap-10 p-20 flex-wrap">
       {developerData.map((value) => (
         <div className="card" key={value.id}>
           <button className="mail"></button>
@@ -94,7 +94,7 @@ const Project = (props: DeveloperData) => {
                 Build with: {value.descriptionTest}
               </p>
             </div>
-            <div className="bottom-bottom flex items-center">
+            <div className="bottom-bottom flex items-center ">
               <div className="social-links-container ">
                 {value.github ? (
                   <Link href={value.github}>

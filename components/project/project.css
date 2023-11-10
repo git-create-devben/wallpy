@@ -9,11 +9,19 @@
   transition: all 0.5s ease-in-out;
 }
 
-@media (width: 768px) {
+@media (min-width: 368px) {
   .card{
-   margin-top: -10rem;
-   display: none;
+    width: 580px;
+    height: 420px;  
+  } 
+  .card .bottom{
+    margin-top: -6rem;
+  } 
+
+  .card .thumbnail img {
+    border: none;
   }
+
 }
 
 .card .mail {
