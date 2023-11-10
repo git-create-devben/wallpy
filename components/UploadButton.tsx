@@ -38,8 +38,8 @@ type FormData = {
   github: string;
   portfolio: string;
   description: string;
-  thread: string;
-  twitter: string;
+  thread: string | null;
+  twitter: string | null;
 };
 
 const UploadButton = (props: DeveloperData) => {
@@ -62,8 +62,8 @@ const UploadButton = (props: DeveloperData) => {
     github: z.string().url(),
     portfolio: z.string().url(),
     description: z.string(),
-    thread: z.string().url(),
-    twitter: z.string().url(),
+    thread: z.string().nullable(),
+    twitter: z.string().nullable(),
     // info: z.string(),
   });
 
