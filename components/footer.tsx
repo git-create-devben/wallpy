@@ -27,7 +27,7 @@ const footer = (props: Props) => {
     <Link href="https://github.com/git-create-devben">
       <FaGithub className="h-8 w-8 text-white" />
     </Link>
-    <Link href="https://twitter.com/git_create_devben">
+    <Link href="https://x.com/benlad_1">
         <FaXTwitter className="h-8 w-8 text-white" />
     </Link>
     <Link href="https://www.threads.net/@devben.tech">
