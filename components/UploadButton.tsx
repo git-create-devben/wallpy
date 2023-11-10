@@ -34,7 +34,7 @@ type DeveloperData = {
 
 type FormData = {
   userName: string;
-  thumbnail: File;
+  // thumbnail: File;
   github: string;
   portfolio: string;
   description: string;
@@ -55,9 +55,10 @@ const UploadButton = (props: DeveloperData) => {
 //   const MAX_FILE_SIZE = 500000;
 // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
+
   const FormSchema = z.object({
     userName: z.string().min(2),
-    thumbnail:z.instanceof(File),
+    // thumbnail:z.instanceof(File),
     github: z.string().url(),
     portfolio: z.string().url(),
     description: z.string(),
@@ -76,7 +77,7 @@ const UploadButton = (props: DeveloperData) => {
     // Handle form submission here
     console.log("work", data);
     upload();
-    alert('Portfolio submitted!');
+    alert('Portfolio submitted succesfully! please close the modal');
     setShowForm(false);
   };
 
@@ -156,7 +157,7 @@ const UploadButton = (props: DeveloperData) => {
                 className="col-span-3"
                 placeholder="Upload your file"
                 type="file"
-                {...register("thumbnail")}
+                // {...register("thumbnail")}
                 onChange={(e) => uploadImage(e)}
               />
               <Label htmlFor="Github" className="text-right">
