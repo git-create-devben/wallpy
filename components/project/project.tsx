@@ -95,7 +95,7 @@ const Project = (props: DeveloperData) => {
           </div>
           <div className=" card-body">
             <h1 className="card-title text-white text-bold text-1xl">{value.textVal}</h1>
-            <p className="about-me text-white  text-bold ">
+            <p className="about-me text-white text-md  text-bold ">
               Build with: {value.descriptionTest}
             </p>
           </div>
