@@ -20,7 +20,7 @@ type DeveloperData = {
   thread?: string;
 }[];
 
-const Project = (props: DeveloperData & { searchTerm: string }) => {
+const Project = (props:{ searchTerm: string }) => {
   const [developerData, setDeveloperData] = useState<DeveloperData>([]);
   const [loading, setLoading] = useState(true);
 

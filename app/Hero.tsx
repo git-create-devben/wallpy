@@ -37,6 +37,20 @@ const Hero = (props: DeveloperData) => {
     setShowModal(false);
   };
 
+  const developerData: DeveloperData = [
+    {
+      id: "1",
+      textVal: "John Doe",
+      thumnailsUrl: "https://example.com/image.jpg",
+      github: "https://github.com/johndoe",
+      portfolio: "https://johndoe.com",
+      descriptionTest: "Full Stack Developer",
+      twitter: "https://twitter.com/johndoe",
+      thread: "https://example.com/thread",
+    },
+    // Add more objects as needed
+  ];
+
   return (
     <section>
       {/* <Header/> */}
@@ -78,7 +92,7 @@ const Hero = (props: DeveloperData) => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project  searchTerm={searchTerm}  {...developerData} />
+        <Project  searchTerm={searchTerm}  developerData={developerData} />
       </div>
     </section>
   );
