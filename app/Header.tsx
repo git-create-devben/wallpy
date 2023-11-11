@@ -2,7 +2,7 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
-import { useAuth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 
 export default function Header(){
 
@@ -35,10 +35,10 @@ export default function Header(){
 
 
 export function Example() {
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
+  const {  userId, sessionId, getToken } = auth();
  
   // In case the user signs out while on the page.
-  if (!isLoaded || !userId) {
+  if (!userId) {
     return null;
   }
  
