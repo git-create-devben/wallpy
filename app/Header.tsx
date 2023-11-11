@@ -28,7 +28,7 @@ export default function Header() {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Example />
+        {/* <Example /> */}
         <UploadButton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
@@ -37,18 +37,18 @@ export default function Header() {
   );
 }
 
-export function Example() {
-  return (
-   <header style={{ display: "flex", justifyContent: "space-between", }}>
-      {/* <SignInButton>
-      <Button variant="outline">Sign in with Clerk</Button>
-      </SignInButton> */}
-    <SignedOut>
-      {/* Signed out users get sign in button */}
-      {/* <SignInButton redirectUrl="/app">
-      <Button variant="outline">Sign in with Clerk</Button>
-      </SignInButton> */}
-    </SignedOut>
-  </header>
-  );
-}
+// export function Example() {
+//   return (
+//    <header style={{ display: "flex", justifyContent: "space-between", }}>
+//       {/* <SignInButton>
+//       <Button variant="outline">Sign in with Clerk</Button>
+//       </SignInButton> */}
+//     <SignedOut>
+//       {/* Signed out users get sign in button */}
+//       {/* <SignInButton redirectUrl="/app">
+//       <Button variant="outline">Sign in with Clerk</Button>
+//       </SignInButton> */}
+//     </SignedOut>
+//   </header>
+//   );
+// }
