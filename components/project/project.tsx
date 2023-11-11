@@ -91,6 +91,10 @@ const Project = (props: DeveloperData) => {
               layout="responsive"
               objectFit="cover"
               quality={100}
+              priority
+              loading="eager"
+              placeholder="blur"
+              blurDataURL={value.thumnailsUrl}
             />
           </div>
           <div className=" card-body">
