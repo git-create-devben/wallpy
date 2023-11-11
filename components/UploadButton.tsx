@@ -81,18 +81,58 @@ const UploadButton = (props: DeveloperData) => {
     setShowForm(false);
   };
 
-  const uploadImage = (e: any) => {
-    console.log(e.target.files[0]);
-    const thumbnails = ref(storage, `thumbnail/s${v4()}`);
-    uploadBytes(thumbnails, e.target.files[0]).then((data) => {
-      console.log(data, "thumbnails");
-      getDownloadURL(data.ref).then((val) => {
-        console.log("Thumbnail URL:", val); // Add this line to check the value of the thumbnail URL
-        setThumbnail(val);
-      });
-    });
-  };
+  // const uploadImage = (e: any) => {
+  //   console.log(e.target.files[0]);
+  //   const thumbnails = ref(storage, `thumbnail/s${v4()}`);
+  //   uploadBytes(thumbnails, e.target.files[0]).then((data) => {
+  //     console.log(data, "thumbnails");
+  //     getDownloadURL(data.ref).then((val) => {
+  //       console.log("Thumbnail URL:", val); // Add this line to check the value of the thumbnail URL
+  //       setThumbnail(val);
+  //     });
+  //   });
+  // };
 
+  const uploadImage = (e: any) => {
+    const file = e.target.files[0];
+  
+    // Check if a file is selected
+    if (!file) {
+      alert("Please select an image file.");
+      return;
+    }
+  
+    // Check if the file type is an image
+    if (!file.type.startsWith("image/")) {
+      alert("Please select a valid image file.");
+      return;
+    }
+  
+    // Create an image element to get the dimensions
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+  
+    img.onload = () => {
+      // Check if the image meets your size criteria (1024x1024 in this example)
+      if (img.width >= 1024 && img.height >= 1024) {
+        const thumbnails = ref(storage, `thumbnail/s${v4()}`);
+        uploadBytes(thumbnails, file).then((data) => {
+          console.log(data, "thumbnails");
+          getDownloadURL(data.ref).then((val) => {
+            console.log("Thumbnail URL:", val);
+            setThumbnail(val);
+          });
+        });
+      } else {
+        alert("Please select an image with dimensions at least 1024x1024.");
+      }
+    };
+  
+    img.onerror = () => {
+      alert("Error loading the image. Please try again.");
+    };
+  };
+  
   const upload = async () => {
     const projects = collection(db, "developersInfo");
     await addDoc(projects, {
