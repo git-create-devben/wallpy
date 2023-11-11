@@ -39,7 +39,7 @@ export default function Header() {
 
 export function Example() {
   return (
-    <header style={{ display: "flex", justifyContent: "space-between", padding: 20 }}>
+   <header style={{ display: "flex", justifyContent: "space-between", width: 60, background: "red", color: "white" }}>
     <SignedIn>
       {/* Mount the UserButton component */}
       <UserButton />
