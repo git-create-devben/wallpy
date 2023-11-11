@@ -123,7 +123,7 @@ const Project = (props: DeveloperData) => {
             </div>
             {/* <Like/> */}
             <Link href={value.portfolio}>
-              <button className="btn btn-ghost ">
+              <button className="btn btn-ghost text-white">
                 <FaExternalLinkAlt /> view
               </button>
             </Link>
