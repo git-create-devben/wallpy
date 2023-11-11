@@ -4,19 +4,9 @@ import "./globals.css"
 import { useState, useEffect } from "react";
 import Modal from "@/components/welcome";
 
-type DeveloperData = {
-  id: string;
-  textVal: string;
-  thumnailsUrl: string;
-  github?: string;
-  portfolio: string;
-  descriptionTest: string;
-  twitter?: string;
-  thread?: string;
-}[];
 
 
-const Hero = (props: DeveloperData) => {
+const Hero = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,19 +27,18 @@ const Hero = (props: DeveloperData) => {
     setShowModal(false);
   };
 
-  const developerData: DeveloperData = [
-    {
-      id: "1",
-      textVal: "John Doe",
-      thumnailsUrl: "https://example.com/image.jpg",
-      github: "https://github.com/johndoe",
-      portfolio: "https://johndoe.com",
-      descriptionTest: "Full Stack Developer",
-      twitter: "https://twitter.com/johndoe",
-      thread: "https://example.com/thread",
-    },
-    // Add more objects as needed
-  ];
+  // const developerData: DeveloperData = [
+  //   {
+  //     id: "1",
+  //     textVal: "John Doe",
+  //     thumnailsUrl: "https://example.com/image.jpg",
+  //     github: "https://github.com/johndoe",
+  //     portfolio: "https://johndoe.com",
+  //     descriptionTest: "Full Stack Developer",
+  //     twitter: "https://twitter.com/johndoe",
+  //     thread: "https://example.com/thread",
+  //   },
+  // ];
 
   return (
     <section>
@@ -92,7 +81,7 @@ const Hero = (props: DeveloperData) => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project  searchTerm={searchTerm}  developerData={developerData} />
+        <Project  searchTerm={searchTerm}   />
       </div>
     </section>
   );

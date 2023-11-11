@@ -15,9 +15,8 @@ type DeveloperData = {
   twitter: string;
 }[];
 
-export default function Header(props: DeveloperData) {
+export default function Header() {
 
-  
   return (
     <header className="flex justify-between p-2">
       <div className="flex items-center text-center gap-6 w-full mb-2">
