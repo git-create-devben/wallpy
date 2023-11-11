@@ -77,7 +77,7 @@ const Project = (props: DeveloperData) => {
     <div>
       {developerData.map((value) => (
         <div
-          className="  card card-compact w-96 bg-base-100 shadow-xl"
+          className="  card card-compact w-96 bg-base-100 shadow-xl p-4"
           key={value.id}
         >
           <button className="mail"></button>
@@ -85,7 +85,7 @@ const Project = (props: DeveloperData) => {
             <Image
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
-              className="img w-[580px] h-[380px]"
+              className="img w-[580px] h-[380px] rounded-xl"
               width={100}
               height={100}
               layout="responsive"
