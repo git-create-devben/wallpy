@@ -1,7 +1,4 @@
-// "use client"
-
-// import React, { useState } from "react";
-// import Header from "./Header";
+"use client"
 import Project from "@/components/project/project";
 import "./globals.css"
 import { useState, useEffect } from "react";
