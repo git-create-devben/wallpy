@@ -26,7 +26,12 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
 
   const { searchTerm} = props;
 
-  const getData = async () => {
+  useEffect(() => {
+    getData(searchTerm); // Pass the search term to getData
+  }, [searchTerm]);
+
+
+  const getData = async (searchTerm: string) => {
     try {
       const project = collection(db, "developersInfo");
       const datadb = await getDocs(project);
@@ -56,9 +61,9 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
   };
   
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   if (loading) {
     return (
