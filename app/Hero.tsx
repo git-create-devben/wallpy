@@ -1,14 +1,35 @@
-
+"use client"
 
 // import React, { useState } from "react";
 // import Header from "./Header";
 import Project from "@/components/project/project";
 import "./globals.css"
+import { useState, useEffect } from "react";
+import Modal from "@/components/welcome";
 const Hero = () => {
+
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+    if (!hasVisitedBefore) {
+      // If the user has not visited before, show the modal
+      setShowModal(true);
+      // Set a flag in local storage to indicate that the user has now visited
+      localStorage.setItem('hasVisitedBefore', 'true');
+    }
+  }, []);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <section>
       {/* <Header/> */}
+
+      {showModal && <Modal onClose={closeModal} />}
       <div
         className="hero h-screen cont"
         // style={{
