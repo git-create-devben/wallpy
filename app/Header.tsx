@@ -22,7 +22,7 @@ export default function Header(){
         
       </div>
       <div className="flex gap-4">
-      <SignedIn>
+      <SignedIn/>
       <Example/>
         <UploadButton />
         <ModeToggle />
