@@ -1,16 +1,7 @@
-"use client";
-
 import React from "react";
-// import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
-import {
-  auth,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -28,27 +19,19 @@ export default function Header() {
         </h2>
       </div>
       <div className="flex gap-1">
-        <UploadButton />
+        <SignedIn>
+          {/* Render the UploadButton for authenticated users */}
+          <UploadButton />
+        </SignedIn>
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
-        <Example />
+        <SignedOut>
+          {/* Render the SignInButton for users who are not signed in */}
+          <SignInButton>
+            <Button variant="outline">Sign in</Button>
+          </SignInButton>
+        </SignedOut>
       </div>
-    </header>
-  );
-}
-
-export function Example() {
-  return (
-    <header style={{ display: "flex", justifyContent: "space-between" }}>
-      {/* <SignInButton>
-      <Button variant="outline">Sign in with Clerk</Button>
-      </SignInButton> */}
-      <SignedOut>
-        {/* Signed out users get sign in button */}
-        <SignInButton>
-          <Button variant="outline">Sign in </Button>
-        </SignInButton>
-      </SignedOut>
     </header>
   );
 }
