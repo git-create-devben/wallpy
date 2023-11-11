@@ -77,7 +77,7 @@ const Project = (props: DeveloperData) => {
     <div>
       {developerData.map((value) => (
         <div
-          className="  card card-compact w-96 bg-base-100 shadow-xl p-4"
+          className="card card-compact w-96 bg-base-100 shadow-xl p-4"
           key={value.id}
         >
           <button className="mail"></button>
