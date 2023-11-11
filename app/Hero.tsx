@@ -6,6 +6,11 @@ import Modal from "@/components/welcome";
 const Hero = () => {
 
   const [showModal, setShowModal] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (e: any) => {
+    setSearchTerm(e.target.value);
+  };
 
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
@@ -52,13 +57,15 @@ const Hero = () => {
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-[50rem] "
+                value={searchTerm}
+                onChange={handleSearchChange}
               />
             </div>
           </div>
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project/>
+        <Project searchTerm={searchTerm}/>
       </div>
     </section>
   );

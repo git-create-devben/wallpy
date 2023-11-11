@@ -20,7 +20,7 @@ type DeveloperData = {
   thread?: string;
 }[];
 
-const Project = (props: DeveloperData) => {
+const Project = (props:  { searchTerm: string}) => {
   const [developerData, setDeveloperData] = useState<DeveloperData>([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,6 @@ const Project = (props: DeveloperData) => {
     try {
       const project = collection(db, "developersInfo");
       const datadb = await getDocs(project);
-      console.log(datadb); // Check the data received from the database
       const allInfo = datadb.docs.map((val) => ({
         id: val.id,
         textVal: val.data().textVal,
@@ -39,13 +38,21 @@ const Project = (props: DeveloperData) => {
         twitter: val.data().twitter,
         thread: val.data().thread,
       }));
-      setDeveloperData(allInfo);
-      setLoading(false); // Set loading to false when data is fetched
+  
+      // Filter data based on the search input
+      const searchTerm = "";
+      const filteredData = allInfo.filter((item) =>
+        item.descriptionTest.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  
+      setDeveloperData(filteredData);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setLoading(false); // Set loading to false even in case of an error
+      setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     getData();
