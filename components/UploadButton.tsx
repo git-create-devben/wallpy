@@ -186,6 +186,7 @@ const UploadButton = (props: DeveloperData) => {
                 placeholder="Dev Ben"
                 className="col-span-3"
                 {...register("userName")}
+                onChange={(e) => setInfo(e.target.value)}
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-2">
