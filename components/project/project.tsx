@@ -86,7 +86,7 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
   return (
     <div className="p-8 flex flex-wrap gap-6">
     {developerData.length === 0 ? (
-      <p className="text-white text-lg mt-4">
+      <p className="text-base-500 text-lg mt-4  top-0 left-0 w-full h-full flex items-center justify-center z-50 ">
         No portfolios found. Help us expand this project by uploading your portfolio.
       </p>
     ) : (
