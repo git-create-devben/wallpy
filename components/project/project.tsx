@@ -20,9 +20,11 @@ type DeveloperData = {
   thread?: string;
 }[];
 
-const Project = (props:  { searchTerm: string}) => {
+const Project = (props: DeveloperData & { searchTerm: string }) => {
   const [developerData, setDeveloperData] = useState<DeveloperData>([]);
   const [loading, setLoading] = useState(true);
+
+  const { searchTerm} = props;
 
   const getData = async () => {
     try {
