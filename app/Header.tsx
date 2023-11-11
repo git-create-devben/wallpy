@@ -40,12 +40,14 @@ export default function Header() {
 export function Example() {
   return (
    <header style={{ display: "flex", justifyContent: "space-between", }}>
-      <SignInButton>
-      <Button>Sign in with Clerk</Button>
-      </SignInButton>
+      {/* <SignInButton>
+      <Button variant="outline">Sign in with Clerk</Button>
+      </SignInButton> */}
     <SignedOut>
       {/* Signed out users get sign in button */}
-      <SignInButton />
+      <SignInButton>
+      <Button variant="outline">Sign in with Clerk</Button>
+      </SignInButton>
     </SignedOut>
   </header>
   );
