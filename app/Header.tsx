@@ -45,7 +45,7 @@ export function Example() {
       </SignInButton> */}
     <SignedOut>
       {/* Signed out users get sign in button */}
-      <SignInButton>
+      <SignInButton redirectUrl="/home">
       <Button variant="outline">Sign in with Clerk</Button>
       </SignInButton>
     </SignedOut>
