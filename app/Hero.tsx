@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 // import React, { useState } from "react";
 // import Header from "./Header";
@@ -13,9 +13,7 @@ const Hero = () => {
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
     if (!hasVisitedBefore) {
-      // If the user has not visited before, show the modal
       setShowModal(true);
-      // Set a flag in local storage to indicate that the user has now visited
       localStorage.setItem('hasVisitedBefore', 'true');
     }
   }, []);
@@ -23,7 +21,6 @@ const Hero = () => {
   const closeModal = () => {
     setShowModal(false);
   };
-
 
   return (
     <section>
