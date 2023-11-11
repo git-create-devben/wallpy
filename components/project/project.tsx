@@ -74,7 +74,7 @@ const Project = (props: DeveloperData) => {
   }
 
   return (
-    <div className="p-8 flex flex-wrap gap-6 ">
+    <div className="p-20 flex flex-wrap gap-6 ">
       {developerData.map((value) => (
         <div
           className="card card-compact w-[20rem] bg-base-100 shadow-xl p-4 sm:w-[25rem]"
