@@ -1,14 +1,14 @@
 
 
 // import React, { useState } from "react";
-import Header from "./Header";
+// import Header from "./Header";
 import Project from "@/components/project/project";
 import "./globals.css"
 const Hero = () => {
 
   return (
     <section>
-      <Header/>
+      {/* <Header/> */}
       <div
         className="hero h-screen cont"
         // style={{
