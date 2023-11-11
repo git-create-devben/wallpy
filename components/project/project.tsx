@@ -100,7 +100,7 @@ const Project = (props: DeveloperData) => {
             </p>
           </div>
           <div className="bottom-bottom flex items-center justify-between">
-            <div className="social-links-container flex gap-2 items-center">
+            <div className="social-links-container flex gap-2 items-center text-white">
               {value.github ? (
                 <Link href={value.github}>
                   <FaGithub className="h-8 w-8 fa" />
