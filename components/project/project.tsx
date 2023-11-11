@@ -144,7 +144,8 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
             </Link>
           </div>
         </div>
-           )}
+          ))
+          )}
               
     </div>
   );
