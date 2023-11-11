@@ -84,8 +84,13 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
   }
 
   return (
-    <div className="p-8 flex flex-wrap gap-6 ">
-      {developerData.map((value) => (
+    <div className="p-8 flex flex-wrap gap-6">
+    {developerData.length === 0 ? (
+      <p className="text-white text-lg mt-4">
+        No portfolios found. Help us expand this project by uploading your portfolio.
+      </p>
+    ) : (
+      developerData.map((value) => (
         <div
           className="card card-compact w-[20rem] bg-base-100 shadow-xl p-2 sm:w-[27rem]"
           key={value.id}
@@ -139,7 +144,8 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
             </Link>
           </div>
         </div>
-      ))}
+           )}
+              
     </div>
   );
 };
