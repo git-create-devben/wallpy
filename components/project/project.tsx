@@ -7,10 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { FaXTwitter, FaThreads } from "react-icons/fa6";
-import { Skeleton } from "@/components/ui/skeleton";
 import "./project.css";
-import { PackagePlusIcon } from "lucide-react";
-// import Like from "@/components/like";
 
 type DeveloperData = {
   id: string;
