@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Modal from "@/components/welcome";
 const Hero = () => {
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
