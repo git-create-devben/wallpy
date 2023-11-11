@@ -52,10 +52,6 @@ const UploadButton = (props: DeveloperData) => {
   const [twitter, setTwitter] = useState("");
   const [showForm, setShowForm] = useState(true);
 
-//   const MAX_FILE_SIZE = 500000;
-// const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
-
-
   const FormSchema = z.object({
     userName: z.string().min(2),
     // thumbnail:z.instanceof(File),
