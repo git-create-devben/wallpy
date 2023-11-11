@@ -42,7 +42,7 @@ type FormData = {
   twitter: string | null;
 };
 
-const UploadButton = (props: DeveloperData) => {
+const UploadButton = () => {
   const [info, setInfo] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
