@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 // import { UserButton } from "@clerk/nextjs";
@@ -28,8 +28,8 @@ export default function Header() {
         </h2>
       </div>
       <div className="flex gap-4">
-        <Example />
         <UploadButton />
+        <Example />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
@@ -39,16 +39,16 @@ export default function Header() {
 
 export function Example() {
   return (
-   <header style={{ display: "flex", justifyContent: "space-between", }}>
+    <header style={{ display: "flex", justifyContent: "space-between" }}>
       {/* <SignInButton>
       <Button variant="outline">Sign in with Clerk</Button>
       </SignInButton> */}
-    <SignedOut>
-      {/* Signed out users get sign in button */}
-      <SignInButton>
-      <Button variant="outline">Sign in with Clerk</Button>
-      </SignInButton>
-    </SignedOut>
-  </header>
+      <SignedOut>
+        {/* Signed out users get sign in button */}
+        <SignInButton>
+          <Button variant="outline">Sign in </Button>
+        </SignInButton>
+      </SignedOut>
+    </header>
   );
 }
