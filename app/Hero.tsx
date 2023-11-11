@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Modal from "@/components/welcome";
 const Hero = () => {
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchChange = (e: any) => {
