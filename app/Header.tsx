@@ -27,11 +27,11 @@ export default function Header() {
           <span className="text-orange-500">.</span>
         </h2>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-1">
         <UploadButton />
-        <Example />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
+        <Example />
       </div>
     </header>
   );
