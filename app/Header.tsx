@@ -4,7 +4,20 @@ import UploadButton from "@/components/UploadButton";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 
-export default function Header() {
+type DeveloperData = {
+  id: string;
+  textVal: string;
+  thumnailsUrl: string;
+  github: string;
+  portfolio: string;
+  descriptionTest: string;
+  thread: string;
+  twitter: string;
+}[];
+
+export default function Header(props: DeveloperData) {
+
+  
   return (
     <header className="flex justify-between p-2">
       <div className="flex items-center text-center gap-6 w-full mb-2">
