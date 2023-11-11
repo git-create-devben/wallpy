@@ -1,12 +1,17 @@
 import React from "react";
-import { UserButton } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
-import { auth, SignedIn } from "@clerk/nextjs";
+import {
+  auth,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 
-export default function Header(){
-
-
+export default function Header() {
   return (
     <header className="flex justify-between p-2">
       <div className="flex items-center text-center gap-6 w-full mb-2">
@@ -19,33 +24,30 @@ export default function Header(){
           <span className="text-pink-500">y</span>
           <span className="text-orange-500">.</span>
         </h2>
-        
       </div>
       <div className="flex gap-4">
-      <SignedIn/>
-      <Example/>
+        <SignedIn />
+        <SignedOut />
+        <Example />
         <UploadButton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
       </div>
     </header>
   );
-};
-
-
-
+}
 
 export function Example() {
-  const {  userId, sessionId, getToken } = auth();
- 
-  // In case the user signs out while on the page.
-  if (!userId) {
-    return null;
-  }
- 
   return (
-    <div>
-      Hello, {userId} your current active session is {sessionId}
-    </div>
+    <header style={{ display: "flex", justifyContent: "space-between", padding: 20 }}>
+    <SignedIn>
+      {/* Mount the UserButton component */}
+      <UserButton />
+    </SignedIn>
+    <SignedOut>
+      {/* Signed out users get sign in button */}
+      <SignInButton />
+    </SignedOut>
+  </header>
   );
 }
