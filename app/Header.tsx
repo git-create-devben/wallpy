@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 // import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
@@ -26,8 +28,6 @@ export default function Header() {
         </h2>
       </div>
       <div className="flex gap-4">
-        <SignedIn />
-        <SignedOut />
         <Example />
         <UploadButton />
         <ModeToggle />
