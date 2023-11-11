@@ -47,10 +47,9 @@ const Project = (props: DeveloperData & { searchTerm: string }) => {
       }));
   
       // Filter data based on the search input
-      const searchTerm = "";
       const filteredData = allInfo.filter((item) =>
-        item.descriptionTest.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      item.descriptionTest.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   
       setDeveloperData(filteredData);
       setLoading(false);
