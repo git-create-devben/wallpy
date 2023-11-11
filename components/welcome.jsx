@@ -1,4 +1,5 @@
 // Modal.js
+
 import React from 'react';
 
 const Modal = ({ onClose }) => {
