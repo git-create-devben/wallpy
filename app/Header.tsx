@@ -39,11 +39,10 @@ export default function Header() {
 
 export function Example() {
   return (
-   <header style={{ display: "flex", justifyContent: "space-between", width: 60, background: "red", color: "white" }}>
-    <SignedIn>
-      {/* Mount the UserButton component */}
-      <UserButton />
-    </SignedIn>
+   <header style={{ display: "flex", justifyContent: "space-between", }}>
+      <SignInButton>
+      <Button>Sign in with Clerk</Button>
+      </SignInButton>
     <SignedOut>
       {/* Signed out users get sign in button */}
       <SignInButton />
