@@ -2,8 +2,11 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
+import { useAuth } from "@clerk/nextjs";
 
-const Header = () => {
+export default function Header(){
+
+
   return (
     <header className="flex justify-between p-2">
       <div className="flex items-center text-center gap-6 w-full mb-2">
@@ -18,7 +21,8 @@ const Header = () => {
         </h2>
         
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4">\
+      <Example/>
         <UploadButton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
@@ -27,4 +31,20 @@ const Header = () => {
   );
 };
 
-export default Header;
+
+
+
+export function Example() {
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
+ 
+  // In case the user signs out while on the page.
+  if (!isLoaded || !userId) {
+    return null;
+  }
+ 
+  return (
+    <div>
+      Hello, {userId} your current active session is {sessionId}
+    </div>
+  );
+}
