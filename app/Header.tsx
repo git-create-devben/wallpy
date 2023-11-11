@@ -28,7 +28,7 @@ export default function Header() {
         </h2>
       </div>
       <div className="flex gap-4">
-        {/* <Example /> */}
+        <Example />
         <UploadButton />
         <ModeToggle />
         <UserButton afterSignOutUrl="/" />
