@@ -4,7 +4,10 @@ import React from 'react';
 
 const Modal = ({ onClose }) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-primary ">
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-primary-darker opacity-80 backdrop-blur-sm animate-fade-in-up animate-slower">
+
+      <div className="absolute w-full h-full bg-black opacity-50"></div>
+
 
       {/* Modal content */}
       <div className="bg-white rounded-lg p-8 z-50">
