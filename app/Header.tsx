@@ -2,7 +2,7 @@ import React from "react";
 import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode";
 import UploadButton from "@/components/UploadButton";
-import { auth } from "@clerk/nextjs";
+import { auth, SignedIn } from "@clerk/nextjs";
 
 export default function Header(){
 
@@ -21,7 +21,8 @@ export default function Header(){
         </h2>
         
       </div>
-      <div className="flex gap-4">\
+      <div className="flex gap-4">
+      <SignedIn>
       <Example/>
         <UploadButton />
         <ModeToggle />
