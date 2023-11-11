@@ -31,7 +31,7 @@ export default function RootLayout({
         <body className={inter.className} style={{ paddingTop: "1rem" }}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
