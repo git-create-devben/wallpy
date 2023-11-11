@@ -3,7 +3,20 @@ import Project from "@/components/project/project";
 import "./globals.css"
 import { useState, useEffect } from "react";
 import Modal from "@/components/welcome";
-const Hero = () => {
+
+type DeveloperData = {
+  id: string;
+  textVal: string;
+  thumnailsUrl: string;
+  github?: string;
+  portfolio: string;
+  descriptionTest: string;
+  twitter?: string;
+  thread?: string;
+}[];
+
+
+const Hero = (props: DeveloperData) => {
 
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -65,7 +78,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" min-h-screen p-5">
-        <Project searchTerm={searchTerm}/>
+        <Project  searchTerm={searchTerm}  {...developerData} />
       </div>
     </section>
   );
