@@ -100,7 +100,7 @@ const Project = (props:{ searchTerm: string }) => {
             <Image
               src={value.thumnailsUrl}
               alt={`thumbnail of ${value.textVal}`}
-              className="img w-[580px] h-[380px] rounded-xl"
+              className="img  rounded-xl"
               width={100}
               height={100}
               layout="responsive"
