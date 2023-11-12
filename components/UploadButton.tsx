@@ -112,7 +112,7 @@ const UploadButton = () => {
 
   img.onload = () => {
     // Check if the image meets your size criteria (1024x1024 in this example)
-    if (img.width >= 1024 && img.height >= 1024) {
+    if (img.width >= 917 && img.height >= 917) {
       const thumbnails = ref(storage, `thumbnail/s${v4()}`);
       uploadBytes(thumbnails, file).then((data) => {
         console.log(data, "thumbnails");
