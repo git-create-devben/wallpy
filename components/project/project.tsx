@@ -106,7 +106,6 @@ const Project = (props:{ searchTerm: string }) => {
               layout="responsive"
               objectFit="cover"
               quality={100}
-              blurDataURL={value.thumnailsUrl}
             />
           </div>
           <div className=" card-body">
