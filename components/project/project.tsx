@@ -108,7 +108,6 @@ const Project = (props:{ searchTerm: string }) => {
               quality={100}
               priority
               loading="eager"
-              placeholder="blur"
               blurDataURL={value.thumnailsUrl}
             />
           </div>
