@@ -106,7 +106,6 @@ const Project = (props:{ searchTerm: string }) => {
               layout="responsive"
               objectFit="cover"
               quality={100}
-              priority
               blurDataURL={value.thumnailsUrl}
             />
           </div>
