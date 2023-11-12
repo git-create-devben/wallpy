@@ -105,7 +105,6 @@ const Project = (props:{ searchTerm: string }) => {
               height={100}
               layout="responsive"
               objectFit="cover"
-              quality={100}
             />
           </div>
           <div className=" card-body">
